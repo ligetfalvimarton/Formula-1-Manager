@@ -26,10 +26,8 @@ public class MainWindow extends JFrame{
         private final JFrame mainWindow;
         private Menu menuPanel;
         private NewGame newGamePanel;
-        private Dashboard dashboardPanel;
         private Tutorial tutorialPanel;
         private ResourceAndDevelopment randDPanel;
-        private Paddock paddockPanel;
         private RaceWeekend raceWeekendPanel;
         private String playerName;
         private GameField gamefieldPanel;
@@ -40,9 +38,9 @@ public class MainWindow extends JFrame{
 
 public MainWindow()
 {
-        mainWindow = new JFrame("FormulaOne - Manager");
+        mainWindow = new JFrame("Formula- 1 -Manager");
         mainWindow.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        mainWindow.setSize(800,600);
+        mainWindow.setSize(1280,720);
         mainWindow.setResizable(false);
         mainWindow.setLocationRelativeTo(null);
         menuPanel = new Menu(this);
@@ -94,29 +92,12 @@ public MainWindow()
             mainWindow.pack();
             mainWindow.setVisible(true);
         }
-    
-    public void switchToDashboard(JPanel p) throws IOException
-        {
-            mainWindow.remove(p);
-            dashboardPanel = new Dashboard(this);
-            mainWindow.getContentPane().add(dashboardPanel);
-            mainWindow.pack();
-            mainWindow.setVisible(true);
-        }
-
+ 
     public void switchToRandD(JPanel p) throws IOException
         {
             mainWindow.remove(p);
             randDPanel = new ResourceAndDevelopment(this);
             mainWindow.getContentPane().add(randDPanel);
-            mainWindow.pack();
-            mainWindow.setVisible(true);
-        }
-    public void switchToPaddock(JPanel p) throws IOException
-        {
-            mainWindow.remove(p);
-            paddockPanel = new Paddock(this);
-            mainWindow.getContentPane().add(paddockPanel);
             mainWindow.pack();
             mainWindow.setVisible(true);
         }

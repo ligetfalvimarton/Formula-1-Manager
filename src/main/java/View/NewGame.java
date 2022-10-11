@@ -6,6 +6,7 @@ package View;
 
 import Source.Constructor;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -31,9 +32,9 @@ public class NewGame extends javax.swing.JPanel {
     public NewGame(final MainWindow window) {
         this.window = window;
         initComponents();
-        jLabel2.setIcon(new ImageIcon("C:\\Users\\Marton\\Desktop\\Egyetem\\FormulaOneManager\\src\\main\\java\\Images\\newG1.jpg"));
-        jLabel3.setIcon(new ImageIcon("C:\\Users\\Marton\\Desktop\\Egyetem\\FormulaOneManager\\src\\main\\java\\Images\\newG2.jpg"));
-        jLabel4.setIcon(new ImageIcon("C:\\Users\\Marton\\Desktop\\Egyetem\\FormulaOneManager\\src\\main\\java\\Images\\newG3.jpg"));
+        jLabel2.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/sainz.jpg"));
+        jLabel3.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/car.jpg"));
+        jLabel4.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/car.jpg"));
     }
 
     /**
@@ -53,7 +54,7 @@ public class NewGame extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
 
         jLabel1.setText("Welcome to Formula One");
 
@@ -79,6 +80,9 @@ public class NewGame extends javax.swing.JPanel {
         });
 
         jLabel2.setText("jLabel2");
+        jLabel2.setMaximumSize(new java.awt.Dimension(100, 200));
+        jLabel2.setMinimumSize(new java.awt.Dimension(100, 200));
+        jLabel2.setPreferredSize(new java.awt.Dimension(100, 200));
 
         jLabel3.setText("jLabel3");
 
@@ -98,15 +102,15 @@ public class NewGame extends javax.swing.JPanel {
                 .addGap(93, 93, 93))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(108, 108, 108)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31))))
         );
@@ -119,13 +123,13 @@ public class NewGame extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(87, 87, 87))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(97, 97, 97)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
@@ -144,12 +148,7 @@ public class NewGame extends javax.swing.JPanel {
             }
             playerName = name;
             window.setPlayerName(name);
-            
-            try {
-                window.switchToDashboard(this);
-            } catch (IOException ex) {
-                Logger.getLogger(NewGame.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            window.switchToGameField(this);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -163,12 +162,7 @@ public class NewGame extends javax.swing.JPanel {
             }
             playerName = name;
             window.setPlayerName(name);
-            
-            try {
-                window.switchToDashboard(this);
-            } catch (IOException ex) {
-                Logger.getLogger(NewGame.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            window.switchToGameField(this);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -182,12 +176,7 @@ public class NewGame extends javax.swing.JPanel {
             }
             playerName = name;
             window.setPlayerName(name);
-            
-            try {
-                window.switchToDashboard(this);
-            } catch (IOException ex) {
-                Logger.getLogger(NewGame.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            window.switchToGameField(this);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
   

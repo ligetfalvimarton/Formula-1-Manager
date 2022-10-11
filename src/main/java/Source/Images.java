@@ -17,6 +17,7 @@ import javax.imageio.ImageIO;
 public enum Images {
     PATH(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/path.jpg"),
     GRASS(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/grass.jpg"),
+    CAR(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/car.jpg"),
     CORRECTPLACE(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/correct_place.jpg"),
     INCORRECTPLACE(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/incorrect_place.jpeg");
     
