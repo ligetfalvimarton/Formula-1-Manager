@@ -66,7 +66,7 @@ public class GameField extends JPanel {
             .addGap(0, 640, Short.MAX_VALUE)
         );
 
-        jButton3.setText("Race");
+        jButton3.setText("R&D");
         jButton3.setPreferredSize(new java.awt.Dimension(100, 50));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,7 +74,7 @@ public class GameField extends JPanel {
             }
         });
 
-        jButton4.setText("R&D");
+        jButton4.setText("RaceWeek");
         jButton4.setMaximumSize(new java.awt.Dimension(100, 50));
         jButton4.setPreferredSize(new java.awt.Dimension(100, 50));
         jButton4.addActionListener(new java.awt.event.ActionListener() {

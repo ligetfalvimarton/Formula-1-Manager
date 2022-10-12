@@ -48,28 +48,12 @@ public class Buildings extends Unit {
         Buildings.ID = ID;
     }
 
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
     public int getBuildPrice() {
         return buildPrice;
     }
 
     public void setBuildPrice(int buildPrice) {
         this.buildPrice = buildPrice;
-    }
-
-    public int getCost() {
-        return cost;
-    }
-
-    public void setCost(int cost) {
-        this.cost = cost;
     }
 
     public int getSizeX() {
@@ -95,5 +79,6 @@ public class Buildings extends Unit {
     public void setUpgradeCost(int upgradeCost) {
         this.upgradeCost = upgradeCost;
     }
+    
     
 }
