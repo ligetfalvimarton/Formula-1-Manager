@@ -32,7 +32,8 @@ public class MainWindow extends JFrame{
         private String playerName;
         private GameField gamefieldPanel;
         private Constructor constructor;
-        private GameModel gameModel; 
+        private GameModel gameModel;
+        private GameMenu gameMenu;
         
     
 
@@ -66,7 +67,7 @@ public MainWindow()
             }
         };
         mainWindow.addWindowListener(exitListener);
-        gameModel = new GameModel(64, 32);
+        gameModel = new GameModel(10000,64, 32);
     };
 
     public void switchToExit(JPanel p) throws IOException
@@ -83,6 +84,14 @@ public MainWindow()
             mainWindow.setVisible(true);
         }
     
+    public void switchToPause(JPanel p) throws IOException
+        {
+            mainWindow.remove(p);
+            gameMenu = new GameMenu(this);
+            mainWindow.getContentPane().add(gameMenu);
+            mainWindow.pack();
+            mainWindow.setVisible(true);
+        }
     
     public void switchToTutorial(JPanel p) throws IOException
         {
@@ -110,13 +119,28 @@ public MainWindow()
             mainWindow.setVisible(true);
         }
     
+    public void switchToMenu(JPanel p) throws IOException
+        {
+            mainWindow.remove(p);
+            menuPanel = new Menu(this);
+            mainWindow.getContentPane().add(menuPanel);
+            mainWindow.pack();
+            mainWindow.setVisible(true);
+        }
+    
     public void switchToGameField(JPanel p){
         mainWindow.remove(p);
         gamefieldPanel = new GameField(this);
+        gameModel.getTimeSimulation().setGameField(gamefieldPanel);
+        gamefieldPanel.setGameModel(gameModel);
         gameModel.setGameField(gamefieldPanel);
         mainWindow.getContentPane().add(gamefieldPanel);
         mainWindow.pack();
         mainWindow.setVisible(true);
+    }
+    
+    public void reset(){
+        gameModel = new GameModel(10000, 64, 32);
     }
     
     public GameModel getGameModel() {

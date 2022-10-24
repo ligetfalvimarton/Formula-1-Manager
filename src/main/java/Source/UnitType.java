@@ -12,7 +12,7 @@ import java.awt.Point;
  * @author Marton
  */
 public enum UnitType {
-    PATH("path"), EMPTY("empty"), GRASS("grass"),PADDOCK("paddock");
+    PATH("path"), EMPTY("empty"), GRASS("grass"),PADDOCK("paddock"),PLACEHOLDER("placeholder");
     
     private Buildings Item;
     private String type;
@@ -23,11 +23,20 @@ public enum UnitType {
         switch(type)
         {
             case "grass":
-                Item = new Buildings(5000, 2000, 1, 1, new Point(0,0), false, "Item", Images.GRASS);
+                Item = new Buildings(5000, 2000, 1, 1, new Point(0,0), false, "grass", Images.GRASS);
+                break;
             case "incorrect_place":
-                Item = new Buildings(5000, 2000, 1, 1, new Point(0,0), false, "Item", Images.INCORRECTPLACE);
+                Item = new Buildings(5000, 2000, 1, 1, new Point(0,0), false, "incorrect_place", Images.INCORRECTPLACE);
+                break;
             case "paddock":
-                Item = new Buildings(5000, 2000, 3, 2, new Point(0,0), false, "Item", Images.PADDOCK);
+                Item = new Buildings(5000, 2000, 3, 2, new Point(0,0), false, "paddock", Images.PADDOCK);
+                break;
+            case "placeholder":
+                Item = new Buildings(5000, 2000, 3, 2, new Point(0,0), false, "placeholder", Images.PLACEHOLDER);
+                break;
+            default :
+                Item = new Buildings(0, 0, 1, 1, new Point(0,0), false, "empty", Images.GRASS);
+                break; 
         }
     }
     public Buildings getItem(){

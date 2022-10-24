@@ -4,6 +4,7 @@
  */
 package Model;
 
+import Source.Constructor;
 import Source.Images;
 import Source.UnitType;
 import View.GameField;
@@ -20,12 +21,15 @@ public class GameModel {
     private UnitType newBuilding;
     private Point chosenPoint;
     private GameField gameField;
+    private int money;
     private boolean selectedAreaClear = true;
+    private TimeSimulation timeSimulation;
     
-    public GameModel(int boardRow,int boardColumn) {
+    public GameModel(int money,int boardRow,int boardColumn) {
         board = new Unit[boardColumn][boardRow];
+        this.money = money;
+        timeSimulation = new TimeSimulation();
         startingboard();
-        board[10][30] = new Unit(new Point(10,30), true, "grass", Images.INCORRECTPLACE);
     }
 
     private void startingboard() {
@@ -36,7 +40,7 @@ public class GameModel {
         }
     }
     
-    public void drawNewBuilding(){
+    public void placeNewBuilding(){
         if(newBuilding != null && selectedAreaClear){
             Buildings temp;
             int tempSizeX;
@@ -60,6 +64,7 @@ public class GameModel {
                 }
             }
         }
+        setNewBuildingCancel();
     }
     
     public UnitType getNewBuilding() {
@@ -78,6 +83,14 @@ public class GameModel {
         this.chosenPoint = chosenPoint;
     }
 
+    public TimeSimulation getTimeSimulation() {
+        return timeSimulation;
+    }
+
+    public void setTimeSimulation(TimeSimulation timeSimulation) {
+        this.timeSimulation = timeSimulation;
+    }
+    
     public Unit[][] getBoard() {
         return board;
     }
@@ -100,5 +113,17 @@ public class GameModel {
 
     public void setSelectedAreaClear(boolean selectedAreaClear) {
         this.selectedAreaClear = selectedAreaClear;
+    }
+    public void setNewBuildingCancel()
+    {
+        newBuilding = null;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
     }
 }

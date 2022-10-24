@@ -36,15 +36,27 @@ public class GameArea extends JPanel{
                 gameModel.setSelectedAreaClear(true);
                 if(gameModel.getNewBuilding() != null)
                 {
+                    gameModel.getGameField().setBuyingCancelBtn(true);
                     int sizeX = gameModel.getNewBuilding().getItem().getSizeX();
                     int sizeY = gameModel.getNewBuilding().getItem().getSizeY();
                     int MouseCoordX = e.getX() / 20;
                     int MouseCoordY = e.getY() / 20;
 
-                    if(MouseCoordY+sizeY>32 || MouseCoordX+sizeX>64){
-                            usable = false;
+                    if(MouseCoordY+sizeY>32 || MouseCoordX+sizeX>64)
+                    {
+                        usable = false;
+                    }
+                    
+                    for(int i=MouseCoordY; i<MouseCoordY+sizeY && i<board.length;i++){
+                        for(int j=MouseCoordX; j<MouseCoordX+sizeX && j<board[0].length; j++){
+                            if(!board[i][j].isUsable()){
+                                usable = false;
+                            }
                         }
-                    if(usable){
+                    }
+                    
+                    if(usable)
+                    {
                             if(gameModel.getNewBuilding().getItem().getType() != "grass")
                             {
                                 for(int i=MouseCoordY; i<MouseCoordY+sizeY && i<board.length;i++){
@@ -70,6 +82,10 @@ public class GameArea extends JPanel{
                             }
                         }
                 }
+                else
+                {
+                    gameModel.getGameField().setBuyingCancelBtn(false);
+                }
             }
             
           @Override
@@ -78,8 +94,7 @@ public class GameArea extends JPanel{
                 int y = e.getY() / 20;
                 System.out.println(x + " " + y);
                 gameModel.setChosenPoint(new Point(x, y));
-                gameModel.drawNewBuilding();
-                refresh(gameModel);
+                gameModel.placeNewBuilding();
                 selected.clear();
             }
         };
@@ -88,7 +103,7 @@ public class GameArea extends JPanel{
     }
     
     public GameArea(Unit[][] board){
-            setPreferredSize(new java.awt.Dimension(800,600));
+            setPreferredSize(new java.awt.Dimension(1280,720));
         this.board = board;
     }
     public void refresh(GameModel gameModel){

@@ -20,7 +20,8 @@ public enum Images {
     CAR(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/car.jpg"),
     PADDOCK(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/paddock.jpg"),
     CORRECTPLACE(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/correct_place.jpg"),
-    INCORRECTPLACE(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/incorrect_place.jpeg");
+    INCORRECTPLACE(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/incorrect_place.jpeg"),
+    PLACEHOLDER(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg");
     
     private BufferedImage image;
     private final String path;
