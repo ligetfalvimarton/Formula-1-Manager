@@ -67,7 +67,7 @@ public MainWindow()
             }
         };
         mainWindow.addWindowListener(exitListener);
-        gameModel = new GameModel(10000,64, 32);
+        gameModel = new GameModel(75000,64, 32);
     };
 
     public void switchToExit(JPanel p) throws IOException

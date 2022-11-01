@@ -79,6 +79,20 @@ public class Buildings extends Unit {
     public void setUpgradeCost(int upgradeCost) {
         this.upgradeCost = upgradeCost;
     }
-    
-    
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
 }

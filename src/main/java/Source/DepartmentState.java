@@ -9,5 +9,5 @@ package Source;
  * @author Marton
  */
 public enum DepartmentState {
-    BUILDINGS,AERO,POWERUNIT
+    BUILDINGS,DEVELOPMENT,ACCESSORIES
 }

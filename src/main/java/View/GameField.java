@@ -43,12 +43,6 @@ public class GameField extends JPanel {
         value = gameModel.getMoney();
         setMoneyText();
     }
-
-    public void refresh(){
-        removeAll();
-        initComponents();
-        setMoneyText();
-    }
     
     public void setMoneyText(){
         jLabel2.setText("Money: " + value + "$");
@@ -56,6 +50,11 @@ public class GameField extends JPanel {
     
     public void setValue(int value) {
         this.value = value;
+    }
+    
+    public void income(){
+        value = value + 30000;
+        gameModel.setMoney(value);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -227,6 +226,9 @@ public class GameField extends JPanel {
     }
     
     public void setDateText(String date) throws IOException{
+        if("20:00".equals(date.split("nap, ")[1])){
+            income();
+        }
         jLabel4.setText(date);
     }
 

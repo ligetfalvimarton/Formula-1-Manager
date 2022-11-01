@@ -10,6 +10,8 @@ import Source.UnitType;
 import View.GameField;
 import java.awt.Image;
 import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.ImageIcon;
 
 /**
@@ -24,47 +26,123 @@ public class GameModel {
     private int money;
     private boolean selectedAreaClear = true;
     private TimeSimulation timeSimulation;
+    private boolean buildingStatus = true;
+    private ArrayList<Buildings> alreadyBuiltList;
     
     public GameModel(int money,int boardRow,int boardColumn) {
         board = new Unit[boardColumn][boardRow];
         this.money = money;
         timeSimulation = new TimeSimulation();
+        alreadyBuiltList = new ArrayList<>();
         startingboard();
-    }
-
-    private void startingboard() {
-        for(int i=0; i<board.length; i++){
-            for(int j=0; j<board[0].length; j++){
-                board[i][j] = new Unit(new Point(i,j), true, "grass", Images.GRASS);
-            }
-        }
     }
     
     public void placeNewBuilding(){
         if(newBuilding != null && selectedAreaClear){
-            Buildings temp;
-            int tempSizeX;
-            int tempSizeY;
-            temp = new Buildings(newBuilding.getItem().getBuildPrice(), newBuilding.getItem().getUpgradeCost(),
-                    newBuilding.getItem().getSizeX(), newBuilding.getItem().getSizeY(), chosenPoint,
-                    newBuilding.getItem().isUsable(), newBuilding.getItem().getType(), newBuilding.getItem().getImage());
-            tempSizeX = temp.getSizeX();
-            tempSizeY = temp.getSizeY();
-            Point tempP = new Point(chosenPoint.y,chosenPoint.x);
-            chosenPoint = tempP;
-            temp.setPosition(chosenPoint);
-            if(chosenPoint.x+tempSizeY <= board.length && chosenPoint.y+tempSizeX <= board[0].length){
-                for(int i=chosenPoint.x; i<chosenPoint.x+tempSizeY; i++){
-                    for(int j=chosenPoint.y; j<chosenPoint.y+tempSizeX; j++){
-                        board[i][j].setImage(temp.getImage());
-                        board[i][j].setPosition(temp.getPosition());
-                        board[i][j].setType(temp.getType());
-                        board[i][j].setUsable(temp.isUsable());
+            if(newBuilding.getItem().getBuildPrice() <= money)
+            {
+                Buildings temp;
+                int tempSizeX;
+                int tempSizeY;
+                temp = new Buildings(newBuilding.getItem().getBuildPrice(), newBuilding.getItem().getUpgradeCost(),
+                        newBuilding.getItem().getSizeX(), newBuilding.getItem().getSizeY(), chosenPoint,
+                        newBuilding.getItem().isUsable(), newBuilding.getItem().getType(), newBuilding.getItem().getImage());
+                tempSizeX = temp.getSizeX();
+                tempSizeY = temp.getSizeY();
+                Point tempP = new Point(chosenPoint.y,chosenPoint.x);
+                chosenPoint = tempP;
+                temp.setPosition(chosenPoint);
+                if(chosenPoint.x+tempSizeY <= board.length && chosenPoint.y+tempSizeX <= board[0].length){
+                    for(int i=chosenPoint.x; i<chosenPoint.x+tempSizeY; i++){
+                        for(int j=chosenPoint.y; j<chosenPoint.y+tempSizeX; j++){
+                            board[i][j] = new Unit(new Point(temp.getPosition()), temp.isUsable(), temp.getType(), temp.getImage());
+                        }
                     }
                 }
+                money = money - temp.getBuildPrice();
+                gameField.setValue(money);
+                alreadyBuiltList.add(temp);
             }
         }
         setNewBuildingCancel();
+    }
+    
+    public void destroyBuilding(Buildings current)
+    {
+        if(buildingStatus)
+        {
+            int x = current.getPosition().x;
+            int y = current.getPosition().y;
+            int sizeX = current.getSizeX();
+            int sizeY = current.getSizeY();
+            for(int i= x; i< x+sizeY; i++){
+                for(int j = y; j< y+sizeX; j++){
+                    board[i][j] = new Unit(new Point(i,j), true, "grass", Images.GRASS);
+                }
+            }
+
+            Buildings temp = null;
+            for(Buildings building : alreadyBuiltList){
+                if(building.getPosition().x <= x && building.getPosition().x+building.getSizeX() > x && 
+                        building.getPosition().y <= y && building.getPosition().y+building.getSizeY() > y){
+                    temp = building;
+                }
+            }
+            if(temp != null)
+            {
+                money = money + temp.getBuildPrice()/2;
+                gameField.setValue(money);
+                alreadyBuiltList.remove(temp);
+            }
+        }
+    }
+    
+    public void upgradeBuilding(Buildings building)
+    {
+        if(buildingStatus)
+        {
+            if(building.getLevel()<3)
+            {
+                if(money - building.getUpgradeCost()>0)
+                {
+                    money = money - building.getUpgradeCost();
+                    gameField.setValue(money);
+                    building.setUpgradeCost(building.getUpgradeCost()*2);
+                    building.setLevel(building.getLevel()+1);
+                }
+            }
+        }
+    }
+    
+    private void startingboard() {
+        for(int i=0; i<board.length; i++){
+            for(int j=0; j<board[0].length; j++){
+                if (j == 29 && i>=17 || j ==30 && i>=17)
+                    board[i][j] = new Unit(new Point(i,j), false, "path", Images.PATH);
+                else
+                    board[i][j] = new Unit(new Point(i,j), true, "grass", Images.GRASS);
+            }
+        }
+        
+        Buildings temp;
+        int tempSizeX;
+        int tempSizeY;
+        temp = new Buildings(0, 8500, 7, 8, new Point(0,0), false, "hq", Images.HQ);
+        tempSizeX = temp.getSizeX();
+        tempSizeY = temp.getSizeY();
+        Point p = new Point(10,26);
+        temp.setPosition(p);
+        if(p.x+tempSizeX <= board.length && p.y+tempSizeY <= board[0].length){
+            for(int i=p.x; i<p.x+tempSizeX; i++){
+                for(int j=p.y; j<p.y+tempSizeY; j++){
+                    board[i][j].setImage(temp.getImage());
+                    board[i][j].setPosition(new Point(temp.getPosition()));
+                    board[i][j].setType(temp.getType());
+                    board[i][j].setUsable(temp.isUsable());
+                }
+            }
+            alreadyBuiltList.add(temp);
+        }
     }
     
     public UnitType getNewBuilding() {
@@ -98,7 +176,15 @@ public class GameModel {
     public void setBoard(Unit[][] board) {
         this.board = board;
     }
-    
+
+    public boolean getBuildingStatus() {
+        return buildingStatus;
+    }
+
+    public void setBuildingStatus(boolean buildingStatus) {
+        this.buildingStatus = buildingStatus;
+    }
+
      public void setGameField(GameField gameField) {
         this.gameField = gameField;
     }
@@ -125,5 +211,13 @@ public class GameModel {
 
     public void setMoney(int money) {
         this.money = money;
+    }
+
+    public ArrayList<Buildings> getAlreadyBuiltList() {
+        return alreadyBuiltList;
+    }
+
+    public void setAlreadyBuiltList(ArrayList<Buildings> alreadyBuiltList) {
+        this.alreadyBuiltList = alreadyBuiltList;
     }
 }

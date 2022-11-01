@@ -15,9 +15,20 @@ import java.nio.file.Paths;
 import javax.imageio.ImageIO;
 
 public enum Images {
-    PATH(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/path.jpg"),
+    PATH(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/path.png"),
     GRASS(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/grass.jpg"),
-    CAR(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/car.jpg"),
+    TREE(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/tree.jpg"),
+    BUSH(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/bush.jpg"),
+    HOUSE(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/house_1.png"),
+    HOTEL(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/house_2.jpg"),
+    STORE(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/house_3.png"),
+    AERODEPARTMENT(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/aero_3.png"),
+    DOWNFORCEDEPARTMENT(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/aero_2.png"),
+    CHASINGDEPARTMENT(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/aero_1.png"),
+    POWERUNITDEPARTMENT(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/powerunit_2.jpg"),
+    DURABILITYDEPARTMENT(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/powerunit_1.png"),
+    FACTORY(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/powerunit_3.png"),
+    HQ(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/HQ.jpg"),
     PADDOCK(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/paddock.jpg"),
     CORRECTPLACE(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/correct_place.jpg"),
     INCORRECTPLACE(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/incorrect_place.jpeg"),

@@ -4,6 +4,7 @@
  */
 package View;
 
+import Model.Buildings;
 import Model.GameModel;
 import Model.Unit;
 import Source.Images;
@@ -93,8 +94,40 @@ public class GameArea extends JPanel{
                 int x = e.getX() / 20;
                 int y = e.getY() / 20;
                 System.out.println(x + " " + y);
+                System.out.println(board[y][x].getType());
+                System.out.println(board[y][x].getImage().toString());
                 gameModel.setChosenPoint(new Point(x, y));
                 gameModel.placeNewBuilding();
+                if(selected.isEmpty())
+                {
+                    ArrayList<Buildings> built = gameModel.getAlreadyBuiltList();
+                    for(int i=0; i<built.size(); i++){
+                        Buildings building = built.get(i);
+                        if(building.getPosition().y <= x && building.getPosition().y+building.getSizeX() > x && building.getPosition().x <= y && building.getPosition().x+building.getSizeY() > y)
+                        {
+                            String[] buttons = { "Upgrade", "Destroy" };
+                            if(gameModel.getBuildingStatus()){
+                                int choice = JOptionPane.showOptionDialog(null, "Name: " + building.getType() + "\n" + "Level: " + building.getLevel() + "\n",
+                                "Details",
+                                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
+                                switch(choice)
+                                {
+                                    case 0: 
+                                        gameModel.upgradeBuilding(building);
+                                        break;
+                                    case 1:
+                                        gameModel.destroyBuilding(building);
+                                        break;
+                                    default:
+                                }
+                            }
+                            else{
+                                JOptionPane.showOptionDialog(null, "Level: " + building.getLevel() + "\n",
+                                "Details", JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE, null, new Object[]{}, null);
+                            }
+                        }
+                    }
+                }
                 selected.clear();
             }
         };
@@ -103,7 +136,7 @@ public class GameArea extends JPanel{
     }
     
     public GameArea(Unit[][] board){
-            setPreferredSize(new java.awt.Dimension(1280,720));
+        setPreferredSize(new java.awt.Dimension(1280,720));
         this.board = board;
     }
     public void refresh(GameModel gameModel){

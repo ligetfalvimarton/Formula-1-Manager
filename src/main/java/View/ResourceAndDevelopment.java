@@ -23,15 +23,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
     public ResourceAndDevelopment(final MainWindow window) {
         this.window = window;
         initComponents();
-        jLabel1.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/paddock.jpg"));
-        jLabel2.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
-        jLabel3.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
-        jLabel4.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
-        jLabel5.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
-        jLabel6.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
-        jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
-        jLabel8.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
-        jLabel9.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
+        switchToBuildings();
         jButton2.setBackground(Color.GREEN);
         state = DepartmentState.BUILDINGS;
     }
@@ -58,7 +50,20 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(1280, 720));
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
         jButton1.setText("Back to Game");
@@ -78,7 +83,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
             }
         });
 
-        jButton3.setText("Power Unit");
+        jButton3.setText("Accessories");
         jButton3.setMaximumSize(new java.awt.Dimension(120, 60));
         jButton3.setPreferredSize(new java.awt.Dimension(120, 60));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +92,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
             }
         });
 
-        jButton4.setText("Aero HQ");
+        jButton4.setText("Development");
         jButton4.setMaximumSize(new java.awt.Dimension(120, 60));
         jButton4.setPreferredSize(new java.awt.Dimension(120, 60));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +102,9 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         });
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setPreferredSize(new java.awt.Dimension(60, 120));
+        jLabel1.setMaximumSize(new java.awt.Dimension(100, 100));
+        jLabel1.setMinimumSize(new java.awt.Dimension(100, 100));
+        jLabel1.setPreferredSize(new java.awt.Dimension(100, 100));
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel1MousePressed(evt);
@@ -105,7 +112,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         });
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setPreferredSize(new java.awt.Dimension(60, 120));
+        jLabel2.setPreferredSize(new java.awt.Dimension(100, 100));
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel2MousePressed(evt);
@@ -113,7 +120,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         });
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setPreferredSize(new java.awt.Dimension(60, 120));
+        jLabel3.setPreferredSize(new java.awt.Dimension(100, 100));
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel3MousePressed(evt);
@@ -121,7 +128,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         });
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setPreferredSize(new java.awt.Dimension(60, 120));
+        jLabel4.setPreferredSize(new java.awt.Dimension(100, 100));
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel4MousePressed(evt);
@@ -129,7 +136,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         });
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setPreferredSize(new java.awt.Dimension(60, 120));
+        jLabel5.setPreferredSize(new java.awt.Dimension(100, 100));
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel5MousePressed(evt);
@@ -137,7 +144,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         });
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setPreferredSize(new java.awt.Dimension(60, 120));
+        jLabel6.setPreferredSize(new java.awt.Dimension(100, 100));
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel6MousePressed(evt);
@@ -145,7 +152,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         });
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setPreferredSize(new java.awt.Dimension(60, 120));
+        jLabel7.setPreferredSize(new java.awt.Dimension(100, 100));
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel7MousePressed(evt);
@@ -153,7 +160,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         });
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setPreferredSize(new java.awt.Dimension(60, 120));
+        jLabel8.setPreferredSize(new java.awt.Dimension(100, 100));
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel8MousePressed(evt);
@@ -161,12 +168,102 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         });
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setPreferredSize(new java.awt.Dimension(60, 120));
+        jLabel9.setPreferredSize(new java.awt.Dimension(100, 100));
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel9MousePressed(evt);
             }
         });
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("25000$");
+        jLabel10.setToolTipText("");
+        jLabel10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel10.setMaximumSize(new java.awt.Dimension(100, 40));
+        jLabel10.setMinimumSize(new java.awt.Dimension(100, 40));
+        jLabel10.setPreferredSize(new java.awt.Dimension(100, 40));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("20000$");
+        jLabel11.setToolTipText("");
+        jLabel11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel11.setMaximumSize(new java.awt.Dimension(100, 40));
+        jLabel11.setMinimumSize(new java.awt.Dimension(100, 40));
+        jLabel11.setPreferredSize(new java.awt.Dimension(100, 40));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("25000$");
+        jLabel12.setToolTipText("");
+        jLabel12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel12.setMaximumSize(new java.awt.Dimension(100, 40));
+        jLabel12.setMinimumSize(new java.awt.Dimension(100, 40));
+        jLabel12.setPreferredSize(new java.awt.Dimension(100, 40));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("1000$");
+        jLabel13.setToolTipText("");
+        jLabel13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel13.setMaximumSize(new java.awt.Dimension(100, 40));
+        jLabel13.setMinimumSize(new java.awt.Dimension(100, 40));
+        jLabel13.setPreferredSize(new java.awt.Dimension(100, 40));
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("1000$");
+        jLabel14.setToolTipText("");
+        jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel14.setMaximumSize(new java.awt.Dimension(100, 40));
+        jLabel14.setMinimumSize(new java.awt.Dimension(100, 40));
+        jLabel14.setPreferredSize(new java.awt.Dimension(100, 40));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("1000$");
+        jLabel15.setToolTipText("");
+        jLabel15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel15.setMaximumSize(new java.awt.Dimension(100, 40));
+        jLabel15.setMinimumSize(new java.awt.Dimension(100, 40));
+        jLabel15.setPreferredSize(new java.awt.Dimension(100, 40));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("1000$");
+        jLabel16.setToolTipText("");
+        jLabel16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel16.setMaximumSize(new java.awt.Dimension(100, 40));
+        jLabel16.setMinimumSize(new java.awt.Dimension(100, 40));
+        jLabel16.setPreferredSize(new java.awt.Dimension(100, 40));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("1000$");
+        jLabel17.setToolTipText("");
+        jLabel17.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel17.setMaximumSize(new java.awt.Dimension(100, 40));
+        jLabel17.setMinimumSize(new java.awt.Dimension(100, 40));
+        jLabel17.setPreferredSize(new java.awt.Dimension(100, 40));
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("1000$");
+        jLabel18.setToolTipText("");
+        jLabel18.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel18.setMaximumSize(new java.awt.Dimension(100, 40));
+        jLabel18.setMinimumSize(new java.awt.Dimension(100, 40));
+        jLabel18.setPreferredSize(new java.awt.Dimension(100, 40));
+
+        jLabel19.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel19.setText("Aero Department");
+
+        jLabel20.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel20.setText("PowerUnit");
+
+        jLabel21.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel21.setText("Accommodation");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -176,61 +273,124 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
                 .addGap(0, 1150, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(176, 176, 176)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(260, 260, 260)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(49, 49, 49)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(286, 286, 286)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(186, 186, 186)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(185, 185, 185)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(248, 248, 248)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(257, 257, 257)
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(260, 260, 260)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(198, 198, 198))))
+                        .addGap(245, 245, 245))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(64, 64, 64)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(43, 43, 43)
+                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(48, 48, 48)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)))
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(670, 670, 670))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -242,15 +402,15 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         window.switchToGameField(this);
         if(state == DepartmentState.BUILDINGS)
         {
-            window.getGameModel().setNewBuilding(UnitType.PADDOCK);
+            window.getGameModel().setNewBuilding(UnitType.CHASINGDEPARTMENT);
         }
-        else if(state == DepartmentState.AERO)
+        else if(state == DepartmentState.DEVELOPMENT)
         {
-            window.getGameModel().setNewBuilding(UnitType.PLACEHOLDER);
+            window.getGameModel().setNewBuilding(UnitType.CHASINGDEPARTMENT);
         }
-        else if(state == DepartmentState.POWERUNIT)
+        else if(state == DepartmentState.ACCESSORIES)
         {
-            window.getGameModel().setNewBuilding(UnitType.PLACEHOLDER);
+            window.getGameModel().setNewBuilding(UnitType.BUSH);
         }
     }//GEN-LAST:event_jLabel1MousePressed
 
@@ -258,15 +418,15 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         window.switchToGameField(this);
         if(state == DepartmentState.BUILDINGS)
         {
-            window.getGameModel().setNewBuilding(UnitType.PLACEHOLDER);
+            window.getGameModel().setNewBuilding(UnitType.DOWNFORCEDEPARTMENT);
         }
-        else if(state == DepartmentState.AERO)
+        else if(state == DepartmentState.DEVELOPMENT)
         {
-            window.getGameModel().setNewBuilding(UnitType.PADDOCK);
+            window.getGameModel().setNewBuilding(UnitType.DOWNFORCEDEPARTMENT);
         }
-        else if(state == DepartmentState.POWERUNIT)
+        else if(state == DepartmentState.ACCESSORIES)
         {
-            window.getGameModel().setNewBuilding(UnitType.PLACEHOLDER);
+            window.getGameModel().setNewBuilding(UnitType.PATH);
         }
     }//GEN-LAST:event_jLabel2MousePressed
 
@@ -274,46 +434,88 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         window.switchToGameField(this);
         if(state == DepartmentState.BUILDINGS)
         {
-            window.getGameModel().setNewBuilding(UnitType.PLACEHOLDER);
+            window.getGameModel().setNewBuilding(UnitType.AERODEPARTMENT);
         }
-        else if(state == DepartmentState.AERO)
+        else if(state == DepartmentState.DEVELOPMENT)
         {
-            window.getGameModel().setNewBuilding(UnitType.PLACEHOLDER);
+            window.getGameModel().setNewBuilding(UnitType.AERODEPARTMENT);
         }
-        else if(state == DepartmentState.POWERUNIT)
+        else if(state == DepartmentState.ACCESSORIES)
         {
-            window.getGameModel().setNewBuilding(UnitType.PADDOCK);
+            window.getGameModel().setNewBuilding(UnitType.TREE);
         }
     }//GEN-LAST:event_jLabel3MousePressed
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
         window.switchToGameField(this);
-        window.getGameModel().setNewBuilding(UnitType.PLACEHOLDER);
+        if(state == DepartmentState.BUILDINGS)
+        {
+            window.getGameModel().setNewBuilding(UnitType.DURABILITYDEPARTMENT);
+        }
+        else if(state == DepartmentState.DEVELOPMENT)
+        {
+            window.getGameModel().setNewBuilding(UnitType.DURABILITYDEPARTMENT);
+        }
     }//GEN-LAST:event_jLabel4MousePressed
 
     private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
         window.switchToGameField(this);
-        window.getGameModel().setNewBuilding(UnitType.PLACEHOLDER);
+        if(state == DepartmentState.BUILDINGS)
+        {
+            window.getGameModel().setNewBuilding(UnitType.POWERUNITDEPARTMENT);
+        }
+        else if(state == DepartmentState.DEVELOPMENT)
+        {
+            window.getGameModel().setNewBuilding(UnitType.POWERUNITDEPARTMENT);
+        }
     }//GEN-LAST:event_jLabel5MousePressed
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
         window.switchToGameField(this);
-        window.getGameModel().setNewBuilding(UnitType.PLACEHOLDER);
+        if(state == DepartmentState.BUILDINGS)
+        {
+            window.getGameModel().setNewBuilding(UnitType.FACTORY);
+        }
+        else if(state == DepartmentState.DEVELOPMENT)
+        {
+            window.getGameModel().setNewBuilding(UnitType.FACTORY);
+        }
     }//GEN-LAST:event_jLabel6MousePressed
 
     private void jLabel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MousePressed
         window.switchToGameField(this);
-        window.getGameModel().setNewBuilding(UnitType.PLACEHOLDER);
+        if(state == DepartmentState.BUILDINGS)
+        {
+            window.getGameModel().setNewBuilding(UnitType.HOUSE);
+        }
+        else if(state == DepartmentState.DEVELOPMENT)
+        {
+            window.getGameModel().setNewBuilding(UnitType.HOUSE);
+        }
     }//GEN-LAST:event_jLabel7MousePressed
 
     private void jLabel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MousePressed
         window.switchToGameField(this);
-        window.getGameModel().setNewBuilding(UnitType.PLACEHOLDER);
+        if(state == DepartmentState.BUILDINGS)
+        {
+            window.getGameModel().setNewBuilding(UnitType.HOTEL);
+        }
+        else if(state == DepartmentState.DEVELOPMENT)
+        {
+            window.getGameModel().setNewBuilding(UnitType.HOTEL);
+        }
     }//GEN-LAST:event_jLabel8MousePressed
 
     private void jLabel9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MousePressed
         window.switchToGameField(this);
-        window.getGameModel().setNewBuilding(UnitType.PLACEHOLDER);
+        if(state == DepartmentState.BUILDINGS)
+        {
+            window.getGameModel().setNewBuilding(UnitType.STORE);
+        }
+        else if(state == DepartmentState.DEVELOPMENT)
+        {
+            window.getGameModel().setNewBuilding(UnitType.STORE);
+        }
     }//GEN-LAST:event_jLabel9MousePressed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -328,16 +530,16 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         jButton2.setBackground(null);
         jButton3.setBackground(null);
         jButton4.setBackground(Color.GREEN);
-        state = DepartmentState.AERO;
-        switchToAero();
+        state = DepartmentState.DEVELOPMENT;
+        switchToDevelopment();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         jButton2.setBackground(null);
         jButton3.setBackground(Color.GREEN);
         jButton4.setBackground(null);
-        state = DepartmentState.POWERUNIT;
-        switchToPowerUnit();
+        state = DepartmentState.ACCESSORIES;
+        switchToAccessories();
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
@@ -347,7 +549,19 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -359,15 +573,27 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
 
     private void switchToBuildings() {
         
-        jLabel1.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/paddock.jpg"));
-        jLabel2.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
-        jLabel3.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
-        jLabel4.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
-        jLabel5.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
-        jLabel6.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
-        jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
-        jLabel8.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
-        jLabel9.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
+        jLabel1.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/aero_1.png"));
+        jLabel2.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/aero_2.png"));
+        jLabel3.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/aero_3.png"));
+        jLabel4.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/powerunit_1.png"));
+        jLabel5.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/powerunit_2.jpg"));
+        jLabel6.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop//powerunit_3.png"));
+        jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/house_1.png"));
+        jLabel8.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/house_2.jpg"));
+        jLabel9.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/house_3.png"));
+        jLabel10.setText("15.000 $");
+        jLabel11.setText("15.000 $");
+        jLabel12.setText("15.000 $");
+        jLabel13.setText("15.000 $");
+        jLabel14.setText("15.000 $");
+        jLabel15.setText("20.000 $");
+        jLabel18.setText("3.000 $");
+        jLabel17.setText("4.500 $");
+        jLabel16.setText("4.000 $");
+        jLabel19.setText("Aero Department");
+        jLabel20.setText("Power Unit");
+        jLabel21.setText("Accommodation");
         
         jLabel1.setVisible(true);
         jLabel2.setVisible(true);
@@ -381,13 +607,25 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         
     }
 
-    private void switchToAero() {
-        jLabel2.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/paddock.jpg"));
-        jLabel1.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
-        jLabel3.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
-        jLabel4.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
-        jLabel5.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
-        jLabel6.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
+    private void switchToDevelopment() {
+        jLabel1.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/aero_1.png"));
+        jLabel2.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/aero_2.png"));
+        jLabel3.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/aero_3.png"));
+        jLabel4.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/powerunit_1.png"));
+        jLabel5.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/powerunit_2.jpg"));
+        jLabel6.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop//powerunit_3.png"));
+        jLabel10.setText("15.000 $");
+        jLabel11.setText("15.000 $");
+        jLabel12.setText("15.000 $");
+        jLabel13.setText("15.000 $");
+        jLabel14.setText("15.000 $");
+        jLabel15.setText("20.000 $");
+        jLabel18.setText("");
+        jLabel17.setText("");
+        jLabel16.setText("");
+        jLabel19.setText("Aero Department");
+        jLabel20.setText("Power Unit");
+        jLabel21.setText("");
         
         jLabel1.setVisible(true);
         jLabel2.setVisible(true);
@@ -400,11 +638,22 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         jLabel9.setVisible(false);
     }
 
-    private void switchToPowerUnit() {
-        jLabel3.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/paddock.jpg"));
-        jLabel2.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));
-        jLabel1.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg"));;
-        
+    private void switchToAccessories() {
+        jLabel1.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/bush.jpg"));
+        jLabel2.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/path.png"));
+        jLabel3.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop//tree.jpg"));
+        jLabel10.setText("350 $");
+        jLabel11.setText("200 $");
+        jLabel12.setText("500 $");
+        jLabel13.setText("");
+        jLabel14.setText("");
+        jLabel15.setText("");
+        jLabel18.setText("");
+        jLabel17.setText("");
+        jLabel16.setText("");
+        jLabel19.setText("Design elements");
+        jLabel20.setText("");
+        jLabel21.setText("");
         jLabel1.setVisible(true);
         jLabel2.setVisible(true);
         jLabel3.setVisible(true);
