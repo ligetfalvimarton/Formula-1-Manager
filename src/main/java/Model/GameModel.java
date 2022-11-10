@@ -24,6 +24,9 @@ public class GameModel {
     private Point chosenPoint;
     private GameField gameField;
     private int money;
+    private int developmentPoints;
+    private int workerPoints;
+    private ArrayList<Integer> values;
     private boolean selectedAreaClear = true;
     private TimeSimulation timeSimulation;
     private boolean buildingStatus = true;
@@ -34,6 +37,9 @@ public class GameModel {
         this.money = money;
         timeSimulation = new TimeSimulation();
         alreadyBuiltList = new ArrayList<>();
+        values = new ArrayList<>();
+        developmentPoints = 4;
+        workerPoints = 4;
         startingboard();
     }
     
@@ -45,6 +51,7 @@ public class GameModel {
                 int tempSizeX;
                 int tempSizeY;
                 temp = new Buildings(newBuilding.getItem().getBuildPrice(), newBuilding.getItem().getUpgradeCost(),
+                        newBuilding.getItem().getDevelopment(), newBuilding.getItem().getWorkers(),
                         newBuilding.getItem().getSizeX(), newBuilding.getItem().getSizeY(), chosenPoint,
                         newBuilding.getItem().isUsable(), newBuilding.getItem().getType(), newBuilding.getItem().getImage());
                 tempSizeX = temp.getSizeX();
@@ -61,6 +68,8 @@ public class GameModel {
                 }
                 money = money - temp.getBuildPrice();
                 gameField.setValue(money);
+                developmentPoints = developmentPoints + temp.getDevelopment();
+                workerPoints = workerPoints + temp.getWorkers();
                 alreadyBuiltList.add(temp);
             }
         }
@@ -127,7 +136,7 @@ public class GameModel {
         Buildings temp;
         int tempSizeX;
         int tempSizeY;
-        temp = new Buildings(0, 8500, 7, 8, new Point(0,0), false, "hq", Images.HQ);
+        temp = new Buildings(0, 8500, 0, 0, 7, 8, new Point(0,0), false, "hq", Images.HQ);
         tempSizeX = temp.getSizeX();
         tempSizeY = temp.getSizeY();
         Point p = new Point(10,26);
@@ -143,10 +152,113 @@ public class GameModel {
             }
             alreadyBuiltList.add(temp);
         }
+        for(int i=0;i<6;i++)
+            values.add(i+10);
+    }
+
+    public ArrayList<Integer> getValues() {
+        return values;
+    }
+
+    public void setValues(ArrayList<Integer> values) {
+        this.values = values;
+    }
+    
+    public void changeTexture(String time)
+    {
+        if(time == "sunset")
+        {
+            for(int i=0; i<board.length; i++)
+            {
+                for(int j=0; j<board[0].length; j++){
+                    if(board[i][j].isUsable() || board[i][j].getType() == "Bush" || board[i][j].getType() == "Tree")
+                    {
+                        if(board[i][j].getType() == "Bush")
+                        {
+                            board[i][j] = new Unit(new Point(i,j), false, "Bush", Images.BUSHSUNSET);
+                        }
+                        else if(board[i][j].getType() == "Tree")
+                        {
+                            board[i][j] = new Unit(new Point(i,j), false, "Tree", Images.TREESUNSET);
+                        }
+                        else
+                        {
+                            board[i][j] = new Unit(new Point(i,j), true, "grass", Images.GRASSSUNSET);
+                        }
+                    }
+                }
+            }
+        }
+        
+        if(time == "midnight")
+        {
+            for(int i=0; i<board.length; i++)
+            {
+                for(int j=0; j<board[0].length; j++){
+                    if(board[i][j].isUsable() || board[i][j].getType() == "Bush" || board[i][j].getType() == "Tree") 
+                    {
+                        if(board[i][j].getType() == "Bush")
+                        {
+                            board[i][j] = new Unit(new Point(i,j), false, "Bush", Images.BUSHMIDNIGHT);
+                        }
+                        else if(board[i][j].getType() == "Tree")
+                        {
+                            board[i][j] = new Unit(new Point(i,j), false, "Tree", Images.TREEMIDNIGHT);
+                        }
+                        else
+                        {
+                            board[i][j] = new Unit(new Point(i,j), true, "grass", Images.GRASSMIDNIGHT);
+                        }
+                    }
+                }
+            }
+        }
+        
+        if(time == "morning")
+        {
+            for(int i=0; i<board.length; i++)
+            {
+                for(int j=0; j<board[0].length; j++){
+                    if(board[i][j].isUsable() || board[i][j].getType() == "Bush" || board[i][j].getType() == "Tree")
+                    {
+                    
+                        if(board[i][j].getType() == "Bush")
+                        {
+                            board[i][j] = new Unit(new Point(i,j), false, "Bush", Images.BUSH);
+                        }
+                        else if(board[i][j].getType() == "Tree")
+                        {
+                            board[i][j] = new Unit(new Point(i,j), false, "Tree", Images.TREE);
+                        }
+                        else
+                        {
+                            board[i][j] = new Unit(new Point(i,j), true, "grass", Images.GRASS);
+                        }
+                    }
+                }
+            }
+        }
+        
     }
     
     public UnitType getNewBuilding() {
         return newBuilding;
+    }
+
+    public int getDevelopmentPoints() {
+        return developmentPoints;
+    }
+
+    public void setDevelopmentPoints(int developmentPoints) {
+        this.developmentPoints = developmentPoints;
+    }
+
+    public int getWorkerPoints() {
+        return workerPoints;
+    }
+
+    public void setWorkerPoints(int workerPoints) {
+        this.workerPoints = workerPoints;
     }
 
     public void setNewBuilding(UnitType newBuilding) {

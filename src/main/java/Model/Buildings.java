@@ -17,14 +17,18 @@ public class Buildings extends Unit {
     private int level;
     private int buildPrice;
     private int cost;
+    private int development;
+    private int workers;
     private int sizeX;
     private int sizeY;
     private int upgradeCost;
     
-    public Buildings(int buildPrice, int upgradeCost, int sizeX, int sizeY, Point position, boolean usable, String type, Images icon) {
+    public Buildings(int buildPrice, int upgradeCost,int development,int workers, int sizeX, int sizeY, Point position, boolean usable, String type, Images icon) {
         super(position, usable, type, icon);
         this.buildPrice = buildPrice;
         this.upgradeCost = upgradeCost;
+        this.development = development;
+        this.workers = workers;
         this.sizeX = sizeX;
         this.sizeY = sizeY;
         level = 1;
@@ -94,5 +98,21 @@ public class Buildings extends Unit {
 
     public void setCost(int cost) {
         this.cost = cost;
+    }
+
+    public int getDevelopment() {
+        return development;
+    }
+
+    public void setDevelopment(int development) {
+        this.development = development;
+    }
+
+    public int getWorkers() {
+        return workers;
+    }
+
+    public void setWorkers(int workers) {
+        this.workers = workers;
     }
 }

@@ -7,6 +7,7 @@ package View;
 import Model.GameModel;
 import Model.Unit;
 import Source.Constructor;
+import Source.Images;
 import java.awt.Point;
 import java.io.IOException;
 import static java.lang.String.valueOf;
@@ -41,7 +42,6 @@ public class GameField extends JPanel {
     public void setGameModel(GameModel gameModel){
         this.gameModel = gameModel;
         value = gameModel.getMoney();
-        setMoneyText();
     }
     
     public void setMoneyText(){
@@ -226,7 +226,14 @@ public class GameField extends JPanel {
     }
     
     public void setDateText(String date) throws IOException{
-        if("20:00".equals(date.split("nap, ")[1])){
+        if("02:00".equals(date.split("nap, ")[1])){
+            gameModel.changeTexture("morning");
+        }
+        if("03:00".equals(date.split("nap, ")[1])){
+            gameModel.changeTexture("sunset");
+        }
+        if("04:00".equals(date.split("nap, ")[1])){
+            gameModel.changeTexture("midnight");
             income();
         }
         jLabel4.setText(date);

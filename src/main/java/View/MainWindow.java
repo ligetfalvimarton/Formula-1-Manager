@@ -114,6 +114,7 @@ public MainWindow()
         {
             mainWindow.remove(p);
             raceWeekendPanel = new RaceWeekend(this);
+            raceWeekendPanel.setGameModel(gameModel);
             mainWindow.getContentPane().add(raceWeekendPanel);
             mainWindow.pack();
             mainWindow.setVisible(true);
