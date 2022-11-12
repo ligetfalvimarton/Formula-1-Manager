@@ -244,7 +244,7 @@ public class GameModel {
     public UnitType getNewBuilding() {
         return newBuilding;
     }
-
+     
     public int getDevelopmentPoints() {
         return developmentPoints;
     }

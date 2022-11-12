@@ -60,13 +60,13 @@ public enum UnitType {
                 Item = new Buildings(15000, 5000, 5, 0, 6, 5, new Point(0,0), false, "Aero Department", Images.AERODEPARTMENT);
                 break;  
             case "Powerunit Department":
-                Item = new Buildings(15000, 5000, 0, 5, 6, 6, new Point(0,0), false, "Powerunit Department", Images.POWERUNITDEPARTMENT);
+                Item = new Buildings(15000, 5000, 5, 0, 6, 6, new Point(0,0), false, "Powerunit Department", Images.POWERUNITDEPARTMENT);
                 break; 
             case "Durability Department":
                 Item = new Buildings(15000, 5000, 1, 1, 6, 6, new Point(0,0), false, "Durability Department", Images.DURABILITYDEPARTMENT);
                 break;
             case "Factory":
-                Item = new Buildings(20000, 10000, 2, 2, 6, 6, new Point(0,0), false, "Factory", Images.FACTORY);
+                Item = new Buildings(20000, 10000, 3, 3, 6, 6, new Point(0,0), false, "Factory", Images.FACTORY);
                 break;
             case "incorrect_place":
                 Item = new Buildings(0, 0, 0, 0, 1, 1, new Point(0,0), false, "incorrect_place", Images.INCORRECTPLACE);

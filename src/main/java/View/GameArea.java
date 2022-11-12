@@ -33,6 +33,7 @@ public class GameArea extends JPanel{
         MouseAdapter adapter = new MouseAdapter() {
             public void mouseMoved(MouseEvent e) {
                 boolean usable = true;
+                boolean connected = false;
                 selected.clear();
                 gameModel.setSelectedAreaClear(true);
                 if(gameModel.getNewBuilding() != null)
@@ -50,13 +51,16 @@ public class GameArea extends JPanel{
                     
                     for(int i=MouseCoordY; i<MouseCoordY+sizeY && i<board.length;i++){
                         for(int j=MouseCoordX; j<MouseCoordX+sizeX && j<board[0].length; j++){
+                            if(connectedToRoad(i, j)){
+                                connected = true;
+                            }
                             if(!board[i][j].isUsable()){
                                 usable = false;
                             }
                         }
                     }
                     
-                    if(usable)
+                    if(connected && usable)
                     {
                             if(gameModel.getNewBuilding().getItem().getType() != "grass")
                             {
@@ -95,7 +99,6 @@ public class GameArea extends JPanel{
                 int y = e.getY() / 20;
                 System.out.println(x + " " + y);
                 System.out.println(board[y][x].getType());
-                System.out.println(board[y][x].getImage().toString());
                 gameModel.setChosenPoint(new Point(x, y));
                 gameModel.placeNewBuilding();
                 if(selected.isEmpty())
@@ -142,6 +145,19 @@ public class GameArea extends JPanel{
     public void refresh(GameModel gameModel){
         this.gameModel = gameModel;
         this.board = gameModel.getBoard();
+    }
+    
+    private boolean connectedToRoad(int i, int j) 
+    {
+        boolean connect = false;
+        if (i + 1 < 32 && board[i + 1][j].getType() != "grass"
+            || i - 1 >= 0 && board[i - 1][j].getType() != "grass"
+            || j + 1 < 64 && board[i][j + 1].getType() != "grass"
+            || j - 1 >= 0 && board[i][j - 1].getType() != "grass") 
+        {
+            connect = true;
+        }
+        return connect;
     }
 
     @Override

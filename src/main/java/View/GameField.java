@@ -11,8 +11,11 @@ import Source.Images;
 import java.awt.Point;
 import java.io.IOException;
 import static java.lang.String.valueOf;
+import java.time.LocalTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -33,7 +36,7 @@ public class GameField extends JPanel {
     public GameField(final MainWindow window) {
     this.window = window;
     initComponents();
-    setMoneyText();
+    valuePrinter();
     jButton5.setVisible(false);
     jLabel1.setText("Name: " + window.getPlayerName());
     jLabel3.setText("Constructor: " + window.getConstructor());
@@ -44,7 +47,7 @@ public class GameField extends JPanel {
         value = gameModel.getMoney();
     }
     
-    public void setMoneyText(){
+    public void valuePrinter(){
         jLabel2.setText("Money: " + value + "$");
     }
     
@@ -52,7 +55,7 @@ public class GameField extends JPanel {
         this.value = value;
     }
     
-    public void income(){
+    public void dailyIncomeFromBuildings(){
         value = value + 30000;
         gameModel.setMoney(value);
     }
@@ -198,10 +201,29 @@ public class GameField extends JPanel {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    String[] buttons = { "Back", "Race" };
+        int choice = JOptionPane.showOptionDialog(null, "Do you want to start the race week now?\n 3 more days will be added to your time.",
+        "Skip to race week",
+        JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
+        switch(choice)
+        {
+            case 0: 
+            {}
+                break;
+            case 1:
+            {
                 try {
-            window.switchToRaceWeekend(this);
-        } catch (IOException ex) {
-            Logger.getLogger(GameField.class.getName()).log(Level.SEVERE, null, ex);
+                    window.switchToRaceWeekend(this);
+                    gameModel.getTimeSimulation().setDateTime(LocalTime.of(0, 0, 0));
+                    int day = gameModel.getTimeSimulation().getDaysPassed();
+                    int nextRaceDay = ((day / 3)+1)*3;
+                    gameModel.getTimeSimulation().setDaysPassed(nextRaceDay);
+                } catch (IOException ex) {
+                    Logger.getLogger(GameField.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+                break;
+            default:
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -225,7 +247,7 @@ public class GameField extends JPanel {
         jButton5.setVisible(b);
     }
     
-    public void setDateText(String date) throws IOException{
+    public void dateEventsAndPrinter(String date) throws IOException{
         if("02:00".equals(date.split("nap, ")[1])){
             gameModel.changeTexture("morning");
         }
@@ -234,7 +256,34 @@ public class GameField extends JPanel {
         }
         if("04:00".equals(date.split("nap, ")[1])){
             gameModel.changeTexture("midnight");
-            income();
+            dailyIncomeFromBuildings();
+        }
+        if(Integer.valueOf(date.split(". nap,")[0]) % 3 == 0 && "00:00".equals(date.split("nap, ")[1]))
+        {
+        String[] buttons = { "Race" };
+            int choice = JOptionPane.showOptionDialog(null, "You are going to be transfered to the Race Week.",
+            "Time To Race",
+            JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
+            switch(choice)
+            {
+                case 0: 
+                {
+                    try 
+                    {
+                        window.switchToRaceWeekend(this);
+                        gameModel.getTimeSimulation().setDateTime(LocalTime.of(0, 0, 0));
+                        int day = gameModel.getTimeSimulation().getDaysPassed();
+                        int nextRaceDay = ((day / 3)+1)*3;
+                        gameModel.getTimeSimulation().setDaysPassed(nextRaceDay);
+                    } 
+                    catch (IOException ex) 
+                    {
+                        Logger.getLogger(GameField.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                    break;
+                default:
+            }
         }
         jLabel4.setText(date);
     }

@@ -51,11 +51,11 @@ public class TimeSimulation extends Thread {
             }
             FormatDate();
            try {
-               gameField.setDateText(date);
+               gameField.dateEventsAndPrinter(date);
            } catch (IOException ex) {
                Logger.getLogger(TimeSimulation.class.getName()).log(Level.SEVERE, null, ex);
            }
-            gameField.setMoneyText();
+            gameField.valuePrinter();
             try {
                 sleep(timeGap);
             } catch (InterruptedException e) {
