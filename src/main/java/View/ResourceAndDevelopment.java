@@ -84,7 +84,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
             }
         });
 
-        jButton3.setText("Accessories");
+        jButton3.setText("Tracks & Accessories");
         jButton3.setMaximumSize(new java.awt.Dimension(120, 60));
         jButton3.setPreferredSize(new java.awt.Dimension(120, 60));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -354,10 +354,10 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(24, 24, 24))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(245, 245, 245))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(228, 228, 228)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -481,6 +481,10 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         {
             window.getGameModel().setNewBuilding(UnitType.DURABILITYDEPARTMENT);
         }
+        else if(state == DepartmentState.ACCESSORIES)
+        {
+            window.getGameModel().setNewBuilding(UnitType.PRACTICE_TRACK1);
+        }
     }//GEN-LAST:event_jLabel4MousePressed
 
     private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
@@ -493,6 +497,10 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         {
             window.getGameModel().setNewBuilding(UnitType.POWERUNITDEPARTMENT);
         }
+        else if(state == DepartmentState.ACCESSORIES)
+        {
+            window.getGameModel().setNewBuilding(UnitType.PRACTICE_TRACK2);
+        }
     }//GEN-LAST:event_jLabel5MousePressed
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
@@ -504,6 +512,10 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         else if(state == DepartmentState.DEVELOPMENT)
         {
             window.getGameModel().setNewBuilding(UnitType.FACTORY);
+        }
+        else if(state == DepartmentState.ACCESSORIES)
+        {
+            window.getGameModel().setNewBuilding(UnitType.PRACTICE_TRACK3);
         }
     }//GEN-LAST:event_jLabel6MousePressed
 
@@ -608,7 +620,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         jLabel3.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/aero_3.png"));
         jLabel4.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/powerunit_1.png"));
         jLabel5.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/powerunit_2.jpg"));
-        jLabel6.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop//powerunit_3.png"));
+        jLabel6.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/powerunit_3.png"));
         jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/house_1.png"));
         jLabel8.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/house_2.jpg"));
         jLabel9.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/house_3.png"));
@@ -643,7 +655,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         jLabel3.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/aero_3.png"));
         jLabel4.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/powerunit_1.png"));
         jLabel5.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/powerunit_2.jpg"));
-        jLabel6.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop//powerunit_3.png"));
+        jLabel6.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/powerunit_3.png"));
         jLabel10.setText("15.000 $");
         jLabel11.setText("15.000 $");
         jLabel12.setText("15.000 $");
@@ -672,24 +684,27 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         jLabel1.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/bush.jpg"));
         jLabel2.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/path.png"));
         jLabel3.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop//tree.jpg"));
+        jLabel4.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/Practice_track_1.png"));
+        jLabel5.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/Practice_track_2.gif"));
+        jLabel6.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/Practice_track_3.png"));
         jLabel10.setText("350 $");
         jLabel11.setText("200 $");
         jLabel12.setText("500 $");
-        jLabel13.setText("");
-        jLabel14.setText("");
-        jLabel15.setText("");
+        jLabel13.setText("30.000 $");
+        jLabel14.setText("30.000 $");
+        jLabel15.setText("30.000 $");
         jLabel18.setText("");
         jLabel17.setText("");
         jLabel16.setText("");
         jLabel19.setText("Design elements");
-        jLabel20.setText("");
+        jLabel20.setText("Tracks");
         jLabel21.setText("");
         jLabel1.setVisible(true);
         jLabel2.setVisible(true);
         jLabel3.setVisible(true);
-        jLabel4.setVisible(false);
-        jLabel5.setVisible(false);
-        jLabel6.setVisible(false);
+        jLabel4.setVisible(true);
+        jLabel5.setVisible(true);
+        jLabel6.setVisible(true);
         jLabel7.setVisible(false);
         jLabel8.setVisible(false);
         jLabel9.setVisible(false);

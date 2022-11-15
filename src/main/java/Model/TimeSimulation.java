@@ -24,7 +24,7 @@ public class TimeSimulation extends Thread {
     private boolean inGame;
     
     private GameField gameField;
-
+    
     /**
      * Alap konstruktor
      */
@@ -40,7 +40,7 @@ public class TimeSimulation extends Thread {
     public void setGameField(GameField gameField) {
         this.gameField = gameField;
     }
-
+    
     @Override
     public void run() {
        while(inGame){

@@ -35,10 +35,11 @@ public enum Images {
     DURABILITYDEPARTMENT(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/powerunit_1.png"),
     FACTORY(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/powerunit_3.png"),
     HQ(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/HQ.jpg"),
-    PADDOCK(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/paddock.jpg"),
+    TRACK1(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Practice_track_1.png"),
+    TRACK2(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Practice_track_2.gif"),
+    TRACK3(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Practice_track_3.png"),
     CORRECTPLACE(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/correct_place.jpg"),
-    INCORRECTPLACE(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/incorrect_place.jpeg"),
-    PLACEHOLDER(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/placeholder.jpg");
+    INCORRECTPLACE(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/incorrect_place.jpeg");
     
     private BufferedImage image;
     private final String path;

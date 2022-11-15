@@ -16,6 +16,7 @@ public enum UnitType {
     PLACEHOLDER("placeholder"),BUSH("Bush"),HQ("HQ"),HOUSE("House"),
     HOTEL("Hotel"),STORE("Store"),CHASINGDEPARTMENT("Chasing Department"),DOWNFORCEDEPARTMENT("Downforce Department"),
     AERODEPARTMENT("Aero Department"),DURABILITYDEPARTMENT("Durability Department"),
+    PRACTICE_TRACK1("Practice Track 1"),PRACTICE_TRACK2("Practice Track 2"),PRACTICE_TRACK3("Practice Track 3"),
     POWERUNITDEPARTMENT("Powerunit Department"),FACTORY("Factory");
     
     private Buildings Item;
@@ -68,14 +69,17 @@ public enum UnitType {
             case "Factory":
                 Item = new Buildings(20000, 10000, 3, 3, 6, 6, new Point(0,0), false, "Factory", Images.FACTORY);
                 break;
+            case "Practice Track 1":
+                Item = new Buildings(20000, 10000, 0, 0, 10, 8, new Point(0,0), false, "Practice Track 1", Images.TRACK1);
+                break;
+            case "Practice Track 2":
+                Item = new Buildings(20000, 10000, 5, 5, 10, 8, new Point(0,0), false, "Practice Track 2", Images.TRACK2);
+                break;
+            case "Practice Track 3":
+                Item = new Buildings(20000, 10000, 7, 7, 10, 8, new Point(0,0), false, "Practice Track 3", Images.TRACK3);
+                break;
             case "incorrect_place":
                 Item = new Buildings(0, 0, 0, 0, 1, 1, new Point(0,0), false, "incorrect_place", Images.INCORRECTPLACE);
-                break;
-            case "paddock":
-                Item = new Buildings(0, 0, 0, 0, 3, 2, new Point(0,0), false, "paddock", Images.PADDOCK);
-                break;
-            case "placeholder":
-                Item = new Buildings(0, 0, 0, 0, 3, 2, new Point(0,0), false, "placeholder", Images.PLACEHOLDER);
                 break;
             default :
                 Item = new Buildings(0, 0, 0, 0, 1, 1, new Point(0,0), true, "grass", Images.GRASS);

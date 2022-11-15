@@ -12,6 +12,7 @@ import java.awt.Image;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import javax.swing.ImageIcon;
 
 /**
@@ -158,6 +159,22 @@ public class GameModel {
             }
             alreadyBuiltList.add(temp);
         }
+        temp = new Buildings(0, 0, 0, 0, 8, 10, new Point(0,0), false, "Practice Track 1", Images.TRACK1);
+        tempSizeX = temp.getSizeX();
+        tempSizeY = temp.getSizeY();
+        p = new Point(24,0);
+        temp.setPosition(p);
+        if(p.x+tempSizeX <= board.length && p.y+tempSizeY <= board[0].length){
+            for(int i=p.x; i<p.x+tempSizeX; i++){
+                for(int j=p.y; j<p.y+tempSizeY; j++){
+                    board[i][j].setImage(temp.getImage());
+                    board[i][j].setPosition(new Point(temp.getPosition()));
+                    board[i][j].setType(temp.getType());
+                    board[i][j].setUsable(temp.isUsable());
+                }
+            }
+            alreadyBuiltList.add(temp);
+        }
     }
 
     public ArrayList<Integer> getValues() {
@@ -274,6 +291,35 @@ public class GameModel {
             values.add(10);
         }
         return values;
+    }
+
+    public String raceWinnerCalculator()
+    {
+        Random rand = new Random();
+        int numberOne = rand.nextInt(8);
+        switch(numberOne)
+        {
+            case 0:
+                return "finish_ferrari";
+            case 1:
+                return "finish_alfa";
+            case 2:
+                return "finish_alfaT";
+            case 3:
+                return "finish_alpin";
+            case 4:
+                return "finish_aston";
+            case 5:
+                return "finish_haas";
+            case 6:
+                return "finish_mclaren";
+            case 7:
+                return "finish_mercedes";
+            case 8:
+                return "finish_redbull";
+            default:
+                return "finish_redbull";
+        }
     }
     
     public UnitType getNewBuilding() {

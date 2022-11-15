@@ -34,8 +34,6 @@ public class MainWindow extends JFrame{
         private Constructor constructor;
         private GameModel gameModel;
         private GameMenu gameMenu;
-        
-    
 
 public MainWindow()
 {

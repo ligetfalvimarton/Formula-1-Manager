@@ -5,9 +5,14 @@
 package View;
 
 import Model.GameModel;
+import Model.TimeSimulation;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.Timer;
 /**
  *
  * @author Marton
@@ -16,14 +21,18 @@ public class RaceWeekend extends javax.swing.JPanel {
     private final MainWindow window;
     private int devPoints;
     private int workPoints;
+    private int labelCounter;
     private ArrayList<Integer> barValues;
     private GameModel gameModel;
+    private Timer timer;
     /**
      * Creates new form ResourceAndDevelopment
      */
     public RaceWeekend(final MainWindow window) {
         this.window = window;
         initComponents();
+        labelCounter = 1;
+        jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Simulation/0.png"));
     }
     
     public void setGameModel(GameModel gameModel){
@@ -73,18 +82,6 @@ public class RaceWeekend extends javax.swing.JPanel {
         {
             jButton4.setVisible(false);
             jButton5.setVisible(false);
-        }
-    }
-    public void raceSimulation(String date,String winner)
-    {
-        jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Simulation/0.png"));
-        System.out.println("alma");
-        switch(date.split("nap, ")[1])
-        {
-            case "02:00":
-                jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Simulation/1.png"));
-                break;
-            
         }
     }
     /**
@@ -179,6 +176,11 @@ public class RaceWeekend extends javax.swing.JPanel {
         jLabel6.setText("Racing");
 
         jButton3.setText("Simulate");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton3MousePressed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -468,6 +470,62 @@ public class RaceWeekend extends javax.swing.JPanel {
         availablePointsText();
         hideButtons();
     }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed
+        timer = new Timer(800, new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                switch(labelCounter)
+                {
+                    case 0:
+                        jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Simulation/0.png"));
+                        break;
+                    case 1:
+                        jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Simulation/1.png"));
+                        break;
+                    case 2:
+                        jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Simulation/2.png"));
+                        break;
+                    case 3:
+                        jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Simulation/3.png"));
+                        break;
+                    case 4:
+                        jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Simulation/4.png"));
+                        break;
+                    case 5:
+                        jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Simulation/5.png"));
+                        break;
+                    case 6:
+                        jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Simulation/6.png"));
+                        break;
+                    case 7:
+                        jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Simulation/7.png"));
+                        break;
+                    case 8:
+                        jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Simulation/8.png"));
+                        break;
+                    case 9:
+                        jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Simulation/9.png"));
+                        break;
+                    case 10:
+                        jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Simulation/10.png"));
+                        break;
+                    case 11:
+                        jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Simulation/Finish/"+gameModel.raceWinnerCalculator()+".png"));
+                        break; 
+                }
+                if(labelCounter == 15)
+                {
+                    timer.stop();
+                    labelCounter =0;
+                }
+
+                labelCounter++;
+            }
+        });
+        timer.start();
+    }//GEN-LAST:event_jButton3MousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
