@@ -70,10 +70,16 @@ public class GameModel {
                 gameField.setValue(money);
                 developmentPoints = developmentPoints + temp.getDevelopment();
                 workerPoints = workerPoints + temp.getWorkers();
-                alreadyBuiltList.add(temp);
+                if(!(newBuilding.equals(UnitType.PATH) || newBuilding.equals(UnitType.BUSH) || newBuilding.equals(UnitType.TREE)))
+                {
+                    alreadyBuiltList.add(temp);
+                }
             }
         }
-        setNewBuildingCancel();
+        if(!(newBuilding.equals(UnitType.PATH)))
+        {
+            setNewBuildingCancel();
+        }
     }
     
     public void destroyBuilding(Buildings current)
@@ -152,8 +158,6 @@ public class GameModel {
             }
             alreadyBuiltList.add(temp);
         }
-        for(int i=0;i<6;i++)
-            values.add(i+10);
     }
 
     public ArrayList<Integer> getValues() {
@@ -238,7 +242,38 @@ public class GameModel {
                 }
             }
         }
-        
+    }
+    
+    public ArrayList<Integer> startingStats(Constructor contructor)
+    {
+        if(Constructor.FERRARI == contructor)
+        {
+            values.add(15);
+            values.add(5);
+            values.add(5);
+            values.add(10);
+            values.add(10);
+            values.add(10);
+        }
+        if(Constructor.MERCEDES == contructor)
+        {
+            values.add(9);
+            values.add(9);
+            values.add(9);
+            values.add(8);
+            values.add(10);
+            values.add(10);
+        }
+        if(Constructor.REDBULL == contructor)
+        {
+            values.add(10);
+            values.add(5);
+            values.add(15);
+            values.add(5);
+            values.add(10);
+            values.add(10);
+        }
+        return values;
     }
     
     public UnitType getNewBuilding() {

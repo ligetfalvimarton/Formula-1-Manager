@@ -66,7 +66,7 @@ public MainWindow()
                 }
             }
         };
-        mainWindow.addWindowListener(exitListener);
+        mainWindow.addWindowListener(exitListener);   
         gameModel = new GameModel(75000,64, 32);
     };
 

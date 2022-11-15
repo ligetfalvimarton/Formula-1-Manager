@@ -20,7 +20,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
- *
  * @author Marton
  */
 public class GameArea extends JPanel{
@@ -100,7 +99,10 @@ public class GameArea extends JPanel{
                 System.out.println(x + " " + y);
                 System.out.println(board[y][x].getType());
                 gameModel.setChosenPoint(new Point(x, y));
-                gameModel.placeNewBuilding();
+                if(gameModel.getNewBuilding() != null)
+                {
+                    gameModel.placeNewBuilding();
+                }
                 if(selected.isEmpty())
                 {
                     ArrayList<Buildings> built = gameModel.getAlreadyBuiltList();
