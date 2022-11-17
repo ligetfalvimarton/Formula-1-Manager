@@ -56,6 +56,7 @@ public class TimeSimulation extends Thread {
                Logger.getLogger(TimeSimulation.class.getName()).log(Level.SEVERE, null, ex);
            }
             gameField.valuePrinter();
+            gameField.winPrinter();
             try {
                 sleep(timeGap);
             } catch (InterruptedException e) {

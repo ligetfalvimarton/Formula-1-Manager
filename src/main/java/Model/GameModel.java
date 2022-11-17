@@ -32,6 +32,8 @@ public class GameModel {
     private TimeSimulation timeSimulation;
     private boolean buildingStatus = true;
     private ArrayList<Buildings> alreadyBuiltList;
+    private int wins;
+    private int gpCounter;
     
     public GameModel(int money,int boardRow,int boardColumn) {
         board = new Unit[boardColumn][boardRow];
@@ -41,6 +43,8 @@ public class GameModel {
         values = new ArrayList<>();
         developmentPoints = 4;
         workerPoints = 4;
+        wins = 0;
+        gpCounter = 1;
         startingboard();
     }
     
@@ -265,7 +269,7 @@ public class GameModel {
     {
         if(Constructor.FERRARI == contructor)
         {
-            values.add(15);
+            values.add(25);
             values.add(5);
             values.add(5);
             values.add(10);
@@ -274,8 +278,8 @@ public class GameModel {
         }
         if(Constructor.MERCEDES == contructor)
         {
-            values.add(9);
-            values.add(9);
+            values.add(6);
+            values.add(7);
             values.add(9);
             values.add(8);
             values.add(10);
@@ -283,7 +287,7 @@ public class GameModel {
         }
         if(Constructor.REDBULL == contructor)
         {
-            values.add(10);
+            values.add(15);
             values.add(5);
             values.add(15);
             values.add(5);
@@ -321,6 +325,14 @@ public class GameModel {
                 return "finish_redbull";
         }
     }
+
+    public int getGpCounter() {
+        return gpCounter;
+    }
+
+    public void setGpCounter(int gpCounter) {
+        this.gpCounter = gpCounter;
+    } 
     
     public UnitType getNewBuilding() {
         return newBuilding;
@@ -412,5 +424,13 @@ public class GameModel {
 
     public void setAlreadyBuiltList(ArrayList<Buildings> alreadyBuiltList) {
         this.alreadyBuiltList = alreadyBuiltList;
+    }
+
+    public int getWins() {
+        return wins;
+    }
+
+    public void setWins(int wins) {
+        this.wins = wins;
     }
 }

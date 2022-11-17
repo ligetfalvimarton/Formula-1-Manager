@@ -139,7 +139,7 @@ public MainWindow()
     }
     
     public void reset(){
-        gameModel = new GameModel(10000, 64, 32);
+        gameModel = new GameModel(20, 64, 32);
     }
     
     public GameModel getGameModel() {

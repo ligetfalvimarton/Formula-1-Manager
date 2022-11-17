@@ -88,16 +88,19 @@ public class NewGame extends javax.swing.JPanel {
         });
 
         jLabel2.setText("jLabel2");
+        jLabel2.setToolTipText("Difficulity: EASY");
         jLabel2.setMaximumSize(new java.awt.Dimension(100, 200));
         jLabel2.setMinimumSize(new java.awt.Dimension(100, 200));
         jLabel2.setPreferredSize(new java.awt.Dimension(100, 200));
 
         jLabel3.setText("jLabel3");
+        jLabel3.setToolTipText("Difficulity: NORMAL");
         jLabel3.setMaximumSize(new java.awt.Dimension(100, 200));
         jLabel3.setMinimumSize(new java.awt.Dimension(100, 200));
         jLabel3.setPreferredSize(new java.awt.Dimension(100, 200));
 
         jLabel4.setText("jLabel4");
+        jLabel4.setToolTipText("Difficulity: HARD");
         jLabel4.setMaximumSize(new java.awt.Dimension(100, 200));
         jLabel4.setMinimumSize(new java.awt.Dimension(100, 200));
         jLabel4.setPreferredSize(new java.awt.Dimension(100, 200));
@@ -115,15 +118,14 @@ public class NewGame extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(134, 134, 134)
                         .addComponent(jButton2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 271, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3)
-                        .addGap(333, 333, 333)))
+                        .addGap(333, 333, 333))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(265, 265, 265)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -135,9 +137,9 @@ public class NewGame extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
+                .addGap(101, 101, 101)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -147,7 +149,7 @@ public class NewGame extends javax.swing.JPanel {
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton1))
-                .addContainerGap(429, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -10,6 +10,7 @@ Model\Buildings.class
 View\ResourceAndDevelopment$6.class
 View\Tutorial.class
 View\GameField$2.class
+View\RaceWeekend$8.class
 View\ResourceAndDevelopment$10.class
 View\RaceWeekend$1.class
 View\ResourceAndDevelopment.class
@@ -44,6 +45,7 @@ View\RaceWeekend$6.class
 View\ResourceAndDevelopment$12.class
 View\RaceWeekend.class
 View\ResourceAndDevelopment$8.class
+View\RaceWeekend$9.class
 View\GameField$4.class
 Model\TimeSimulation.class
 Source\Images.class
