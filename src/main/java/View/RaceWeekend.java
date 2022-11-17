@@ -41,7 +41,6 @@ public class RaceWeekend extends javax.swing.JPanel {
         this.gameModel = gameModel;
         devPoints = gameModel.getDevelopmentPoints();
         workPoints = gameModel.getWorkerPoints();
-        winner = gameModel.raceWinnerCalculator();
         barValues = gameModel.startingStats(window.getConstructor());
         setProgressBarValue(barValues);
         availablePointsText();
@@ -169,6 +168,7 @@ public class RaceWeekend extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jProgressBar5 = new javax.swing.JProgressBar();
         jLabel9 = new javax.swing.JLabel();
@@ -249,6 +249,9 @@ public class RaceWeekend extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel14.setText("Winner:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -256,12 +259,11 @@ public class RaceWeekend extends javax.swing.JPanel {
             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(275, Short.MAX_VALUE)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(245, 245, 245))
+                .addContainerGap())
+            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,7 +272,9 @@ public class RaceWeekend extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7))
         );
 
@@ -556,8 +560,9 @@ public class RaceWeekend extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed
-        jButton1.setVisible(true);
-        //winner = gameModel.raceWinnerCalculator().split("_")[1].toUpperCase();
+        winner = gameModel.raceWinnerCalculator();
+        //winner = "finish_mercedes";
+        jButton3.setVisible(false);
         timer = new Timer(800, new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e)
@@ -599,10 +604,16 @@ public class RaceWeekend extends javax.swing.JPanel {
                         break;
                     case 11:
                         jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Simulation/Finish/"+winner+".png"));
+                        jButton1.setVisible(true);
+                        jLabel14.setText("Winner: " + winner.toUpperCase().split("_")[1]);
                         break; 
                 }
-                if(labelCounter == 15)
+                if(labelCounter == 13)
                 {
+                    if(winner.split("_")[1].toUpperCase().equals(window.getConstructor().toString()))
+                        {
+                            jLabel7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/win.jpg"));
+                        }
                     timer.stop();
                     labelCounter =0;
                 }
@@ -610,10 +621,6 @@ public class RaceWeekend extends javax.swing.JPanel {
             }
         });
         timer.start();
-        if(winner.split("_")[1].toUpperCase().equals(window.getConstructor().toString()))
-        {
-            System.out.println("SAS");
-        }
     }//GEN-LAST:event_jButton3MousePressed
 
 
@@ -631,6 +638,7 @@ public class RaceWeekend extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

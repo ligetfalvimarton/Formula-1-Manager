@@ -308,7 +308,7 @@ public class GameModel {
             case 1:
                 return "finish_alfa";
             case 2:
-                return "finish_alfaT";
+                return "finish_alfaTauri";
             case 3:
                 return "finish_alpin";
             case 4:

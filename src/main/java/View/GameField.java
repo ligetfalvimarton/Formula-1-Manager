@@ -57,7 +57,7 @@ public class GameField extends JPanel {
     
     public void winPrinter()
     {
-        jLabel5.setText("Winner: " + gameModel.getWins());
+        jLabel5.setText("Wins: " + gameModel.getWins());
     }
     
     public void dailyIncomeFromBuildings(){
