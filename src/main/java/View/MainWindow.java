@@ -34,6 +34,8 @@ public class MainWindow extends JFrame{
         private Constructor constructor;
         private GameModel gameModel;
         private GameMenu gameMenu;
+        private Achievements achiPanel;
+        private Interview interPanel;
 
 public MainWindow()
 {
@@ -105,6 +107,22 @@ public MainWindow()
             mainWindow.remove(p);
             randDPanel = new ResourceAndDevelopment(this);
             mainWindow.getContentPane().add(randDPanel);
+            mainWindow.pack();
+            mainWindow.setVisible(true);
+        }
+    public void switchToAchi(JPanel p) throws IOException
+        {
+            mainWindow.remove(p);
+            achiPanel = new Achievements(this);
+            mainWindow.getContentPane().add(achiPanel);
+            mainWindow.pack();
+            mainWindow.setVisible(true);
+        }
+    public void switchToInter(JPanel p) throws IOException
+        {
+            mainWindow.remove(p);
+            interPanel = new Interview(this);
+            mainWindow.getContentPane().add(interPanel);
             mainWindow.pack();
             mainWindow.setVisible(true);
         }

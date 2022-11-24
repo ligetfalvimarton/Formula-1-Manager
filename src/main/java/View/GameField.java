@@ -214,7 +214,7 @@ public class GameField extends JPanel {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-    String[] buttons = { "Back", "Race" };
+    String[] buttons = { "Back", "Start" };
         int choice = JOptionPane.showOptionDialog(null, "Do you want to start the race week now?\n 3 more days will be added to your time.",
         "Skip to race week",
         JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
@@ -226,7 +226,7 @@ public class GameField extends JPanel {
             case 1:
             {
                 try {
-                    window.switchToRaceWeekend(this);
+                    window.switchToInter(this);
                     gameModel.getTimeSimulation().setDateTime(LocalTime.of(0, 0, 0));
                     int day = gameModel.getTimeSimulation().getDaysPassed();
                     int nextRaceDay = ((day / 3)+1)*3;
@@ -246,6 +246,7 @@ public class GameField extends JPanel {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         try {
+            gameModel.getTimeSimulation().StopTime();
             window.switchToPause(this);
         } catch (IOException ex) {
             Logger.getLogger(GameField.class.getName()).log(Level.SEVERE, null, ex);
@@ -273,7 +274,7 @@ public class GameField extends JPanel {
         }
         if(Integer.valueOf(date.split(". nap,")[0]) % 3 == 0 && "00:00".equals(date.split("nap, ")[1]))
         {
-        String[] buttons = { "Race" };
+        String[] buttons = { "Start" };
             int choice = JOptionPane.showOptionDialog(null, "You are going to be transfered to the Race Week.",
             "Time To Race",
             JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
@@ -283,7 +284,8 @@ public class GameField extends JPanel {
                 {
                     try 
                     {
-                        window.switchToRaceWeekend(this);
+                        gameModel.getTimeSimulation().StopTime();
+                        window.switchToInter(this);
                         gameModel.getTimeSimulation().setDateTime(LocalTime.of(0, 0, 0));
                         int day = gameModel.getTimeSimulation().getDaysPassed();
                         int nextRaceDay = ((day / 3)+1)*3;

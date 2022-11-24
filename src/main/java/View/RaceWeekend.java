@@ -9,6 +9,7 @@ import Model.TimeSimulation;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.nio.file.Paths;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -245,6 +246,11 @@ public class RaceWeekend extends javax.swing.JPanel {
                 jButton3MousePressed(evt);
             }
         });
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -479,6 +485,8 @@ public class RaceWeekend extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        window.getGameModel().getTimeSimulation().setDateTime(LocalTime.of(0, 0, 0));
+        window.getGameModel().getTimeSimulation().NormalTime();
         window.switchToGameField(this);
         if(winner.split("_")[1].toUpperCase().equals(window.getConstructor().toString()))
         {
@@ -622,6 +630,10 @@ public class RaceWeekend extends javax.swing.JPanel {
         });
         timer.start();
     }//GEN-LAST:event_jButton3MousePressed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

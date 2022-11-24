@@ -163,6 +163,7 @@ public class NewGame extends javax.swing.JPanel {
                 name = "Player";
             }
             playerName = name;
+            window.getGameModel().setMoney(90000);
             window.setPlayerName(name);
             window.switchToGameField(this);
             window.getGameModel().getTimeSimulation().start();
@@ -179,6 +180,7 @@ public class NewGame extends javax.swing.JPanel {
                 name = "Player";
             }
             playerName = name;
+            window.getGameModel().setMoney(80000);
             window.setPlayerName(name);
             window.switchToGameField(this);
             window.getGameModel().getTimeSimulation().start();
@@ -195,6 +197,7 @@ public class NewGame extends javax.swing.JPanel {
                 name = "Player";
             }
             playerName = name;
+            window.getGameModel().setMoney(70000);
             window.setPlayerName(name);
             window.switchToGameField(this);
             window.getGameModel().getTimeSimulation().start();
