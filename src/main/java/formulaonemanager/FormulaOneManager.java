@@ -6,6 +6,7 @@
 package formulaonemanager;
 
 import View.MainWindow;
+import java.sql.SQLException;
 
 /**
  *
@@ -13,7 +14,7 @@ import View.MainWindow;
  */
 public class FormulaOneManager {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
        MainWindow mW = new MainWindow();
     }
 }

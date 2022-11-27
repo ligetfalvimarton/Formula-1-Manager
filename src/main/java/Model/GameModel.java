@@ -10,6 +10,7 @@ import Source.UnitType;
 import View.GameField;
 import java.awt.Image;
 import java.awt.Point;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -40,7 +41,7 @@ public class GameModel {
     private int wins;
     private int gpCounter;
     
-    public GameModel(int money,int boardRow,int boardColumn) {
+    public GameModel(int money,int boardRow,int boardColumn){
         board = new Unit[boardColumn][boardRow];
         this.money = money;
         timeSimulation = new TimeSimulation();

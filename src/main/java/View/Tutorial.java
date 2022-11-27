@@ -143,12 +143,10 @@ public class Tutorial extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         stepsNext();
-        System.out.println(counter);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         stepsPrevious();
-        System.out.println(counter);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     public void stepsNext()

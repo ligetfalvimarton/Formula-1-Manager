@@ -4,6 +4,7 @@
  */
 package View;
 
+import Model.DatabaseConnection;
 import Model.GameModel;
 import Source.Constructor;
 import java.awt.event.WindowAdapter;
@@ -12,6 +13,7 @@ import java.awt.event.WindowListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -34,18 +36,22 @@ public class MainWindow extends JFrame{
         private Achievements achiPanel;
         private Interview interPanel;
         private Minigame miniGamePanel;
+        private DatabaseConnection database;
+        private int highscore;
 
-public MainWindow()
+public MainWindow() throws SQLException
 {
         mainWindow = new JFrame("Formula- 1 -Manager");
         mainWindow.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         mainWindow.setSize(1280,720);
         mainWindow.setResizable(false);
+        database = new DatabaseConnection();
         mainWindow.setLocationRelativeTo(null);
         menuPanel = new Menu(this);
         mainWindow.getContentPane().add(menuPanel);
         mainWindow.pack();
         mainWindow.setVisible(true);
+        highscore = 0;
         
         WindowListener exitListener = new WindowAdapter() {
             @Override
@@ -57,8 +63,20 @@ public MainWindow()
                 if (confirm == 0) {
                     JPanel p = new JPanel();
                     try {
+                            if(gameModel != null)
+                            {
+                                if(gameModel.getWins() == 0)
+                                {
+                                    highscore = gameModel.getMoney()+gameModel.getGpCounter()*gameModel.getTimeSimulation().getDaysPassed();
+                                }
+                                else
+                                {
+                                    highscore = gameModel.getMoney()+gameModel.getGpCounter()*gameModel.getTimeSimulation().getDaysPassed()*gameModel.getWins();
+                                }
+                                database.saveDatas(playerName, highscore,gameModel.getWins(),gameModel.getMoney(),constructor.toString());
+                            }
                         switchToExit(p);
-                    } catch (IOException ex) {
+                    } catch (IOException | SQLException ex) {
                         Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
@@ -184,5 +202,22 @@ public MainWindow()
 
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
+    }
+    
+    public void saveGame() throws SQLException
+    {
+        if(gameModel.getWins() == 0)
+        {
+            highscore = gameModel.getMoney()+gameModel.getGpCounter()*gameModel.getTimeSimulation().getDaysPassed();
+        }
+        else
+        {
+            highscore = gameModel.getMoney()+gameModel.getGpCounter()*gameModel.getTimeSimulation().getDaysPassed()*gameModel.getWins();
+        }
+        database.saveDatas(playerName, highscore,gameModel.getWins(),gameModel.getMoney(),constructor.toString());
+    }
+    public void instantExit() throws SQLException
+    {
+        database.saveDatas("", 0,0,0,"");
     }
 }
