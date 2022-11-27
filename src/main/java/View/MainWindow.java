@@ -36,6 +36,7 @@ public class MainWindow extends JFrame{
         private Achievements achiPanel;
         private Interview interPanel;
         private Minigame miniGamePanel;
+        private LoadGame loadGamePanel;
         private DatabaseConnection database;
         private int highscore;
 
@@ -63,7 +64,8 @@ public MainWindow() throws SQLException
                 if (confirm == 0) {
                     JPanel p = new JPanel();
                     try {
-                            if(gameModel != null)
+                        System.out.println();
+                            if(playerName != null)
                             {
                                 if(gameModel.getWins() == 0)
                                 {
@@ -142,6 +144,14 @@ public MainWindow() throws SQLException
             mainWindow.pack();
             mainWindow.setVisible(true);
         }
+    public void switchToLoadGame(JPanel p) throws IOException, SQLException
+        {
+            mainWindow.remove(p);
+            loadGamePanel = new LoadGame(this);
+            mainWindow.getContentPane().add(loadGamePanel);
+            mainWindow.pack();
+            mainWindow.setVisible(true);
+        }
     public void switchToInter(JPanel p) throws IOException
         {
             mainWindow.remove(p);
@@ -202,6 +212,14 @@ public MainWindow() throws SQLException
 
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
+    }
+
+    public DatabaseConnection getDatabase() {
+        return database;
+    }
+
+    public void setDatabase(DatabaseConnection database) {
+        this.database = database;
     }
     
     public void saveGame() throws SQLException

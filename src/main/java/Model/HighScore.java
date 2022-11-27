@@ -51,6 +51,6 @@ public class HighScore {
 
     @Override
     public String toString() {
-        return name + " " + score;
+        return name + " " + score + " " + wins+ " " + money+ " " + constructor;
     }
 }
