@@ -13,7 +13,10 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 import javax.swing.ImageIcon;
+import rx.Observable;
+import utils.SysOutUtils;
 
 /**
  *
@@ -29,6 +32,8 @@ public class GameModel {
     private int workerPoints;
     private ArrayList<Integer> values;
     private boolean selectedAreaClear = true;
+    private boolean upgradeChance = false;
+    private boolean upgradeChanceVisibility = true;
     private TimeSimulation timeSimulation;
     private boolean buildingStatus = true;
     private ArrayList<Buildings> alreadyBuiltList;
@@ -326,6 +331,32 @@ public class GameModel {
         }
     }
 
+    public boolean isUpgradeChance() {
+        return upgradeChance;
+    }
+
+    public void setUpgradeChance(boolean upgradeChance) {
+        this.upgradeChance = upgradeChance;
+    }
+    
+    public boolean isUpgradeChanceVisibility() {
+        return upgradeChanceVisibility;
+    }
+
+    public void setUpgradeChanceVisibility(boolean upgradeChanceVisibility) {
+        this.upgradeChanceVisibility = upgradeChanceVisibility;
+    } 
+
+    public Observable<String> infos() {
+        Observable<String> texts = Observable.just("Hello World", "Hallo Welt", "Bonjour le monde", "Ciao mondo").repeat();
+        Observable<Long> trigger = Observable.interval(1, TimeUnit.SECONDS);
+
+        return Observable.zip(texts, trigger, (text, aLong) -> text).doOnNext(text -> SysOutUtils.sysout("Sending: " + text));
+    }
+    
+    
+    
+    
     public int getGpCounter() {
         return gpCounter;
     }

@@ -8,9 +8,13 @@ import Model.GameModel;
 import Model.TimeSimulation;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.Timer;
@@ -27,6 +31,9 @@ public class RaceWeekend extends javax.swing.JPanel {
     private GameModel gameModel;
     private Timer timer;
     private String winner;
+    private boolean upgradeChance;
+    private boolean upgradeChanceVisibility;
+    private int increasedChance;
     /**
      * Creates new form ResourceAndDevelopment
      */
@@ -47,6 +54,9 @@ public class RaceWeekend extends javax.swing.JPanel {
         availablePointsText();
         trackSelection();
         hideButtons();
+        increasedChance = jProgressBar5.getValue() + jProgressBar6.getValue();
+        upgradeChance = gameModel.isUpgradeChance();
+        jButton9.setVisible(gameModel.isUpgradeChanceVisibility());
     }
     
     public void setProgressBarValue(ArrayList<Integer> values)
@@ -184,6 +194,8 @@ public class RaceWeekend extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
@@ -287,6 +299,7 @@ public class RaceWeekend extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Mechanics");
+        jLabel8.setToolTipText("With more mechanics, your upgrade performance increased.");
 
         jProgressBar5.setForeground(new java.awt.Color(0, 204, 51));
         jProgressBar5.setMaximum(50);
@@ -296,6 +309,7 @@ public class RaceWeekend extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Workers");
+        jLabel9.setToolTipText("With more workers, your upgrade performance increased.");
 
         jProgressBar6.setForeground(new java.awt.Color(0, 204, 51));
         jProgressBar6.setMaximum(50);
@@ -308,6 +322,11 @@ public class RaceWeekend extends javax.swing.JPanel {
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
+            }
+        });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -354,6 +373,16 @@ public class RaceWeekend extends javax.swing.JPanel {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Available worker points: 2");
 
+        jButton9.setText("Increase Upgrade");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("Upgrade Status");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -362,52 +391,60 @@ public class RaceWeekend extends javax.swing.JPanel {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jProgressBar6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jProgressBar5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(40, 40, 40)
-                                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(26, 26, 26)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGap(40, 40, 40)
-                                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jProgressBar6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jProgressBar5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(40, 40, 40)
+                                                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(40, 40, 40)
+                                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jProgressBar4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jProgressBar3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jProgressBar4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jProgressBar3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(61, 61, 61)
+                                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(61, 61, 61)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(122, 122, 122)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -427,10 +464,14 @@ public class RaceWeekend extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton9))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -485,6 +526,8 @@ public class RaceWeekend extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        gameModel.setUpgradeChance(false);
+        gameModel.setUpgradeChanceVisibility(true);
         window.getGameModel().getTimeSimulation().setDateTime(LocalTime.of(0, 0, 0));
         window.getGameModel().getTimeSimulation().NormalTime();
         window.switchToGameField(this);
@@ -492,85 +535,235 @@ public class RaceWeekend extends javax.swing.JPanel {
         {
             gameModel.setWins(gameModel.getWins()+1);
         }
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-
-        int addon = jProgressBar1.getValue() +1;
-        jProgressBar1.setValue(addon);
-        jProgressBar1.setToolTipText(String.valueOf(addon));
-        barValues.set(0, addon);
-        devPoints--;
-        gameModel.setDevelopmentPoints(devPoints);
-        availablePointsText();
-        hideButtons();
+        Random rand = new Random();
+        int numberOne = rand.nextInt(increasedChance);
+        if(upgradeChance)
+        {
+            jLabel15.setText("Sucessful");
+            int addon = jProgressBar1.getValue() +1;
+            jProgressBar1.setValue(addon);
+            jProgressBar1.setToolTipText(String.valueOf(addon));
+            barValues.set(0, addon);
+            devPoints--;
+            gameModel.setDevelopmentPoints(devPoints);
+            availablePointsText();
+            hideButtons();
+        }
+        else if(numberOne%3 ==0)
+        {
+            jLabel15.setText("Sucessful");
+            int addon = jProgressBar1.getValue() +1;
+            jProgressBar1.setValue(addon);
+            jProgressBar1.setToolTipText(String.valueOf(addon));
+            barValues.set(0, addon);
+            devPoints--;
+            gameModel.setDevelopmentPoints(devPoints);
+            availablePointsText();
+            hideButtons();
+        }
+        else
+        {
+            jLabel15.setText("Failed");
+            devPoints--;
+            gameModel.setDevelopmentPoints(devPoints);
+            availablePointsText();
+            hideButtons();
+        }
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-
-        int addon = jProgressBar2.getValue() +1;
-        jProgressBar2.setValue(addon);
-        jProgressBar2.setToolTipText(String.valueOf(addon));
-        barValues.set(1, addon);
-        devPoints--;
-        gameModel.setDevelopmentPoints(devPoints);
-        availablePointsText();
-        hideButtons();
+        Random rand = new Random();
+        int numberOne = rand.nextInt(increasedChance);
+        if(upgradeChance)
+        {
+            jLabel15.setText("Sucessful");
+            int addon = jProgressBar2.getValue() +1;
+            jProgressBar2.setValue(addon);
+            jProgressBar2.setToolTipText(String.valueOf(addon));
+            barValues.set(0, addon);
+            devPoints--;
+            gameModel.setDevelopmentPoints(devPoints);
+            availablePointsText();
+            hideButtons();
+        }
+        else if(numberOne%3 ==0)
+        {
+            jLabel15.setText("Sucessful");
+            int addon = jProgressBar2.getValue() +1;
+            jProgressBar2.setValue(addon);
+            jProgressBar2.setToolTipText(String.valueOf(addon));
+            barValues.set(0, addon);
+            devPoints--;
+            gameModel.setDevelopmentPoints(devPoints);
+            availablePointsText();
+            hideButtons();
+        }
+        else
+        {
+            jLabel15.setText("Failed");
+            devPoints--;
+            gameModel.setDevelopmentPoints(devPoints);
+            availablePointsText();
+            hideButtons();
+        }
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
-
-        int addon = jProgressBar3.getValue() +1;
-        jProgressBar3.setValue(addon);
-        jProgressBar3.setToolTipText(String.valueOf(addon));
-        barValues.set(2, addon);
-        devPoints--;
-        gameModel.setDevelopmentPoints(devPoints);
-        availablePointsText();
-        hideButtons();
+        Random rand = new Random();
+        int numberOne = rand.nextInt(increasedChance);
+        if(upgradeChance)
+        {
+            jLabel15.setText("Sucessful");
+            int addon = jProgressBar3.getValue() +1;
+            jProgressBar3.setValue(addon);
+            jProgressBar3.setToolTipText(String.valueOf(addon));
+            barValues.set(0, addon);
+            devPoints--;
+            gameModel.setDevelopmentPoints(devPoints);
+            availablePointsText();
+            hideButtons();
+        }
+        else if(numberOne%3 ==0)
+        {
+            jLabel15.setText("Sucessful");
+            int addon = jProgressBar3.getValue() +1;
+            jProgressBar3.setValue(addon);
+            jProgressBar3.setToolTipText(String.valueOf(addon));
+            barValues.set(0, addon);
+            devPoints--;
+            gameModel.setDevelopmentPoints(devPoints);
+            availablePointsText();
+            hideButtons();
+        }
+        else
+        {
+            jLabel15.setText("Failed");
+            devPoints--;
+            gameModel.setDevelopmentPoints(devPoints);
+            availablePointsText();
+            hideButtons();
+        }
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-
-        int addon = jProgressBar4.getValue() +1;
-        jProgressBar4.setValue(addon);
-        jProgressBar4.setToolTipText(String.valueOf(addon));
-        barValues.set(3, addon);
-        devPoints--;
-        gameModel.setDevelopmentPoints(devPoints);
-
-        availablePointsText();
-        hideButtons();
+        Random rand = new Random();
+        int numberOne = rand.nextInt(increasedChance);
+        if(upgradeChance)
+        {
+            jLabel15.setText("Sucessful");
+            int addon = jProgressBar4.getValue() +1;
+            jProgressBar4.setValue(addon);
+            jProgressBar4.setToolTipText(String.valueOf(addon));
+            barValues.set(0, addon);
+            devPoints--;
+            gameModel.setDevelopmentPoints(devPoints);
+            availablePointsText();
+            hideButtons();
+        }
+        else if(numberOne%3 ==0)
+        {
+            jLabel15.setText("Sucessful");
+            int addon = jProgressBar4.getValue() +1;
+            jProgressBar4.setValue(addon);
+            jProgressBar4.setToolTipText(String.valueOf(addon));
+            barValues.set(0, addon);
+            devPoints--;
+            gameModel.setDevelopmentPoints(devPoints);
+            availablePointsText();
+            hideButtons();
+        }
+        else
+        {
+            jLabel15.setText("Failed");
+            devPoints--;
+            gameModel.setDevelopmentPoints(devPoints);
+            availablePointsText();
+            hideButtons();
+        }
     }//GEN-LAST:event_jButton8MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-
-        int addon = jProgressBar5.getValue() +1;
-        jProgressBar5.setValue(addon);
-        jProgressBar5.setToolTipText(String.valueOf(addon));
-        barValues.set(4, addon);
-        workPoints--;
-        gameModel.setWorkerPoints(workPoints);
-        availablePointsText();
-        hideButtons();
+        Random rand = new Random();
+        int numberOne = rand.nextInt(increasedChance);
+        if(upgradeChance)
+        {
+            jLabel15.setText("Sucessful");
+            int addon = jProgressBar5.getValue() +1;
+            jProgressBar5.setValue(addon);
+            jProgressBar5.setToolTipText(String.valueOf(addon));
+            barValues.set(4, addon);
+            workPoints--;
+            gameModel.setWorkerPoints(workPoints);
+            availablePointsText();
+            hideButtons();
+        }
+        else if(numberOne%3 ==0)
+        {
+            jLabel15.setText("Sucessful");
+            int addon = jProgressBar5.getValue() +1;
+            jProgressBar5.setValue(addon);
+            jProgressBar5.setToolTipText(String.valueOf(addon));
+            barValues.set(4, addon);
+            workPoints--;
+            gameModel.setWorkerPoints(workPoints);
+            availablePointsText();
+            hideButtons();
+        }
+        else
+        {
+            jLabel15.setText("Failed");
+            workPoints--;
+            gameModel.setWorkerPoints(workPoints);
+            availablePointsText();
+            hideButtons();
+        }
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        int addon = jProgressBar6.getValue() +1;
-        jProgressBar6.setValue(addon);
-        jProgressBar6.setToolTipText(String.valueOf(addon));
-        barValues.set(5, addon);
-        workPoints--;
-        gameModel.setWorkerPoints(workPoints);
-        availablePointsText();
-        hideButtons();
+        Random rand = new Random();
+        int numberOne = rand.nextInt(increasedChance);
+        if(upgradeChance)
+        {
+            jLabel15.setText("Sucessful");
+            int addon = jProgressBar6.getValue() +1;
+            jProgressBar6.setValue(addon);
+            jProgressBar6.setToolTipText(String.valueOf(addon));
+            barValues.set(4, addon);
+            workPoints--;
+            gameModel.setWorkerPoints(workPoints);
+            availablePointsText();
+            hideButtons();
+        }
+        else if(numberOne%3 ==0)
+        {
+            jLabel15.setText("Sucessful");
+            int addon = jProgressBar6.getValue() +1;
+            jProgressBar6.setValue(addon);
+            jProgressBar6.setToolTipText(String.valueOf(addon));
+            barValues.set(4, addon);
+            workPoints--;
+            gameModel.setWorkerPoints(workPoints);
+            availablePointsText();
+            hideButtons();
+        }
+        else
+        {
+            jLabel15.setText("Failed");
+            workPoints--;
+            gameModel.setWorkerPoints(workPoints);
+            availablePointsText();
+            hideButtons();
+        }
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed
         winner = gameModel.raceWinnerCalculator();
         //winner = "finish_mercedes";
         jButton3.setVisible(false);
+        jButton9.setVisible(false);
         timer = new Timer(800, new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e)
@@ -635,6 +828,18 @@ public class RaceWeekend extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        try {
+            window.switchToMiniGame(this);
+        } catch (IOException ex) {
+            Logger.getLogger(Minigame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -645,12 +850,14 @@ public class RaceWeekend extends javax.swing.JPanel {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
