@@ -207,6 +207,7 @@ public class GameField extends JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         try {
+            gameModel.getTimeSimulation().StopTime();
             window.switchToRandD(this);
         } catch (IOException ex) {
             Logger.getLogger(GameField.class.getName()).log(Level.SEVERE, null, ex);
@@ -226,11 +227,11 @@ public class GameField extends JPanel {
             case 1:
             {
                 try {
+                    gameModel.getTimeSimulation().StopTime();
                     window.switchToInter(this);
                     gameModel.getTimeSimulation().setDateTime(LocalTime.of(0, 0, 0));
-                    int day = gameModel.getTimeSimulation().getDaysPassed();
-                    int nextRaceDay = ((day / 3)+1)*3;
-                    gameModel.getTimeSimulation().setDaysPassed(nextRaceDay);
+                    System.out.println(gameModel.getGpCounter());
+                    gameModel.getTimeSimulation().setDaysPassed((gameModel.getGpCounter()*3)+1);
                 } catch (IOException ex) {
                     Logger.getLogger(GameField.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -262,13 +263,13 @@ public class GameField extends JPanel {
     }
     
     public void dateEventsAndPrinter(String date) throws IOException{
-        if("02:00".equals(date.split("nap, ")[1])){
+        if("05:00".equals(date.split("nap, ")[1])){
             gameModel.changeTexture("morning");
         }
-        if("03:00".equals(date.split("nap, ")[1])){
+        if("15:00".equals(date.split("nap, ")[1])){
             gameModel.changeTexture("sunset");
         }
-        if("04:00".equals(date.split("nap, ")[1])){
+        if("22:00".equals(date.split("nap, ")[1])){
             gameModel.changeTexture("midnight");
             dailyIncomeFromBuildings();
         }
@@ -285,11 +286,9 @@ public class GameField extends JPanel {
                     try 
                     {
                         gameModel.getTimeSimulation().StopTime();
-                        window.switchToInter(this);
                         gameModel.getTimeSimulation().setDateTime(LocalTime.of(0, 0, 0));
-                        int day = gameModel.getTimeSimulation().getDaysPassed();
-                        int nextRaceDay = ((day / 3)+1)*3;
-                        gameModel.getTimeSimulation().setDaysPassed(nextRaceDay);
+                        gameModel.getTimeSimulation().setDaysPassed((gameModel.getGpCounter()*3)+1);
+                        window.switchToInter(this);
                     } 
                     catch (IOException ex) 
                     {

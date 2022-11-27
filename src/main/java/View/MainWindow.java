@@ -9,12 +9,9 @@ import Source.Constructor;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.io.BufferedWriter;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -36,6 +33,7 @@ public class MainWindow extends JFrame{
         private GameMenu gameMenu;
         private Achievements achiPanel;
         private Interview interPanel;
+        private Minigame miniGamePanel;
 
 public MainWindow()
 {
@@ -66,7 +64,7 @@ public MainWindow()
                 }
             }
         };
-        mainWindow.addWindowListener(exitListener);   
+        mainWindow.addWindowListener(exitListener);  
         gameModel = new GameModel(75000,64, 32);
     };
 
@@ -115,6 +113,14 @@ public MainWindow()
             mainWindow.remove(p);
             achiPanel = new Achievements(this);
             mainWindow.getContentPane().add(achiPanel);
+            mainWindow.pack();
+            mainWindow.setVisible(true);
+        }
+    public void switchToMiniGame(JPanel p) throws IOException
+        {
+            mainWindow.remove(p);
+            miniGamePanel = new Minigame(this);
+            mainWindow.getContentPane().add(miniGamePanel);
             mainWindow.pack();
             mainWindow.setVisible(true);
         }
