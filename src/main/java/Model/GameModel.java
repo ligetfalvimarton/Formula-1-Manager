@@ -81,10 +81,7 @@ public class GameModel {
                 gameField.setValue(money);
                 developmentPoints = developmentPoints + temp.getDevelopment();
                 workerPoints = workerPoints + temp.getWorkers();
-                if(!(newBuilding.equals(UnitType.PATH) || newBuilding.equals(UnitType.BUSH) || newBuilding.equals(UnitType.TREE)))
-                {
-                    alreadyBuiltList.add(temp);
-                }
+                alreadyBuiltList.add(temp);
             }
         }
         if(!(newBuilding.equals(UnitType.PATH)))
@@ -153,7 +150,7 @@ public class GameModel {
         Buildings temp;
         int tempSizeX;
         int tempSizeY;
-        temp = new Buildings(0, 8500, 0, 0, 7, 8, new Point(0,0), false, "hq", Images.HQ);
+        temp = new Buildings(0, 8500, 0, 0, 8, 8, new Point(0,0), false, "hq", Images.HQ);
         tempSizeX = temp.getSizeX();
         tempSizeY = temp.getSizeY();
         Point p = new Point(10,26);
@@ -169,7 +166,7 @@ public class GameModel {
             }
             alreadyBuiltList.add(temp);
         }
-        temp = new Buildings(0, 0, 0, 0, 8, 10, new Point(0,0), false, "Practice Track 1", Images.TRACK1);
+        temp = new Buildings(0, 0, 0, 0, 8, 8, new Point(0,0), false, "Track1", Images.TRACK1);
         tempSizeX = temp.getSizeX();
         tempSizeY = temp.getSizeY();
         p = new Point(24,0);
@@ -273,32 +270,35 @@ public class GameModel {
     
     public ArrayList<Integer> startingStats(Constructor contructor)
     {
-        if(Constructor.FERRARI == contructor)
+        if(values.isEmpty())
         {
-            values.add(25);
-            values.add(5);
-            values.add(5);
-            values.add(10);
-            values.add(10);
-            values.add(10);
-        }
-        if(Constructor.MERCEDES == contructor)
-        {
-            values.add(6);
-            values.add(7);
-            values.add(9);
-            values.add(8);
-            values.add(10);
-            values.add(10);
-        }
-        if(Constructor.REDBULL == contructor)
-        {
-            values.add(15);
-            values.add(5);
-            values.add(15);
-            values.add(5);
-            values.add(10);
-            values.add(10);
+            if(Constructor.FERRARI == contructor)
+            {
+                values.add(25);
+                values.add(5);
+                values.add(5);
+                values.add(10);
+                values.add(10);
+                values.add(10);
+            }
+            if(Constructor.MERCEDES == contructor)
+            {
+                values.add(6);
+                values.add(7);
+                values.add(9);
+                values.add(8);
+                values.add(10);
+                values.add(10);
+            }
+            if(Constructor.REDBULL == contructor)
+            {
+                values.add(15);
+                values.add(5);
+                values.add(15);
+                values.add(5);
+                values.add(10);
+                values.add(10);
+            }
         }
         return values;
     }

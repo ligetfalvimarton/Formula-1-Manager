@@ -98,6 +98,7 @@ public class GameArea extends JPanel{
                 int y = e.getY() / 20;
                 System.out.println(x + " " + y);
                 System.out.println(board[y][x].getType());
+                System.out.println(board[y][x].isUsable());
                 gameModel.setChosenPoint(new Point(x, y));
                 if(gameModel.getNewBuilding() != null)
                 {

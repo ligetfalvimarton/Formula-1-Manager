@@ -4,6 +4,7 @@
  */
 package Model;
 
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -35,12 +36,14 @@ public class DatabaseConnection {
         connection = DriverManager.getConnection(dbURL, connectionProps);
         System.out.println("Connection Successful");
 
-        String insertQuery = "INSERT INTO FORMULADATAS (TIMESTAMP, NAME, SCORE, WINS, MONEY, CONSTRUCTOR) VALUES (?, ?, ?, ?, ?, ?)";
+        String insertQuery = "INSERT INTO FORMULADATAS (TIMESTAMP, NAME, SCORE, WINS, MONEY, CONSTRUCTOR, DAY, BARVALUES, BOARD) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         insertStatement = connection.prepareStatement(insertQuery);
         String deleteQuery = "DELETE FROM FORMULADATAS WHERE SCORE=?";
         deleteStatement = connection.prepareStatement(deleteQuery);
     }
 
+    //INSERT INTO save.formuladatas (Board) VALUES ('["hot", "cold"]');
+    
     public ArrayList<HighScore> getDatabase() throws SQLException {
         String query = "SELECT * FROM FORMULADATAS";
         ArrayList<HighScore> highScores = new ArrayList<>();
@@ -52,22 +55,24 @@ public class DatabaseConnection {
             int wins = results.getInt("WINS");
             int money = results.getInt("MONEY");
             String constructor = results.getString("CONSTRUCTOR");
-            //Unit board = results.get
-            highScores.add(new HighScore(name, score, wins,money,constructor));
+            int day = results.getInt("DAY");
+            String values = results.getString("BARVALUES");
+            String board = results.getString("BOARD");
+            highScores.add(new HighScore(name, score, wins, money, constructor, day, values, board));
         }
         sortDatas(highScores);
         return highScores;
     }
 
-    public void saveDatas(String name, int score, int wins, int money, String constructor) throws SQLException {
+    public void saveDatas(String name, int score, int wins, int money, String constructor, int day, String values, String board) throws SQLException {
         ArrayList<HighScore> highScores = getDatabase();
         if (highScores.size() < maxScores) {
-            insertDatas(name, score, wins, money, constructor);
+            insertDatas(name, score, wins, money, constructor, day, values, board);
         } else {
             int leastScore = highScores.get(highScores.size() - 1).getScore();
             if (leastScore < score) {
                 deleteDatas(leastScore);
-                insertDatas(name, score, wins, money, constructor);
+                insertDatas(name, score, wins, money, constructor, day, values, board);
             }
         }
     }
@@ -81,7 +86,7 @@ public class DatabaseConnection {
         });
     }
 
-    private void insertDatas(String name, int score,int wins, int money, String constructor) throws SQLException {
+    private void insertDatas(String name, int score,int wins, int money, String constructor, int day, String values, String board) throws SQLException {
         Timestamp ts = new Timestamp(System.currentTimeMillis());
         insertStatement.setTimestamp(1, ts);
         insertStatement.setString(2, name);
@@ -89,6 +94,9 @@ public class DatabaseConnection {
         insertStatement.setInt(4, wins);
         insertStatement.setInt(5, money);
         insertStatement.setString(6, constructor);
+        insertStatement.setInt(7, day);
+        insertStatement.setString(8,values);
+        insertStatement.setString(9,board);
         insertStatement.executeUpdate();
     }
 

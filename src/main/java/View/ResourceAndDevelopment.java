@@ -493,7 +493,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         }
         else if(state == DepartmentState.ACCESSORIES)
         {
-            window.getGameModel().setNewBuilding(UnitType.PRACTICE_TRACK1);
+            window.getGameModel().setNewBuilding(UnitType.TRACK1);
         }
     }//GEN-LAST:event_jLabel4MousePressed
 
@@ -510,7 +510,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         }
         else if(state == DepartmentState.ACCESSORIES)
         {
-            window.getGameModel().setNewBuilding(UnitType.PRACTICE_TRACK2);
+            window.getGameModel().setNewBuilding(UnitType.TRACK2);
         }
     }//GEN-LAST:event_jLabel5MousePressed
 
@@ -527,7 +527,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         }
         else if(state == DepartmentState.ACCESSORIES)
         {
-            window.getGameModel().setNewBuilding(UnitType.PRACTICE_TRACK3);
+            window.getGameModel().setNewBuilding(UnitType.TRACK3);
         }
     }//GEN-LAST:event_jLabel6MousePressed
 

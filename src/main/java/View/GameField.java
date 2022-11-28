@@ -230,7 +230,6 @@ public class GameField extends JPanel {
                     gameModel.getTimeSimulation().StopTime();
                     window.switchToInter(this);
                     gameModel.getTimeSimulation().setDateTime(LocalTime.of(0, 0, 0));
-                    System.out.println(gameModel.getGpCounter());
                     gameModel.getTimeSimulation().setDaysPassed((gameModel.getGpCounter()*3)+1);
                 } catch (IOException ex) {
                     Logger.getLogger(GameField.class.getName()).log(Level.SEVERE, null, ex);

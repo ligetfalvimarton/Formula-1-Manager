@@ -4,6 +4,9 @@
  */
 package Model;
 
+import java.sql.Array;
+import java.util.ArrayList;
+
 /**
  *
  * @author Marton
@@ -14,15 +17,19 @@ public class HighScore {
     private final int wins;
     private final int money;
     private final String constructor;
-    //private final Unit[][] board;
+    private final int day;
+    private final String values;
+    private final String board;
 
-    public HighScore(String name, int score, int wins,int money, String constructor) {
+    public HighScore(String name, int score, int wins,int money, String constructor, int day, String values, String board) {
         this.name = name;
         this.score = score;
         this.wins = wins;
         this.money = money;
         this.constructor = constructor;
-        //this.board = board;
+        this.day = day;
+        this.values = values;
+        this.board = board;
     }
     
     public int getScore() {
@@ -49,8 +56,20 @@ public class HighScore {
         return constructor;
     }
 
+    public String getValues() {
+        return values;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public String getBoard() {
+        return board;
+    }
+    
     @Override
     public String toString() {
-        return name + " " + score + " " + wins+ " " + money+ " " + constructor;
+        return name + " " + score + " " + wins + " " + money + " " + constructor + " " + day + " " + values;
     }
 }

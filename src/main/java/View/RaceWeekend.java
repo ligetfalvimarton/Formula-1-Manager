@@ -75,7 +75,6 @@ public class RaceWeekend extends javax.swing.JPanel {
             jProgressBar5.setToolTipText(String.valueOf(values.get(4)));
             jProgressBar6.setValue(values.get(5));
             jProgressBar6.setToolTipText(String.valueOf(values.get(5)));
-            
         }
     }
     public void availablePointsText(){
@@ -526,6 +525,7 @@ public class RaceWeekend extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        gameModel.setValues(barValues);
         gameModel.setUpgradeChance(false);
         gameModel.setUpgradeChanceVisibility(true);
         window.getGameModel().getTimeSimulation().setDateTime(LocalTime.of(0, 0, 0));
@@ -760,8 +760,8 @@ public class RaceWeekend extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed
-        winner = gameModel.raceWinnerCalculator();
-        //winner = "finish_mercedes";
+        //winner = gameModel.raceWinnerCalculator();
+        winner = "finish_mercedes";
         jButton3.setVisible(false);
         jButton9.setVisible(false);
         timer = new Timer(800, new ActionListener(){

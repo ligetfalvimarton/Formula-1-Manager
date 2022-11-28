@@ -13,7 +13,9 @@ import java.awt.event.WindowListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.io.IOException;
+import java.sql.Array;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -64,18 +66,9 @@ public MainWindow() throws SQLException
                 if (confirm == 0) {
                     JPanel p = new JPanel();
                     try {
-                        System.out.println();
                             if(playerName != null)
                             {
-                                if(gameModel.getWins() == 0)
-                                {
-                                    highscore = gameModel.getMoney()+gameModel.getGpCounter()*gameModel.getTimeSimulation().getDaysPassed();
-                                }
-                                else
-                                {
-                                    highscore = gameModel.getMoney()+gameModel.getGpCounter()*gameModel.getTimeSimulation().getDaysPassed()*gameModel.getWins();
-                                }
-                                database.saveDatas(playerName, highscore,gameModel.getWins(),gameModel.getMoney(),constructor.toString());
+                                saveGame();
                             }
                         switchToExit(p);
                     } catch (IOException | SQLException ex) {
@@ -189,9 +182,9 @@ public MainWindow() throws SQLException
         mainWindow.pack();
         mainWindow.setVisible(true);
     }
-    
+
     public void reset(){
-        gameModel = new GameModel(20, 64, 32);
+        gameModel = new GameModel(75000, 64, 32);
     }
     
     public GameModel getGameModel() {
@@ -232,10 +225,17 @@ public MainWindow() throws SQLException
         {
             highscore = gameModel.getMoney()+gameModel.getGpCounter()*gameModel.getTimeSimulation().getDaysPassed()*gameModel.getWins();
         }
-        database.saveDatas(playerName, highscore,gameModel.getWins(),gameModel.getMoney(),constructor.toString());
-    }
-    public void instantExit() throws SQLException
-    {
-        database.saveDatas("", 0,0,0,"");
+        String tmp = gameModel.getValues().toString();
+        String board = "";
+        for(int i =0;i<gameModel.getAlreadyBuiltList().size();i++)
+        {
+            board = board + gameModel.getAlreadyBuiltList().get(i).getPosition().x +"," 
+                    + gameModel.getAlreadyBuiltList().get(i).getPosition().y +"," 
+                    + gameModel.getAlreadyBuiltList().get(i).getType()+"," 
+                    + gameModel.getAlreadyBuiltList().get(i).getSizeX()+","
+                    + gameModel.getAlreadyBuiltList().get(i).getSizeY()+","
+                    + " ";
+        }
+        database.saveDatas(playerName, highscore,gameModel.getWins(),gameModel.getMoney(),constructor.toString(),gameModel.getTimeSimulation().getDaysPassed(),tmp,board);
     }
 }

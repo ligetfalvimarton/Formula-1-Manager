@@ -4,8 +4,16 @@
  */
 package View;
 
+
+import Model.Buildings;
+import Model.GameModel;
 import Model.HighScore;
+import Model.Unit;
+import Source.Constructor;
+import Source.Images;
+import java.awt.Point;
 import java.io.IOException;
+import java.sql.Array;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -51,11 +59,10 @@ public class LoadGame extends javax.swing.JPanel {
         
         for(int i=0;i<highscores.size();i++)
         {
-            for(int j = 0; j<highscores.get(i).toString().split(" ").length;j++)
+            for(int j = 0; j<5;j++)
             {
                 jTable1.setValueAt(highscores.get(i).toString().split(" ")[j],i,j);
             }
-            
         }
     }
     
@@ -184,13 +191,16 @@ public class LoadGame extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        HighScore setToLoad = new HighScore("",0,0,0,"");
+        window.switchToGameField(this);
+        HighScore setToLoad = new HighScore("",0,0,0,"",0,"","");
         for(int i = 0;i<highscores.size();i++)
         {
             int counter = 0;
-            for(int j = 0; j<highscores.get(i).toString().split(" ").length;j++)
+            for(int j = 0; j<5;j++)
             {
-                if(highscores.get(i).toString().split(" ")[j].equals(jTable1.getValueAt(jTable1.getSelectedRow(), j).toString()));
+                String a = highscores.get(i).toString().split(" ")[j];
+                String b = jTable1.getValueAt(jTable1.getSelectedRow(), j).toString();
+                if(a.equals(b))
                     counter++;
             }
             if(counter == 5)
@@ -198,10 +208,58 @@ public class LoadGame extends javax.swing.JPanel {
                 setToLoad = highscores.get(i);
             }
         }
-        window.switchToGameField(this);
+        window.setConstructor(Constructor.valueOf(setToLoad.getConstructor()));
+        window.setPlayerName(setToLoad.getName());
+        String strBoard = setToLoad.getBoard();
+        String[] strSplit = strBoard.split(" ");
+        for(String s : strSplit)
+        {
+            Point sas = new Point(Integer.valueOf(s.split(",")[0]),Integer.valueOf(s.split(",")[1]));
+            String typeS = s.split(",")[2];
+            int sX = Integer.valueOf(s.split(",")[3]);
+            int sY = Integer.valueOf(s.split(",")[4]);
+            loadOnBoard(sas,typeS,sY,sX);
+        }
+        window.getGameModel().setWins(setToLoad.getWins());
+        window.getGameModel().setMoney(setToLoad.getMoney());
+        window.getGameModel().getGameField().setValue(setToLoad.getMoney());
+        window.getGameModel().getTimeSimulation().setDaysPassed(setToLoad.getDay());
+        if(setToLoad.getValues().length()>3)
+        {
+            ArrayList<Integer> tmp = new ArrayList<>();
+            String[] slti = setToLoad.getValues().substring(1, setToLoad.getValues().length()-1).split(",");
+            for (String s : slti)
+                tmp.add(Integer.valueOf(s.trim()));
+            window.getGameModel().setValues(tmp);
+        }
+        window.getGameModel().getTimeSimulation().start();    
     }//GEN-LAST:event_jButton2ActionPerformed
 
-
+    public void loadOnBoard(Point point, String type, int sX, int sY)
+    {
+        ArrayList<Buildings> tmp = window.getGameModel().getAlreadyBuiltList();
+        Buildings temp;
+        int tempSizeX;
+        int tempSizeY;
+        temp = new Buildings(0, 0, 0, 0, sX, sY, new Point(0,0), false, type, Images.valueOf(type.toUpperCase()));
+        tempSizeX = temp.getSizeX();
+        tempSizeY = temp.getSizeY();
+        Point p = point;
+        temp.setPosition(p);
+        if(p.x+tempSizeX <= window.getGameModel().getBoard().length && p.y+tempSizeY <= window.getGameModel().getBoard()[0].length){
+            for(int i=p.x; i<p.x+tempSizeX; i++){
+                for(int j=p.y; j<p.y+tempSizeY; j++){
+                    window.getGameModel().getBoard()[i][j].setImage(temp.getImage());
+                    window.getGameModel().getBoard()[i][j].setPosition(new Point(temp.getPosition()));
+                    window.getGameModel().getBoard()[i][j].setType(temp.getType());
+                    window.getGameModel().getBoard()[i][j].setUsable(temp.isUsable());
+                }
+            }
+            tmp.add(temp);
+        }
+        window.getGameModel().setAlreadyBuiltList(tmp);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
