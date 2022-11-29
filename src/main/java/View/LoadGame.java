@@ -191,7 +191,6 @@ public class LoadGame extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        window.switchToGameField(this);
         HighScore setToLoad = new HighScore("",0,0,0,"",0,"","");
         for(int i = 0;i<highscores.size();i++)
         {
@@ -208,8 +207,6 @@ public class LoadGame extends javax.swing.JPanel {
                 setToLoad = highscores.get(i);
             }
         }
-        window.setConstructor(Constructor.valueOf(setToLoad.getConstructor()));
-        window.setPlayerName(setToLoad.getName());
         String strBoard = setToLoad.getBoard();
         String[] strSplit = strBoard.split(" ");
         for(String s : strSplit)
@@ -220,10 +217,6 @@ public class LoadGame extends javax.swing.JPanel {
             int sY = Integer.valueOf(s.split(",")[4]);
             loadOnBoard(sas,typeS,sY,sX);
         }
-        window.getGameModel().setWins(setToLoad.getWins());
-        window.getGameModel().setMoney(setToLoad.getMoney());
-        window.getGameModel().getGameField().setValue(setToLoad.getMoney());
-        window.getGameModel().getTimeSimulation().setDaysPassed(setToLoad.getDay());
         if(setToLoad.getValues().length()>3)
         {
             ArrayList<Integer> tmp = new ArrayList<>();
@@ -232,32 +225,47 @@ public class LoadGame extends javax.swing.JPanel {
                 tmp.add(Integer.valueOf(s.trim()));
             window.getGameModel().setValues(tmp);
         }
+        window.setConstructor(Constructor.valueOf(setToLoad.getConstructor()));
+        window.setPlayerName(setToLoad.getName());
+        window.switchToGameField(this);
+        window.getGameModel().setWins(setToLoad.getWins());
+        window.getGameModel().setMoney(setToLoad.getMoney());
+        window.getGameModel().getGameField().setValue(setToLoad.getMoney());
+        window.getGameModel().getTimeSimulation().setDaysPassed(setToLoad.getDay());
         window.getGameModel().getTimeSimulation().start();    
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public void loadOnBoard(Point point, String type, int sX, int sY)
     {
-        ArrayList<Buildings> tmp = window.getGameModel().getAlreadyBuiltList();
-        Buildings temp;
-        int tempSizeX;
-        int tempSizeY;
-        temp = new Buildings(0, 0, 0, 0, sX, sY, new Point(0,0), false, type, Images.valueOf(type.toUpperCase()));
-        tempSizeX = temp.getSizeX();
-        tempSizeY = temp.getSizeY();
-        Point p = point;
-        temp.setPosition(p);
-        if(p.x+tempSizeX <= window.getGameModel().getBoard().length && p.y+tempSizeY <= window.getGameModel().getBoard()[0].length){
-            for(int i=p.x; i<p.x+tempSizeX; i++){
-                for(int j=p.y; j<p.y+tempSizeY; j++){
-                    window.getGameModel().getBoard()[i][j].setImage(temp.getImage());
-                    window.getGameModel().getBoard()[i][j].setPosition(new Point(temp.getPosition()));
-                    window.getGameModel().getBoard()[i][j].setType(temp.getType());
-                    window.getGameModel().getBoard()[i][j].setUsable(temp.isUsable());
+        Point pp = new Point(24,0);
+        if("hq".equals(type))
+        {}
+        else if((point.equals(pp) && "Track1".equals(type)))
+        {}
+        else
+        {
+            ArrayList<Buildings> tmp = window.getGameModel().getAlreadyBuiltList();
+            Buildings temp;
+            int tempSizeX;
+            int tempSizeY;
+            temp = new Buildings(0, 0, 0, 0, sX, sY, new Point(0,0), false, type, Images.valueOf(type.toUpperCase()));
+            tempSizeX = temp.getSizeX();
+            tempSizeY = temp.getSizeY();
+            Point p = point;
+            temp.setPosition(p);
+            if(p.x+tempSizeX <= window.getGameModel().getBoard().length && p.y+tempSizeY <= window.getGameModel().getBoard()[0].length){
+                for(int i=p.x; i<p.x+tempSizeX; i++){
+                    for(int j=p.y; j<p.y+tempSizeY; j++){
+                        window.getGameModel().getBoard()[i][j].setImage(temp.getImage());
+                        window.getGameModel().getBoard()[i][j].setPosition(new Point(temp.getPosition()));
+                        window.getGameModel().getBoard()[i][j].setType(temp.getType());
+                        window.getGameModel().getBoard()[i][j].setUsable(temp.isUsable());
+                    }
                 }
+                tmp.add(temp);
             }
-            tmp.add(temp);
+            window.getGameModel().setAlreadyBuiltList(tmp);
         }
-        window.getGameModel().setAlreadyBuiltList(tmp);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

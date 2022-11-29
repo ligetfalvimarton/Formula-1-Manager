@@ -146,7 +146,6 @@ public class GameModel {
                     board[i][j] = new Unit(new Point(i,j), true, "grass", Images.GRASS);
             }
         }
-        
         Buildings temp;
         int tempSizeX;
         int tempSizeY;
@@ -306,29 +305,56 @@ public class GameModel {
     public String raceWinnerCalculator()
     {
         Random rand = new Random();
-        int numberOne = rand.nextInt(8);
-        switch(numberOne)
+        int numberOne = rand.nextInt(100);
+        Random rand2 = new Random();
+        int number2 = rand.nextInt(7);
+        int chance = 0;
+        for(int i=0;i<values.size()-2;i++)
         {
-            case 0:
-                return "finish_ferrari";
-            case 1:
-                return "finish_alfa";
-            case 2:
-                return "finish_alfaTauri";
-            case 3:
-                return "finish_alpin";
-            case 4:
-                return "finish_aston";
-            case 5:
-                return "finish_haas";
-            case 6:
-                return "finish_mclaren";
-            case 7:
-                return "finish_mercedes";
-            case 8:
-                return "finish_redbull";
-            default:
-                return "finish_redbull";
+            chance = chance + (values.get(i)/2);
+        }
+        chance = (100-chance)/10 == 0 ? 1 : (100-chance)/10;
+        boolean win = numberOne%chance ==0;
+        System.out.println(win);
+        System.out.println(chance);
+        if(win)
+        {
+            return "finish_" + gameField.getWindow().getConstructor().toString().toLowerCase();
+        }
+        else
+        {
+            switch(number2)
+            {
+                case 0:
+                    if("finish_ferrari".equals("finish_" + gameField.getWindow().getConstructor().toString().toLowerCase()))
+                        return "finish_redbull";
+                    else
+                        return "finish_ferrari";
+                case 1:
+                    if("finish_redbull".equals("finish_" + gameField.getWindow().getConstructor().toString().toLowerCase()))
+                        return "finish_mercedes";
+                    else
+                        return "finish_redbull";
+                case 2:
+                    if("finish_mercedes".equals("finish_" + gameField.getWindow().getConstructor().toString().toLowerCase()))
+                        return "finish_ferrari";
+                    else
+                        return "finish_mercedes";
+                case 3:
+                    return "finish_alpin";
+                case 4:
+                    return "finish_aston";
+                case 5:
+                    return "finish_haas";
+                case 6:
+                    return "finish_mclaren";
+                case 7:
+                    return "finish_alfaTauri";
+                case 8:
+                    return "finish_alfa";
+                default:
+                    return "finish_mclaren";
+            }
         }
     }
 

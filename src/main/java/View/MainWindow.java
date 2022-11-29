@@ -225,7 +225,7 @@ public MainWindow() throws SQLException
         {
             highscore = gameModel.getMoney()+gameModel.getGpCounter()*gameModel.getTimeSimulation().getDaysPassed()*gameModel.getWins();
         }
-        String tmp = gameModel.getValues().toString();
+        String tmp = "[]".equals(gameModel.getValues().toString()) ? "[10,10,10,10,10,10]" : gameModel.getValues().toString();
         String board = "";
         for(int i =0;i<gameModel.getAlreadyBuiltList().size();i++)
         {

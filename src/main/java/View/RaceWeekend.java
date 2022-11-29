@@ -760,8 +760,8 @@ public class RaceWeekend extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed
-        //winner = gameModel.raceWinnerCalculator();
-        winner = "finish_mercedes";
+        winner = gameModel.raceWinnerCalculator();
+        //winner = "finish_mercedes";
         jButton3.setVisible(false);
         jButton9.setVisible(false);
         timer = new Timer(800, new ActionListener(){
