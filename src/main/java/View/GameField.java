@@ -4,6 +4,7 @@
  */
 package View;
 
+import Model.Buildings;
 import Model.GameModel;
 import Model.Unit;
 import Source.Constructor;
@@ -61,7 +62,19 @@ public class GameField extends JPanel {
     }
     
     public void dailyIncomeFromBuildings(){
-        value = value + 30000;
+        int commission = 0;
+        for(Buildings b : gameModel.getAlreadyBuiltList())
+        {
+            if("path".equals(b.getType()))
+            {
+                commission = commission + 50;
+            }
+            else
+            {
+                commission = commission + 500;
+            }
+        }
+        value = gameModel.getWins()*5000 + gameModel.getGpCounter()*500 + 10000 - commission;
         gameModel.setMoney(value);
     }
     /**

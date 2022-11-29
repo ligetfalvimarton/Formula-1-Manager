@@ -307,7 +307,7 @@ public class GameModel {
         Random rand = new Random();
         int numberOne = rand.nextInt(100);
         Random rand2 = new Random();
-        int number2 = rand.nextInt(7);
+        int number2 = rand2.nextInt(7);
         int chance = 0;
         for(int i=0;i<values.size()-2;i++)
         {

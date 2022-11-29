@@ -52,10 +52,10 @@ public enum UnitType {
                 Item = new Buildings(4000, 2000, 0, 4, 6, 6, new Point(0,0), false, "Store", Images.STORE);
                 break;
             case "ChasingDepartment":
-                Item = new Buildings(15000, 5000, 1, 1, 5, 5, new Point(0,0), false, "ChasingDepartment", Images.CHASINGDEPARTMENT);
+                Item = new Buildings(15000, 5000, 4, 1, 5, 5, new Point(0,0), false, "ChasingDepartment", Images.CHASINGDEPARTMENT);
                 break; 
             case "DownforceDepartment":
-                Item = new Buildings(15000, 5000, 3, 0, 5, 5, new Point(0,0), false, "DownforceDepartment", Images.DOWNFORCEDEPARTMENT);
+                Item = new Buildings(15000, 5000, 3, 3, 5, 5, new Point(0,0), false, "DownforceDepartment", Images.DOWNFORCEDEPARTMENT);
                 break;
             case "AeroDepartment":
                 Item = new Buildings(15000, 5000, 5, 0, 5, 5, new Point(0,0), false, "AeroDepartment", Images.AERODEPARTMENT);
@@ -64,19 +64,19 @@ public enum UnitType {
                 Item = new Buildings(15000, 5000, 5, 0, 6, 6, new Point(0,0), false, "PowerunitDepartment", Images.POWERUNITDEPARTMENT);
                 break; 
             case "DurabilityDepartment":
-                Item = new Buildings(15000, 5000, 1, 1, 6, 6, new Point(0,0), false, "DurabilityDepartment", Images.DURABILITYDEPARTMENT);
+                Item = new Buildings(15000, 5000, 3, 2, 6, 6, new Point(0,0), false, "DurabilityDepartment", Images.DURABILITYDEPARTMENT);
                 break;
             case "Factory":
-                Item = new Buildings(20000, 10000, 3, 3, 6, 6, new Point(0,0), false, "Factory", Images.FACTORY);
+                Item = new Buildings(20000, 10000, 5, 1, 6, 6, new Point(0,0), false, "Factory", Images.FACTORY);
                 break;
             case "Track1":
-                Item = new Buildings(20000, 10000, 0, 0, 8, 8, new Point(0,0), false, "Track1", Images.TRACK1);
+                Item = new Buildings(30000, 10000, 3, 3, 8, 8, new Point(0,0), false, "Track1", Images.TRACK1);
                 break;
             case "Track2":
-                Item = new Buildings(20000, 10000, 5, 5, 8, 8, new Point(0,0), false, "Track2", Images.TRACK2);
+                Item = new Buildings(50000, 10000, 5, 5, 8, 8, new Point(0,0), false, "Track2", Images.TRACK2);
                 break;
             case "Track3":
-                Item = new Buildings(20000, 10000, 7, 7, 8, 8, new Point(0,0), false, "Track3", Images.TRACK3);
+                Item = new Buildings(70000, 10000, 7, 7, 8, 8, new Point(0,0), false, "Track3", Images.TRACK3);
                 break;
             case "incorrect_place":
                 Item = new Buildings(0, 0, 0, 0, 1, 1, new Point(0,0), false, "incorrect_place", Images.INCORRECTPLACE);

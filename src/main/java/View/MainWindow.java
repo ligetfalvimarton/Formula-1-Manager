@@ -7,17 +7,20 @@ package View;
 import Model.DatabaseConnection;
 import Model.GameModel;
 import Source.Constructor;
+import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.sql.Array;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 /**
  *
@@ -46,6 +49,8 @@ public MainWindow() throws SQLException
 {
         mainWindow = new JFrame("Formula- 1 -Manager");
         mainWindow.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        ImageIcon iM = new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Logo.png");
+        mainWindow.setIconImage(iM.getImage());
         mainWindow.setSize(1280,720);
         mainWindow.setResizable(false);
         database = new DatabaseConnection();

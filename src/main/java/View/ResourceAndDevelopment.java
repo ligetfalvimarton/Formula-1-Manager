@@ -702,17 +702,23 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
 
     private void switchToAccessories() {
         jLabel1.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/bush.jpg"));
+        jLabel1.setToolTipText("bush");
         jLabel2.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/path.png"));
+        jLabel2.setToolTipText("path");
         jLabel3.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop//tree.jpg"));
+        jLabel3.setToolTipText("tree");
         jLabel4.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/Practice_track_1.png"));
+        jLabel4.setToolTipText("Track-1,3dev,3work");
         jLabel5.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/Practice_track_2.gif"));
+        jLabel5.setToolTipText("Track-2,5dev,5work");
         jLabel6.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/Practice_track_3.png"));
+        jLabel6.setToolTipText("Track-3,7dev,7work");
         jLabel10.setText("350 $");
         jLabel11.setText("200 $");
         jLabel12.setText("500 $");
         jLabel13.setText("30.000 $");
-        jLabel14.setText("30.000 $");
-        jLabel15.setText("30.000 $");
+        jLabel14.setText("50.000 $");
+        jLabel15.setText("70.000 $");
         jLabel18.setText("");
         jLabel17.setText("");
         jLabel16.setText("");
