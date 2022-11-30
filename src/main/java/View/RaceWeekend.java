@@ -32,7 +32,6 @@ public class RaceWeekend extends javax.swing.JPanel {
     private Timer timer;
     private String winner;
     private boolean upgradeChance;
-    private boolean upgradeChanceVisibility;
     private int increasedChance;
     /**
      * Creates new form ResourceAndDevelopment
@@ -152,7 +151,9 @@ public class RaceWeekend extends javax.swing.JPanel {
         }
         else
         {
-            gameModel.setGpCounter(gameModel.getGpCounter()+1);
+            if(gameModel.isUpgradeChanceVisibility())
+                //gameModel.setGpCounter(gameModel.getGpCounter()+1);
+                System.out.println("asd");
         }
     }
     /**
@@ -528,6 +529,7 @@ public class RaceWeekend extends javax.swing.JPanel {
         gameModel.setValues(barValues);
         gameModel.setUpgradeChance(false);
         gameModel.setUpgradeChanceVisibility(true);
+        gameModel.setGpCounter(gameModel.getGpCounter()+1);
         window.getGameModel().getTimeSimulation().setDateTime(LocalTime.of(0, 0, 0));
         window.getGameModel().getTimeSimulation().NormalTime();
         window.switchToGameField(this);

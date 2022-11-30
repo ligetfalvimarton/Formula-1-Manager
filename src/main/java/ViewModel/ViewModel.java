@@ -14,9 +14,6 @@ import rx.subjects.BehaviorSubject;
 public class ViewModel {
     public final BehaviorSubject<String> vm2v_info = BehaviorSubject.create();
     
-    private void wireInternally() {
-        // NO-OP
-    }
     public void connectTo(final GameModel model) {
         model.infos().subscribe(vm2v_info);
     }

@@ -217,6 +217,7 @@ public class Minigame extends javax.swing.JPanel {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         started=true;
+        jButton7.setVisible(false);
         randomize.add(jButton1);
         randomize.add(jButton2);
         randomize.add(jButton3);
@@ -369,6 +370,7 @@ public class Minigame extends javax.swing.JPanel {
                     try 
                     {
                         window.getGameModel().setUpgradeChanceVisibility(false);
+                        window.getGameModel().setUpgradeChance(true);
                         window.switchToRaceWeekend(this);
                     } 
                     catch (IOException ex) 
