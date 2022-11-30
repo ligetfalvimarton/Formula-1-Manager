@@ -209,6 +209,9 @@ public class Minigame extends javax.swing.JPanel {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         try {
+            window.getGameModel().setUpgradeChanceVisibility(false);
+            if(clicks == 6)
+                window.getGameModel().setUpgradeChance(true);
             window.switchToRaceWeekend(this);
         } catch (IOException ex) {
             Logger.getLogger(Minigame.class.getName()).log(Level.SEVERE, null, ex);
@@ -381,11 +384,25 @@ public class Minigame extends javax.swing.JPanel {
                     break;
                 default:
             }
+            jButton1.setEnabled(false);
+            jButton2.setEnabled(false);
+            jButton3.setEnabled(false);
+            jButton4.setEnabled(false);
+            jButton5.setEnabled(false);
+            jButton6.setEnabled(false);
+            jButton7.setVisible(true);
         }
     }
     
     public void defeat()
     {
+        jButton1.setEnabled(false);
+        jButton2.setEnabled(false);
+        jButton3.setEnabled(false);
+        jButton4.setEnabled(false);
+        jButton5.setEnabled(false);
+        jButton6.setEnabled(false);
+        jButton7.setVisible(true);
         String[] buttons = { "Lets Go" };
         int choice = JOptionPane.showOptionDialog(null, "Defeat, sorry next time!",
         "Back to Raceweek",
