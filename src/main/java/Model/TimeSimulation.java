@@ -65,14 +65,6 @@ public class TimeSimulation extends Thread {
         }
     }
 
-    public void FasterTime(){
-        PauseTimer();
-        toAdd = 1;
-        timeGap = 10;
-        ResumeTimer();
-    }
-
-
     public void StopTime(){
         PauseTimer();
         toAdd = 0;
