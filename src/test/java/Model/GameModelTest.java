@@ -19,13 +19,7 @@ import java.util.List;
  */
 public class GameModelTest {
     GameModel gm = new GameModel(75000, 64, 32);
-    MainWindow w;
-    GameField gf = new GameField(w);
 
-    public GameModelTest() throws SQLException {
-        this.w = new MainWindow();
-    }
-    
     @Test
     public void startingUnits_CreatingAll_Test(){
         int counter = 0;
@@ -63,60 +57,58 @@ public class GameModelTest {
     }
 
     @Test
-    public void destroyBuilding_SettingBackToEmpty_Test(){
+    public void upgradeBuilding_AddLevel_Test(){
+        Buildings tmp = new Buildings(10000, 2500, 4, 4, 8, 8, new Point(10,10), false, "Track1", Images.TRACK1);
+
+        int lvl1 = tmp.getLevel();
+        assertEquals(1, lvl1);
         
-        Buildings b = new Buildings(1000, 600, 0, 0, 3, 3, new Point(10,10), false, "Factory", Images.FACTORY);
-        gm.setGameField(gf);
-        gm.destroyBuilding(b);
+        gm.upgradeBuilding(tmp);
+        int lvl2 = tmp.getLevel();
+        assertEquals(2, lvl2);
         
-        int numOfUsedUnits = 0;
-        int numOfBuildings = 0;
-        int numOfEmptyUnits = 0;
-        int numOfGrass = 0;
-        Unit board[][] = gm.getBoard();
-        List<Buildings> built = gm.getAlreadyBuiltList();
-        numOfBuildings = built.size();
-        int money = gm.getMoney();
-        for(int i = 0 ; i < 32; i++){
-            for(int j = 0; j < 64 ; j++){
-                if(!board[i][j].isUsable()){
-                    numOfUsedUnits++;
-                }
-                if(board[i][j].getType() == "empty"){
-                    numOfEmptyUnits++;
-                }
-                if(board[i][j].getImage() == Images.GRASS){
-                    numOfGrass++;
-                }
-            }
-        }
-        
-        assertEquals(25, numOfUsedUnits);
-        assertEquals(1, numOfBuildings);
-        assertEquals(2023, numOfEmptyUnits);
-        assertEquals(2023, numOfGrass);
-        assertEquals(10500, money);
+        gm.upgradeBuilding(tmp);
+        int lvl3 = tmp.getLevel();
+        assertEquals(3, lvl3);  
     }
     
     @Test
-    public void upgradeBuilding_AddLevel_Test(){
-        Buildings b = new Buildings(10000, 2500, 4, 4, 8, 8, new Point(10,10), false, "Track1", Images.TRACK1);
-        gm.setGameField(gf);
+    public void destroyBuilding_SettingBackToEmpty_Test(){
         
-        int lvl1 = b.getLevel();
-        assertEquals(1, lvl1);
+        Buildings tmp = new Buildings(1000, 600, 0, 0, 3, 3, new Point(10,10), false, "Factory", Images.FACTORY);
+        gm.destroyBuilding(tmp);
         
-        gm.upgradeBuilding(b);
-        int lvl2 = b.getLevel();
-        assertEquals(2, lvl2);
-        
-        gm.upgradeBuilding(b);
-        int lvl3 = b.getLevel();
-        assertEquals(3, lvl3);
-        
-        gm.upgradeBuilding(b);
-        int lvl4 = b.getLevel();
-        assertEquals(3, lvl4);
-        
+        int grassCnt = 0;
+        int usedUnitsCnt = 0;
+        int emptyUnitsCnt = 0;
+        Unit board[][] = gm.getBoard();
+        for(int i = 0; i < 32; i++)
+        {
+            for(int j = 0; j < 64; j++)
+            {
+                if(board[i][j].getImage() == Images.GRASS)
+                {
+                    grassCnt++;
+                }
+                if(!board[i][j].isUsable())
+                {
+                    usedUnitsCnt++;
+                }
+                if("empty".equals(board[i][j].getType()))
+                {
+                    emptyUnitsCnt++;
+                }
+            }
+        }
+        int money = gm.getMoney();
+        List<Buildings> built = gm.getAlreadyBuiltList();
+        int numOfBuildings = built.size();
+        //-------------------------------//
+        assertEquals(25, usedUnitsCnt);
+        assertEquals(1, numOfBuildings);
+        assertEquals(2023, emptyUnitsCnt);
+        assertEquals(2023, grassCnt);
+        assertEquals(10500, money);
     }
+    
 }

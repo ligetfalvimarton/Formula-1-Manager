@@ -109,7 +109,7 @@ public class GameArea extends JPanel{
                     ArrayList<Buildings> built = gameModel.getAlreadyBuiltList();
                     for(int i=0; i<built.size(); i++){
                         Buildings building = built.get(i);
-                        if(building.getPosition().y <= x && building.getPosition().y+building.getSizeX() > x && building.getPosition().x <= y && building.getPosition().x+building.getSizeY() > y)
+                        if(building.getPosition().y <= x && building.getPosition().y+building.getSizeX() > x && building.getPosition().x <= y && building.getPosition().x+building.getSizeY() > y && !"path".equals(building.getType()))
                         {
                             String[] buttons = { "Upgrade", "Destroy" };
                             if(gameModel.getBuildingStatus()){

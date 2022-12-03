@@ -59,10 +59,11 @@ public class LoadGame extends javax.swing.JPanel {
         
         for(int i=0;i<highscores.size();i++)
         {
-            for(int j = 0; j<5;j++)
-            {
-                jTable1.setValueAt(highscores.get(i).toString().split(" ")[j],i,j);
-            }
+            jTable1.setValueAt(highscores.get(i).getName(),i,0);
+            jTable1.setValueAt(highscores.get(i).getScore(),i,1);
+            jTable1.setValueAt(highscores.get(i).getWins(),i,2);
+            jTable1.setValueAt(highscores.get(i).getMoney(),i,3);
+            jTable1.setValueAt(highscores.get(i).getConstructor(),i,4);
         }
     }
     
