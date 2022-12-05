@@ -153,7 +153,7 @@ public class RaceWeekend extends javax.swing.JPanel {
         {
             if(gameModel.isUpgradeChanceVisibility())
                 //gameModel.setGpCounter(gameModel.getGpCounter()+1);
-                System.out.println("asd");
+                System.out.println("");
         }
     }
     /**

@@ -4,6 +4,7 @@
  */
 package View;
 
+import ViewModel.ViewModel;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +19,7 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.WindowConstants;
+import static rxjava_mvvm.RxSwingView2ViewModelBinder.bindSwingView;
 
 /**
  *
@@ -40,8 +42,13 @@ public class Minigame extends javax.swing.JPanel {
         buttonCounter = 0;
         clicks=0;
         initComponents();
+        ViewModel viewModel = new ViewModel();
+        bind(viewModel);
     }
-
+    public void bind(final ViewModel viewModel) {
+        bindSwingView(jButton8).toViewModel(viewModel.v2vm_startButtonEvents);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -219,6 +226,7 @@ public class Minigame extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        
         started=true;
         jButton7.setVisible(false);
         randomize.add(jButton1);

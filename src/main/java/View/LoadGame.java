@@ -231,6 +231,7 @@ public class LoadGame extends javax.swing.JPanel {
         window.switchToGameField(this);
         window.getGameModel().setWins(setToLoad.getWins());
         window.getGameModel().setMoney(setToLoad.getMoney());
+        window.getGameModel().setGpCounter(setToLoad.getDay()/3);
         window.getGameModel().getGameField().setValue(setToLoad.getMoney());
         window.getGameModel().getTimeSimulation().setDaysPassed(setToLoad.getDay());
         window.getGameModel().getTimeSimulation().start();    

@@ -52,7 +52,7 @@ public MainWindow() throws SQLException
         ImageIcon iM = new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Logo.png");
         mainWindow.setIconImage(iM.getImage());
         mainWindow.setSize(1280,720);
-        mainWindow.setResizable(false);
+        mainWindow.setResizable(true);
         database = new DatabaseConnection();
         mainWindow.setLocationRelativeTo(null);
         menuPanel = new Menu(this);

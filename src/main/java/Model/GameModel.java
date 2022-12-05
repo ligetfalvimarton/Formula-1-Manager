@@ -12,6 +12,7 @@ import java.awt.Image;
 import java.awt.Point;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -315,8 +316,6 @@ public class GameModel {
         }
         chance = (100-chance)/10 == 0 ? 1 : (100-chance)/10;
         boolean win = numberOne%chance ==0;
-        System.out.println(win);
-        System.out.println(chance);
         if(win)
         {
             return "finish_" + gameField.getWindow().getConstructor().toString().toLowerCase();
@@ -373,16 +372,6 @@ public class GameModel {
     public void setUpgradeChanceVisibility(boolean upgradeChanceVisibility) {
         this.upgradeChanceVisibility = upgradeChanceVisibility;
     } 
-
-    public Observable<String> infos() {
-        Observable<String> texts = Observable.just("Hello World", "Hallo Welt", "Bonjour le monde", "Ciao mondo").repeat();
-        Observable<Long> trigger = Observable.interval(1, TimeUnit.SECONDS);
-
-        return Observable.zip(texts, trigger, (text, aLong) -> text).doOnNext(text -> SysOutUtils.sysout("Sending: " + text));
-    }
-    
-    
-    
     
     public int getGpCounter() {
         return gpCounter;
