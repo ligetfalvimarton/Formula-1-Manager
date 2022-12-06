@@ -24,7 +24,7 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel1" pref="518" max="32767" attributes="0"/>
+                  <Component id="dashboardTitle" pref="518" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -32,70 +32,70 @@
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jLabel3" min="-2" pref="155" max="-2" attributes="0"/>
-                                          <Component id="jLabel2" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
-                                          <Component id="jLabel4" min="-2" pref="155" max="-2" attributes="0"/>
-                                          <Component id="jLabel5" min="-2" pref="155" max="-2" attributes="0"/>
-                                          <Component id="jLabel8" min="-2" pref="155" max="-2" attributes="0"/>
-                                          <Component id="jLabel9" min="-2" pref="155" max="-2" attributes="0"/>
+                                          <Component id="aeroLabel" min="-2" pref="155" max="-2" attributes="0"/>
+                                          <Component id="powerUnitLabel" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                                          <Component id="chasingLabel" min="-2" pref="155" max="-2" attributes="0"/>
+                                          <Component id="durabilityLabel" min="-2" pref="155" max="-2" attributes="0"/>
+                                          <Component id="mechanicsLabel" min="-2" pref="155" max="-2" attributes="0"/>
+                                          <Component id="workersLabel" min="-2" pref="155" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jProgressBar6" min="-2" pref="200" max="-2" attributes="0"/>
+                                              <Component id="workersBar" min="-2" pref="200" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="jButton4" min="-2" pref="49" max="-2" attributes="0"/>
+                                              <Component id="workersPlusButton" min="-2" pref="49" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jProgressBar5" min="-2" pref="200" max="-2" attributes="0"/>
+                                              <Component id="mechanicsBar" min="-2" pref="200" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                              <Component id="jButton5" max="32767" attributes="0"/>
+                                              <Component id="mechanicsPlusButton" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jProgressBar1" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                                  <Component id="jProgressBar2" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                                  <Component id="powerUnitBar" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                                  <Component id="aeroBar" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                                      <Component id="jButton2" min="-2" pref="49" max="-2" attributes="0"/>
+                                                      <Component id="powerUnitPlusButton" min="-2" pref="49" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="1" attributes="0">
                                                       <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="jButton6" min="-2" pref="49" max="-2" attributes="0"/>
+                                                      <Component id="aeroPlusButton" min="-2" pref="49" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jProgressBar4" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                                  <Component id="jProgressBar3" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                                  <Component id="durabilityBar" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                                  <Component id="chasingBar" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="40" max="32767" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="jButton7" min="-2" pref="49" max="-2" attributes="0"/>
-                                                  <Component id="jButton8" min="-2" pref="49" max="-2" attributes="0"/>
+                                                  <Component id="chasingPlusButton" min="-2" pref="49" max="-2" attributes="0"/>
+                                                  <Component id="durabilityPlusButton" min="-2" pref="49" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jLabel13" min="-2" pref="166" max="-2" attributes="0"/>
+                                      <Component id="trackNameLabel" min="-2" pref="166" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                                      <Component id="jLabel12" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <Component id="trackPictureLabel" min="-2" pref="200" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel10" alignment="0" min="-2" pref="245" max="-2" attributes="0"/>
-                                  <Component id="jLabel11" alignment="0" min="-2" pref="245" max="-2" attributes="0"/>
+                                  <Component id="devPointsLabel" alignment="0" min="-2" pref="245" max="-2" attributes="0"/>
+                                  <Component id="workPointsLabel" alignment="0" min="-2" pref="245" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="MinigameButton" max="32767" attributes="0"/>
-                                  <Component id="jLabel15" max="32767" attributes="0"/>
+                                  <Component id="upgradeStatLabel" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -104,7 +104,7 @@
               </Group>
               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel1" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="simulationPanel" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="backToGF" alignment="1" min="-2" pref="113" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -117,84 +117,84 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jPanel1" max="32767" attributes="0"/>
+                      <Component id="simulationPanel" max="32767" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="backToGF" min="-2" pref="45" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="jLabel1" min="-2" pref="85" max="-2" attributes="0"/>
+                      <Component id="dashboardTitle" min="-2" pref="85" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel10" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="devPointsLabel" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="MinigameButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel11" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="jLabel15" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="workPointsLabel" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="upgradeStatLabel" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="powerUnitPlusButton" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jProgressBar1" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="powerUnitBar" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton6" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Component id="jProgressBar2" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="aeroPlusButton" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="aeroBar" min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton7" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="chasingPlusButton" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                                      <Component id="jProgressBar3" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="chasingBar" min="-2" pref="40" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton8" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Component id="jProgressBar4" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="durabilityPlusButton" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="durabilityBar" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jProgressBar5" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Component id="jButton5" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="mechanicsBar" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="mechanicsPlusButton" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jButton4" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Component id="jProgressBar6" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="workersPlusButton" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="workersBar" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel2" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="powerUnitLabel" min="-2" pref="41" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                              <Component id="jLabel3" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="aeroLabel" min="-2" pref="41" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="jLabel4" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="chasingLabel" min="-2" pref="41" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                              <Component id="jLabel5" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="durabilityLabel" min="-2" pref="41" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabel8" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="mechanicsLabel" min="-2" pref="41" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabel9" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="workersLabel" min="-2" pref="41" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                              <Component id="jLabel13" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="trackNameLabel" min="-2" pref="41" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel12" max="32767" attributes="0"/>
+                              <Component id="trackPictureLabel" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -216,7 +216,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="dashboardTitle">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial Black" size="36" style="0"/>
@@ -225,7 +225,7 @@
         <Property name="text" type="java.lang.String" value="Dashboard"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="jProgressBar1">
+    <Component class="javax.swing.JProgressBar" name="powerUnitBar">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="cc" red="0" type="rgb"/>
@@ -235,7 +235,7 @@
         <Property name="value" type="int" value="10"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="powerUnitLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="16" style="0"/>
@@ -244,7 +244,7 @@
         <Property name="text" type="java.lang.String" value="Power Unit"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="jProgressBar2">
+    <Component class="javax.swing.JProgressBar" name="aeroBar">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="cc" red="0" type="rgb"/>
@@ -254,7 +254,7 @@
         <Property name="value" type="int" value="10"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="aeroLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="16" style="0"/>
@@ -263,7 +263,7 @@
         <Property name="text" type="java.lang.String" value="Aero Development"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="chasingLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="16" style="0"/>
@@ -272,7 +272,7 @@
         <Property name="text" type="java.lang.String" value="Chasing System"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Component class="javax.swing.JLabel" name="durabilityLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="16" style="0"/>
@@ -281,7 +281,7 @@
         <Property name="text" type="java.lang.String" value="Durability"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="jProgressBar3">
+    <Component class="javax.swing.JProgressBar" name="chasingBar">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="cc" red="0" type="rgb"/>
@@ -291,7 +291,7 @@
         <Property name="value" type="int" value="10"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="jProgressBar4">
+    <Component class="javax.swing.JProgressBar" name="durabilityBar">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="cc" red="0" type="rgb"/>
@@ -301,7 +301,7 @@
         <Property name="value" type="int" value="10"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="simulationPanel">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -313,7 +313,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jLabel6" alignment="0" max="32767" attributes="0"/>
+              <Component id="racingTittle" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="winnerLabel" min="-2" pref="321" max="-2" attributes="0"/>
@@ -327,7 +327,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jLabel6" min="-2" pref="68" max="-2" attributes="0"/>
+                  <Component id="racingTittle" min="-2" pref="68" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="simulationLabel" pref="495" max="32767" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -341,7 +341,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel6">
+        <Component class="javax.swing.JLabel" name="racingTittle">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Black" size="36" style="0"/>
@@ -386,7 +386,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel8">
+    <Component class="javax.swing.JLabel" name="mechanicsLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="16" style="0"/>
@@ -396,7 +396,7 @@
         <Property name="toolTipText" type="java.lang.String" value="With more mechanics, your upgrade performance increased."/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="jProgressBar5">
+    <Component class="javax.swing.JProgressBar" name="mechanicsBar">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="cc" red="0" type="rgb"/>
@@ -406,7 +406,7 @@
         <Property name="value" type="int" value="10"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel9">
+    <Component class="javax.swing.JLabel" name="workersLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="16" style="0"/>
@@ -416,7 +416,7 @@
         <Property name="toolTipText" type="java.lang.String" value="With more workers, your upgrade performance increased."/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="jProgressBar6">
+    <Component class="javax.swing.JProgressBar" name="workersBar">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="cc" red="0" type="rgb"/>
@@ -426,7 +426,7 @@
         <Property name="value" type="int" value="10"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="powerUnitPlusButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="+"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -437,51 +437,51 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton2MouseClicked"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="powerUnitPlusButtonMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="powerUnitPlusButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="workersPlusButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="+"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton4MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="workersPlusButtonMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton5">
+    <Component class="javax.swing.JButton" name="mechanicsPlusButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="+"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton5MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mechanicsPlusButtonMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton6">
+    <Component class="javax.swing.JButton" name="aeroPlusButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="+"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton6MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="aeroPlusButtonMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton7">
+    <Component class="javax.swing.JButton" name="chasingPlusButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="+"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton7MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="chasingPlusButtonMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton8">
+    <Component class="javax.swing.JButton" name="durabilityPlusButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="+"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton8MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="durabilityPlusButtonMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel10">
+    <Component class="javax.swing.JLabel" name="devPointsLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="16" style="0"/>
@@ -490,7 +490,7 @@
         <Property name="text" type="java.lang.String" value="Available development points: 3"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel11">
+    <Component class="javax.swing.JLabel" name="workPointsLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="16" style="0"/>
@@ -499,9 +499,9 @@
         <Property name="text" type="java.lang.String" value="Available worker points: 2"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel12">
+    <Component class="javax.swing.JLabel" name="trackPictureLabel">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel13">
+    <Component class="javax.swing.JLabel" name="trackNameLabel">
     </Component>
     <Component class="javax.swing.JButton" name="MinigameButton">
       <Properties>
@@ -514,7 +514,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel15">
+    <Component class="javax.swing.JLabel" name="upgradeStatLabel">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Upgrade Status"/>

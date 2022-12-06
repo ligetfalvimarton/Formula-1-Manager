@@ -59,11 +59,11 @@ public class LoadGame extends javax.swing.JPanel {
         
         for(int i=0;i<highscores.size();i++)
         {
-            jTable1.setValueAt(highscores.get(i).getName(),i,0);
-            jTable1.setValueAt(highscores.get(i).getScore(),i,1);
-            jTable1.setValueAt(highscores.get(i).getWins(),i,2);
-            jTable1.setValueAt(highscores.get(i).getMoney(),i,3);
-            jTable1.setValueAt(highscores.get(i).getConstructor(),i,4);
+            dataTable.setValueAt(highscores.get(i).getName(),i,0);
+            dataTable.setValueAt(highscores.get(i).getScore(),i,1);
+            dataTable.setValueAt(highscores.get(i).getWins(),i,2);
+            dataTable.setValueAt(highscores.get(i).getMoney(),i,3);
+            dataTable.setValueAt(highscores.get(i).getConstructor(),i,4);
         }
     }
     
@@ -71,22 +71,22 @@ public class LoadGame extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        infoLabel = new javax.swing.JLabel();
+        titleLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        dataTable = new javax.swing.JTable();
+        backToMenuButton = new javax.swing.JButton();
+        loadGameButton = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Choose which game do you want to load");
+        infoLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        infoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        infoLabel.setText("Choose which game do you want to load");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Resume Game");
+        titleLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleLabel.setText("Resume Game");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        dataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -121,26 +121,26 @@ public class LoadGame extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
+        dataTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(dataTable);
+        if (dataTable.getColumnModel().getColumnCount() > 0) {
+            dataTable.getColumnModel().getColumn(0).setResizable(false);
+            dataTable.getColumnModel().getColumn(1).setResizable(false);
+            dataTable.getColumnModel().getColumn(2).setResizable(false);
+            dataTable.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        jButton1.setText("Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        backToMenuButton.setText("Back");
+        backToMenuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                backToMenuButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Load");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        loadGameButton.setText("Load");
+        loadGameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                loadGameButtonActionPerformed(evt);
             }
         });
 
@@ -151,47 +151,47 @@ public class LoadGame extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(infoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(167, 167, 167)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(backToMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loadGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(infoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(167, 167, 167)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(loadGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(backToMenuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void backToMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToMenuButtonActionPerformed
         try {
             window.switchToMenu(this);
         } catch (IOException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_backToMenuButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void loadGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadGameButtonActionPerformed
         HighScore setToLoad = new HighScore("",0,0,0,"",0,"","");
         for(int i = 0;i<highscores.size();i++)
         {
@@ -199,7 +199,7 @@ public class LoadGame extends javax.swing.JPanel {
             for(int j = 0; j<5;j++)
             {
                 String a = highscores.get(i).toString().split(" ")[j];
-                String b = jTable1.getValueAt(jTable1.getSelectedRow(), j).toString();
+                String b = dataTable.getValueAt(dataTable.getSelectedRow(), j).toString();
                 if(a.equals(b))
                     counter++;
             }
@@ -235,7 +235,7 @@ public class LoadGame extends javax.swing.JPanel {
         window.getGameModel().getGameField().setValue(setToLoad.getMoney());
         window.getGameModel().getTimeSimulation().setDaysPassed(setToLoad.getDay());
         window.getGameModel().getTimeSimulation().start();    
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_loadGameButtonActionPerformed
 
     public void loadOnBoard(Point point, String type, int sX, int sY)
     {
@@ -271,11 +271,11 @@ public class LoadGame extends javax.swing.JPanel {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton backToMenuButton;
+    private javax.swing.JTable dataTable;
+    private javax.swing.JLabel infoLabel;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton loadGameButton;
+    private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }
