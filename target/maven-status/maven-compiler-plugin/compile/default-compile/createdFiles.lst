@@ -103,6 +103,7 @@ View\RaceWeekend$9.class
 View\GameField$4.class
 View\Minigame$8.class
 Model\TimeSimulation.class
+Model\MinigameModel.class
 Source\Images.class
 View\Minigame$1.class
 rxjava_mvvm\RxModelInvoker$1.class

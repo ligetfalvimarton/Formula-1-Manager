@@ -82,6 +82,8 @@ public MainWindow() throws SQLException
                 }
             }
         };
+        
+        
         mainWindow.addWindowListener(exitListener);  
         gameModel = new GameModel(75000,64, 32);
     };
@@ -167,7 +169,6 @@ public MainWindow() throws SQLException
             mainWindow.pack();
             mainWindow.setVisible(true);
         }
-    
     public void switchToMenu(JPanel p) throws IOException
         {
             mainWindow.remove(p);
@@ -176,7 +177,6 @@ public MainWindow() throws SQLException
             mainWindow.pack();
             mainWindow.setVisible(true);
         }
-    
     public void switchToGameField(JPanel p){
         mainWindow.remove(p);
         gamefieldPanel = new GameField(this);

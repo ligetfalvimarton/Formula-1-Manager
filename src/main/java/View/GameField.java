@@ -40,7 +40,7 @@ public class GameField extends JPanel {
     valuePrinter();
     jButton5.setVisible(false);
     jLabel1.setText("Name: " + window.getPlayerName());
-    jLabel3.setText("Constructor: " + window.getConstructor()); 
+    jLabel3.setText("Constructor: " + window.getConstructor());
     }
     
     public void setGameModel(GameModel gameModel){
@@ -99,7 +99,6 @@ public class GameField extends JPanel {
 
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
-        gameArea1.setPreferredSize(new java.awt.Dimension(1280, 640));
         gameArea1.refresh(window.getGameModel());
 
         javax.swing.GroupLayout gameArea1Layout = new javax.swing.GroupLayout(gameArea1);
@@ -239,7 +238,6 @@ public class GameField extends JPanel {
                     gameModel.getTimeSimulation().StopTime();
                     window.switchToInter(this);
                     gameModel.getTimeSimulation().setDateTime(LocalTime.of(0, 0, 0));
-                    gameModel.getTimeSimulation().setDaysPassed((gameModel.getGpCounter()*3)+1);
                 } catch (IOException ex) {
                     Logger.getLogger(GameField.class.getName()).log(Level.SEVERE, null, ex);
                 }

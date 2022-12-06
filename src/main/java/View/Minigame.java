@@ -4,7 +4,7 @@
  */
 package View;
 
-import ViewModel.ViewModel;
+import ViewModel.MinigameVM;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,7 +27,7 @@ import static rxjava_mvvm.RxSwingView2ViewModelBinder.bindSwingView;
  */
 public class Minigame extends javax.swing.JPanel {
     private boolean started;
-    private ArrayList<JButton> randomize;
+    public static ArrayList<JButton> randomize;
     private Timer timer;
     private int buttonCounter;
     private int clicks;
@@ -42,11 +42,11 @@ public class Minigame extends javax.swing.JPanel {
         buttonCounter = 0;
         clicks=0;
         initComponents();
-        ViewModel viewModel = new ViewModel();
+        MinigameVM viewModel = new MinigameVM(window.getGameModel());
         bind(viewModel);
     }
-    public void bind(final ViewModel viewModel) {
-        bindSwingView(jButton8).toViewModel(viewModel.v2vm_startButtonEvents);
+    public void bind(final MinigameVM viewModel) {
+        bindSwingView(startLights).toViewModel(viewModel.v2vm_startButtonEvents);
     }
     
     /**
@@ -60,15 +60,15 @@ public class Minigame extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        light1 = new javax.swing.JButton();
+        light2 = new javax.swing.JButton();
+        light3 = new javax.swing.JButton();
+        light4 = new javax.swing.JButton();
+        light5 = new javax.swing.JButton();
+        light6 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        backToRW = new javax.swing.JButton();
+        startLights = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -78,39 +78,39 @@ public class Minigame extends javax.swing.JPanel {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Complete the following memory game to increase your development");
 
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        light1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                light1ActionPerformed(evt);
             }
         });
 
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        light2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                light2ActionPerformed(evt);
             }
         });
 
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        light3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                light3ActionPerformed(evt);
             }
         });
 
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        light4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                light4ActionPerformed(evt);
             }
         });
 
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        light5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                light5ActionPerformed(evt);
             }
         });
 
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        light6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                light6ActionPerformed(evt);
             }
         });
 
@@ -118,17 +118,17 @@ public class Minigame extends javax.swing.JPanel {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Watch the lights and click on the buttons in order");
 
-        jButton7.setText("Back");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        backToRW.setText("Back");
+        backToRW.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                backToRWActionPerformed(evt);
             }
         });
 
-        jButton8.setText("Start");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        startLights.setText("Start");
+        startLights.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                startLightsActionPerformed(evt);
             }
         });
 
@@ -138,28 +138,25 @@ public class Minigame extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(372, 372, 372)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(91, 91, 91)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(light4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(light1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(91, 91, 91)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(light2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(light5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(94, 94, 94)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(light6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(light3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(363, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(startLights, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(422, 422, 422)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(backToRW, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -176,45 +173,45 @@ public class Minigame extends javax.swing.JPanel {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(light2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(light3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                    .addComponent(light1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                    .addComponent(light6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(light5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(light4, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(95, 95, 95)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(backToRW, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(startLights, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(53, 53, 53))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void light2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_light2ActionPerformed
         if(started)
         {
-            if(clicks == randomize.indexOf(jButton2))
+            if(clicks == randomize.indexOf(light2))
             {
-                jButton2.setBackground(Color.GREEN);
-                jButton2.setEnabled(false);
+                light2.setBackground(Color.GREEN);
+                light2.setEnabled(false);
                 clicks++;
-                win(jButton2);
+                win(light2);
             }
             else
             {
-                jButton2.setBackground(Color.RED);
+                light2.setBackground(Color.RED);
                 defeat();
             }
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_light2ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void backToRWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToRWActionPerformed
         try {
             window.getGameModel().setUpgradeChanceVisibility(false);
             if(clicks == 6)
@@ -223,155 +220,123 @@ public class Minigame extends javax.swing.JPanel {
         } catch (IOException ex) {
             Logger.getLogger(Minigame.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_backToRWActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        
+    private void startLightsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startLightsActionPerformed
         started=true;
-        jButton7.setVisible(false);
-        randomize.add(jButton1);
-        randomize.add(jButton2);
-        randomize.add(jButton3);
-        randomize.add(jButton4);
-        randomize.add(jButton5);
-        randomize.add(jButton6);
-        Collections.shuffle(randomize);
-        timer = new Timer(1000, new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                if(buttonCounter > randomize.size()-1)
-                {
-                    timer.stop();
-                    jButton1.setBackground(null);
-                    jButton2.setBackground(null);
-                    jButton3.setBackground(null);
-                    jButton4.setBackground(null);
-                    jButton5.setBackground(null);
-                    jButton6.setBackground(null);
-                    jButton8.setVisible(true);
-                    jButton1.setEnabled(true);
-                    jButton2.setEnabled(true);
-                    jButton3.setEnabled(true);
-                    jButton4.setEnabled(true);
-                    jButton5.setEnabled(true);
-                    jButton6.setEnabled(true);
-                    jButton8.setVisible(false);
-                }
-                else
-                {
-                    randomize.get(buttonCounter).setBackground(Color.BLUE);
-                }
-                buttonCounter++;
-            }
-        });
-        timer.start();
-        jButton8.setVisible(false);
-        jButton1.setEnabled(false);
-        jButton2.setEnabled(false);
-        jButton3.setEnabled(false);
-        jButton4.setEnabled(false);
-        jButton5.setEnabled(false);
-        jButton6.setEnabled(false);
-    }//GEN-LAST:event_jButton8ActionPerformed
+        randomize.add(light1);
+        randomize.add(light2);
+        randomize.add(light3);
+        randomize.add(light4);
+        randomize.add(light5);
+        randomize.add(light6);
+        Minigame.backToRW.setVisible(false);
+        Minigame.startLights.setVisible(false);
+        Minigame.light1.setEnabled(false);
+        Minigame.light2.setEnabled(false);
+        Minigame.light3.setEnabled(false);
+        Minigame.light4.setEnabled(false);
+        Minigame.light5.setEnabled(false);
+        Minigame.light6.setEnabled(false);
+    }//GEN-LAST:event_startLightsActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void light1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_light1ActionPerformed
         if(started)
         {
-            if(clicks == randomize.indexOf(jButton1))
+            if(clicks == randomize.indexOf(light1))
             {
-                jButton1.setBackground(Color.GREEN);
-                jButton1.setEnabled(false);
+                light1.setBackground(Color.GREEN);
+                light1.setEnabled(false);
                 clicks++;
-                win(jButton1);
+                win(light1);
             }
             else
             {
-                jButton1.setBackground(Color.RED);
+                light1.setBackground(Color.RED);
                 defeat();
             }
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_light1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void light3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_light3ActionPerformed
         if(started)
         {
-            if(clicks == randomize.indexOf(jButton3))
+            if(clicks == randomize.indexOf(light3))
             {
-                jButton3.setBackground(Color.GREEN);
-                jButton3.setEnabled(false);
+                light3.setBackground(Color.GREEN);
+                light3.setEnabled(false);
                 clicks++;
-                win(jButton3);
+                win(light3);
             }
             else
             {
-                jButton3.setBackground(Color.RED);
+                light3.setBackground(Color.RED);
                 defeat();
             }
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_light3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void light4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_light4ActionPerformed
         if(started)
         {
-            if(clicks == randomize.indexOf(jButton4))
+            if(clicks == randomize.indexOf(light4))
             {
-                jButton4.setBackground(Color.GREEN);
-                jButton4.setEnabled(false);
+                light4.setBackground(Color.GREEN);
+                light4.setEnabled(false);
                 clicks++;
-                win(jButton4);
+                win(light4);
             }
             else
             {
-                jButton4.setBackground(Color.RED);
+                light4.setBackground(Color.RED);
                 defeat();
             }
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_light4ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void light5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_light5ActionPerformed
         if(started)
         {
-            if(clicks == randomize.indexOf(jButton5))
+            if(clicks == randomize.indexOf(light5))
             {
-                jButton5.setBackground(Color.GREEN);
-                jButton5.setEnabled(false);
+                light5.setBackground(Color.GREEN);
+                light5.setEnabled(false);
                 clicks++;
-                win(jButton5);
+                win(light5);
             }
             else
             {
-                jButton5.setBackground(Color.RED);
+                light5.setBackground(Color.RED);
                 defeat();
             }
         }
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_light5ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void light6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_light6ActionPerformed
         if(started)
         {
-            if(clicks == randomize.indexOf(jButton6))
+            if(clicks == randomize.indexOf(light6))
             {
-                jButton6.setBackground(Color.GREEN);
-                jButton6.setEnabled(false);
+                light6.setBackground(Color.GREEN);
+                light6.setEnabled(false);
                 clicks++;
-                win(jButton6);
+                win(light6);
             }
             else
             {
-                jButton6.setBackground(Color.RED);
+                light6.setBackground(Color.RED);
                 defeat();
             }
         }
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_light6ActionPerformed
 
     
     public void win(JButton button)
     {
         if(randomize.indexOf(button) == 5)
         {
-            String[] buttons = { "Lets Go" };
-            int choice = JOptionPane.showOptionDialog(null, "Congratulations, you win!!",
+            String[] buttons = { "Ok" };
+            int choice = JOptionPane.showOptionDialog(null, "Congratulations, you win!",
             "Back to Raceweek",
             JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
             switch(choice)
@@ -392,27 +357,27 @@ public class Minigame extends javax.swing.JPanel {
                     break;
                 default:
             }
-            jButton1.setEnabled(false);
-            jButton2.setEnabled(false);
-            jButton3.setEnabled(false);
-            jButton4.setEnabled(false);
-            jButton5.setEnabled(false);
-            jButton6.setEnabled(false);
-            jButton7.setVisible(true);
+            light1.setEnabled(false);
+            light2.setEnabled(false);
+            light3.setEnabled(false);
+            light4.setEnabled(false);
+            light5.setEnabled(false);
+            light6.setEnabled(false);
+            backToRW.setVisible(true);
         }
     }
     
     public void defeat()
     {
-        jButton1.setEnabled(false);
-        jButton2.setEnabled(false);
-        jButton3.setEnabled(false);
-        jButton4.setEnabled(false);
-        jButton5.setEnabled(false);
-        jButton6.setEnabled(false);
-        jButton7.setVisible(true);
-        String[] buttons = { "Lets Go" };
-        int choice = JOptionPane.showOptionDialog(null, "Defeat, sorry next time!",
+        light1.setEnabled(false);
+        light2.setEnabled(false);
+        light3.setEnabled(false);
+        light4.setEnabled(false);
+        light5.setEnabled(false);
+        light6.setEnabled(false);
+        backToRW.setVisible(true);
+        String[] buttons = { "Ok" };
+        int choice = JOptionPane.showOptionDialog(null, "Fail, good luck next time!",
         "Back to Raceweek",
         JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
         switch(choice)
@@ -433,18 +398,18 @@ public class Minigame extends javax.swing.JPanel {
             default:
         }
     }
-
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
+    public static javax.swing.JButton backToRW;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    public static javax.swing.JButton light1;
+    public static javax.swing.JButton light2;
+    public static javax.swing.JButton light3;
+    public static javax.swing.JButton light4;
+    public static javax.swing.JButton light5;
+    public static javax.swing.JButton light6;
+    public static javax.swing.JButton startLights;
     // End of variables declaration//GEN-END:variables
 }
