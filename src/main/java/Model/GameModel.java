@@ -54,18 +54,6 @@ public class GameModel {
         gpCounter = 0;
         startingboard();
     }
-    public GameModel(){
-        board = new Unit[64][32];
-        this.money = 75000;
-        timeSimulation = new TimeSimulation();
-        alreadyBuiltList = new ArrayList<>();
-        values = new ArrayList<>();
-        developmentPoints = 4;
-        workerPoints = 4;
-        wins = 0;
-        gpCounter = 0;
-        startingboard();
-    }
     
     public void placeNewBuilding(){
         if(newBuilding != null && selectedAreaClear){

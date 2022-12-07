@@ -7,6 +7,7 @@ package Model;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import javax.swing.ImageIcon;
 import rx.Observable;
@@ -19,6 +20,9 @@ public class ReactiveGameModel
 {
     private GameModel gM;
     private String winner;
+    
+    public ReactiveGameModel() 
+    {}
     public ReactiveGameModel(GameModel gameModel) 
     {
         gM = gameModel;
@@ -59,7 +63,15 @@ public class ReactiveGameModel
         
         return Observable.zip(simulation, trigger, (sim, aLong) -> sim);
     } 
-
+    
+    public Observable<Integer> raceweekUpgradePlus() 
+    {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        Observable<Integer> num = Observable.from(list);
+        return num;
+    }
+    
     public String getWinner() {
         return winner;
     }

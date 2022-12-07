@@ -4,6 +4,7 @@
  */
 package View;
 
+import Model.ReactiveGameModel;
 import Source.Constructor;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;

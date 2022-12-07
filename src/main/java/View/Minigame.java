@@ -42,7 +42,7 @@ public class Minigame extends javax.swing.JPanel {
         buttonCounter = 0;
         clicks=0;
         initComponents();
-        MinigameVM viewModel = new MinigameVM(window.getGameModel());
+        MinigameVM viewModel = new MinigameVM();
         bind(viewModel);
     }
     public void bind(final MinigameVM viewModel) {

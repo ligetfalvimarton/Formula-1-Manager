@@ -26,15 +26,15 @@ import static rxjava_mvvm.RxSwingView2ViewModelBinder.bindSwingView;
  */
 public class RaceWeekend extends javax.swing.JPanel {
     private final MainWindow window;
-    private int devPoints;
-    private int workPoints;
+    public static int devPoints;
+    public static int workPoints;
     private int labelCounter;
-    private ArrayList<Integer> barValues;
-    private GameModel gameModel;
+    public static ArrayList<Integer> barValues;
+    public static GameModel gameModel;
     private Timer timer;
     private String winner;
-    private boolean upgradeChance;
-    private int increasedChance;
+    public static boolean upgradeChance;
+    public static int increasedChance;
     /**
      * Creates new form ResourceAndDevelopment
      */
@@ -49,6 +49,12 @@ public class RaceWeekend extends javax.swing.JPanel {
     }
     public void bind(final RaceWeekendVM viewModel) {
         bindSwingView(simulationStartButton).toViewModel(viewModel.v2vm_simulationButtonEvents);
+        bindSwingView(powerUnitPlusButton).toViewModel(viewModel.v2vm_upgradePowerUnitButtonEvents); 
+        bindSwingView(aeroPlusButton).toViewModel(viewModel.v2vm_upgradeAeroButtonEvents); 
+        bindSwingView(chasingPlusButton).toViewModel(viewModel.v2vm_upgradeChasingButtonEvents); 
+        bindSwingView(durabilityPlusButton).toViewModel(viewModel.v2vm_upgradeDurabilityButtonEvents); 
+        bindSwingView(mechanicsPlusButton).toViewModel(viewModel.v2vm_upgradeMechanicsButtonEvents); 
+        bindSwingView(workersPlusButton).toViewModel(viewModel.v2vm_upgradeWorkersEvents); 
     }
     public void setGameModel(GameModel gameModel){
         this.gameModel = gameModel;
@@ -82,11 +88,11 @@ public class RaceWeekend extends javax.swing.JPanel {
             workersBar.setToolTipText(String.valueOf(values.get(5)));
         }
     }
-    public void availablePointsText(){
+    public static void availablePointsText(){
         devPointsLabel.setText("Available development points: " + devPoints);
         workPointsLabel.setText("Available worker points: " + workPoints);
     }
-    public void hideButtons()
+    public static void hideButtons()
     {
         if(devPoints <= 0)
         {
@@ -527,6 +533,8 @@ public class RaceWeekend extends javax.swing.JPanel {
 
     private void backToGFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToGFActionPerformed
         gameModel.setValues(barValues);
+        gameModel.setDevelopmentPoints(devPoints);
+        gameModel.setWorkerPoints(workPoints);
         gameModel.setUpgradeChance(false);
         gameModel.setUpgradeChanceVisibility(true);
         gameModel.setGpCounter(gameModel.getGpCounter()+1);
@@ -537,225 +545,27 @@ public class RaceWeekend extends javax.swing.JPanel {
     }//GEN-LAST:event_backToGFActionPerformed
 
     private void powerUnitPlusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_powerUnitPlusButtonMouseClicked
-        Random rand = new Random();
-        int numberOne = rand.nextInt(increasedChance);
-        if(upgradeChance)
-        {
-            upgradeStatLabel.setText("Sucessful");
-            int addon = powerUnitBar.getValue() +1;
-            powerUnitBar.setValue(addon);
-            powerUnitBar.setToolTipText(String.valueOf(addon));
-            barValues.set(0, addon);
-            devPoints--;
-            gameModel.setDevelopmentPoints(devPoints);
-            availablePointsText();
-            hideButtons();
-        }
-        else if(numberOne%3 ==0)
-        {
-            upgradeStatLabel.setText("Sucessful");
-            int addon = powerUnitBar.getValue() +1;
-            powerUnitBar.setValue(addon);
-            powerUnitBar.setToolTipText(String.valueOf(addon));
-            barValues.set(0, addon);
-            devPoints--;
-            gameModel.setDevelopmentPoints(devPoints);
-            availablePointsText();
-            hideButtons();
-        }
-        else
-        {
-            upgradeStatLabel.setText("Failed");
-            devPoints--;
-            gameModel.setDevelopmentPoints(devPoints);
-            availablePointsText();
-            hideButtons();
-        }
+
     }//GEN-LAST:event_powerUnitPlusButtonMouseClicked
 
     private void aeroPlusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aeroPlusButtonMouseClicked
-        Random rand = new Random();
-        int numberOne = rand.nextInt(increasedChance);
-        if(upgradeChance)
-        {
-            upgradeStatLabel.setText("Sucessful");
-            int addon = aeroBar.getValue() +1;
-            aeroBar.setValue(addon);
-            aeroBar.setToolTipText(String.valueOf(addon));
-            barValues.set(0, addon);
-            devPoints--;
-            gameModel.setDevelopmentPoints(devPoints);
-            availablePointsText();
-            hideButtons();
-        }
-        else if(numberOne%3 ==0)
-        {
-            upgradeStatLabel.setText("Sucessful");
-            int addon = aeroBar.getValue() +1;
-            aeroBar.setValue(addon);
-            aeroBar.setToolTipText(String.valueOf(addon));
-            barValues.set(0, addon);
-            devPoints--;
-            gameModel.setDevelopmentPoints(devPoints);
-            availablePointsText();
-            hideButtons();
-        }
-        else
-        {
-            upgradeStatLabel.setText("Failed");
-            devPoints--;
-            gameModel.setDevelopmentPoints(devPoints);
-            availablePointsText();
-            hideButtons();
-        }
+        
     }//GEN-LAST:event_aeroPlusButtonMouseClicked
 
     private void chasingPlusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chasingPlusButtonMouseClicked
-        Random rand = new Random();
-        int numberOne = rand.nextInt(increasedChance);
-        if(upgradeChance)
-        {
-            upgradeStatLabel.setText("Sucessful");
-            int addon = chasingBar.getValue() +1;
-            chasingBar.setValue(addon);
-            chasingBar.setToolTipText(String.valueOf(addon));
-            barValues.set(0, addon);
-            devPoints--;
-            gameModel.setDevelopmentPoints(devPoints);
-            availablePointsText();
-            hideButtons();
-        }
-        else if(numberOne%3 ==0)
-        {
-            upgradeStatLabel.setText("Sucessful");
-            int addon = chasingBar.getValue() +1;
-            chasingBar.setValue(addon);
-            chasingBar.setToolTipText(String.valueOf(addon));
-            barValues.set(0, addon);
-            devPoints--;
-            gameModel.setDevelopmentPoints(devPoints);
-            availablePointsText();
-            hideButtons();
-        }
-        else
-        {
-            upgradeStatLabel.setText("Failed");
-            devPoints--;
-            gameModel.setDevelopmentPoints(devPoints);
-            availablePointsText();
-            hideButtons();
-        }
+
     }//GEN-LAST:event_chasingPlusButtonMouseClicked
 
     private void durabilityPlusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_durabilityPlusButtonMouseClicked
-        Random rand = new Random();
-        int numberOne = rand.nextInt(increasedChance);
-        if(upgradeChance)
-        {
-            upgradeStatLabel.setText("Sucessful");
-            int addon = durabilityBar.getValue() +1;
-            durabilityBar.setValue(addon);
-            durabilityBar.setToolTipText(String.valueOf(addon));
-            barValues.set(0, addon);
-            devPoints--;
-            gameModel.setDevelopmentPoints(devPoints);
-            availablePointsText();
-            hideButtons();
-        }
-        else if(numberOne%3 ==0)
-        {
-            upgradeStatLabel.setText("Sucessful");
-            int addon = durabilityBar.getValue() +1;
-            durabilityBar.setValue(addon);
-            durabilityBar.setToolTipText(String.valueOf(addon));
-            barValues.set(0, addon);
-            devPoints--;
-            gameModel.setDevelopmentPoints(devPoints);
-            availablePointsText();
-            hideButtons();
-        }
-        else
-        {
-            upgradeStatLabel.setText("Failed");
-            devPoints--;
-            gameModel.setDevelopmentPoints(devPoints);
-            availablePointsText();
-            hideButtons();
-        }
+
     }//GEN-LAST:event_durabilityPlusButtonMouseClicked
 
     private void mechanicsPlusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mechanicsPlusButtonMouseClicked
-        Random rand = new Random();
-        int numberOne = rand.nextInt(increasedChance);
-        if(upgradeChance)
-        {
-            upgradeStatLabel.setText("Sucessful");
-            int addon = mechanicsBar.getValue() +1;
-            mechanicsBar.setValue(addon);
-            mechanicsBar.setToolTipText(String.valueOf(addon));
-            barValues.set(4, addon);
-            workPoints--;
-            gameModel.setWorkerPoints(workPoints);
-            availablePointsText();
-            hideButtons();
-        }
-        else if(numberOne%3 ==0)
-        {
-            upgradeStatLabel.setText("Sucessful");
-            int addon = mechanicsBar.getValue() +1;
-            mechanicsBar.setValue(addon);
-            mechanicsBar.setToolTipText(String.valueOf(addon));
-            barValues.set(4, addon);
-            workPoints--;
-            gameModel.setWorkerPoints(workPoints);
-            availablePointsText();
-            hideButtons();
-        }
-        else
-        {
-            upgradeStatLabel.setText("Failed");
-            workPoints--;
-            gameModel.setWorkerPoints(workPoints);
-            availablePointsText();
-            hideButtons();
-        }
+
     }//GEN-LAST:event_mechanicsPlusButtonMouseClicked
 
     private void workersPlusButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_workersPlusButtonMouseClicked
-        Random rand = new Random();
-        int numberOne = rand.nextInt(increasedChance);
-        if(upgradeChance)
-        {
-            upgradeStatLabel.setText("Sucessful");
-            int addon = workersBar.getValue() +1;
-            workersBar.setValue(addon);
-            workersBar.setToolTipText(String.valueOf(addon));
-            barValues.set(4, addon);
-            workPoints--;
-            gameModel.setWorkerPoints(workPoints);
-            availablePointsText();
-            hideButtons();
-        }
-        else if(numberOne%3 ==0)
-        {
-            upgradeStatLabel.setText("Sucessful");
-            int addon = workersBar.getValue() +1;
-            workersBar.setValue(addon);
-            workersBar.setToolTipText(String.valueOf(addon));
-            barValues.set(4, addon);
-            workPoints--;
-            gameModel.setWorkerPoints(workPoints);
-            availablePointsText();
-            hideButtons();
-        }
-        else
-        {
-            upgradeStatLabel.setText("Failed");
-            workPoints--;
-            gameModel.setWorkerPoints(workPoints);
-            availablePointsText();
-            hideButtons();
-        }
+
     }//GEN-LAST:event_workersPlusButtonMouseClicked
 
     private void simulationStartButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_simulationStartButtonMousePressed
@@ -781,35 +591,35 @@ public class RaceWeekend extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton MinigameButton;
-    private javax.swing.JProgressBar aeroBar;
+    public static javax.swing.JProgressBar aeroBar;
     private javax.swing.JLabel aeroLabel;
-    private javax.swing.JButton aeroPlusButton;
+    private static javax.swing.JButton aeroPlusButton;
     public static javax.swing.JButton backToGF;
-    private javax.swing.JProgressBar chasingBar;
+    public static javax.swing.JProgressBar chasingBar;
     private javax.swing.JLabel chasingLabel;
-    private javax.swing.JButton chasingPlusButton;
+    private static javax.swing.JButton chasingPlusButton;
     private javax.swing.JLabel dashboardTitle;
-    private javax.swing.JLabel devPointsLabel;
-    private javax.swing.JProgressBar durabilityBar;
+    public static javax.swing.JLabel devPointsLabel;
+    public static javax.swing.JProgressBar durabilityBar;
     private javax.swing.JLabel durabilityLabel;
-    private javax.swing.JButton durabilityPlusButton;
-    private javax.swing.JProgressBar mechanicsBar;
+    private static javax.swing.JButton durabilityPlusButton;
+    public static javax.swing.JProgressBar mechanicsBar;
     private javax.swing.JLabel mechanicsLabel;
-    private javax.swing.JButton mechanicsPlusButton;
-    private javax.swing.JProgressBar powerUnitBar;
+    private static javax.swing.JButton mechanicsPlusButton;
+    public static javax.swing.JProgressBar powerUnitBar;
     private javax.swing.JLabel powerUnitLabel;
-    private javax.swing.JButton powerUnitPlusButton;
+    private static javax.swing.JButton powerUnitPlusButton;
     private javax.swing.JLabel racingTittle;
     public static javax.swing.JLabel simulationLabel;
     private javax.swing.JPanel simulationPanel;
     public static javax.swing.JButton simulationStartButton;
     private javax.swing.JLabel trackNameLabel;
     private javax.swing.JLabel trackPictureLabel;
-    private javax.swing.JLabel upgradeStatLabel;
+    public static javax.swing.JLabel upgradeStatLabel;
     public static javax.swing.JLabel winnerLabel;
-    private javax.swing.JLabel workPointsLabel;
-    private javax.swing.JProgressBar workersBar;
+    public static javax.swing.JLabel workPointsLabel;
+    public static javax.swing.JProgressBar workersBar;
     private javax.swing.JLabel workersLabel;
-    private javax.swing.JButton workersPlusButton;
+    private static javax.swing.JButton workersPlusButton;
     // End of variables declaration//GEN-END:variables
 }

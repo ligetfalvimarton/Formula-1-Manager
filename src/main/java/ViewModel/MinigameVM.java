@@ -25,13 +25,10 @@ public class MinigameVM {
     //public final BehaviorSubject<Integer> vm2v_numbers = BehaviorSubject.create();
     public final PublishSubject<ActionEvent> v2vm_startButtonEvents = PublishSubject.create();
     public final PublishSubject<JButton> vm2v_numbers = PublishSubject.create();
-    private GameModel gameModel;
-    public ReactiveGameModel gM;
+    public ReactiveGameModel gM = new ReactiveGameModel();
     public int buttonCounter = 0;
     ArrayList<JButton> tmp = new ArrayList<>();
-    public MinigameVM(GameModel gameModel) {
-        this.gameModel = gameModel;
-        gM = new ReactiveGameModel(gameModel);
+    public MinigameVM() {
         v2vm_startButtonEvents.subscribe(v -> gM.minigameLightCord().subscribe(m -> {
             if(buttonCounter > randomize.size()-1)
                 {
