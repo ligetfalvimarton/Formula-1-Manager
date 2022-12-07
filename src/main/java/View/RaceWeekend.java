@@ -584,22 +584,22 @@ public class RaceWeekend extends javax.swing.JPanel {
     public static javax.swing.JButton MinigameButton;
     public static javax.swing.JProgressBar aeroBar;
     private javax.swing.JLabel aeroLabel;
-    private static javax.swing.JButton aeroPlusButton;
+    public static javax.swing.JButton aeroPlusButton;
     public static javax.swing.JButton backToGF;
     public static javax.swing.JProgressBar chasingBar;
     private javax.swing.JLabel chasingLabel;
-    private static javax.swing.JButton chasingPlusButton;
+    public static javax.swing.JButton chasingPlusButton;
     private javax.swing.JLabel dashboardTitle;
     public static javax.swing.JLabel devPointsLabel;
     public static javax.swing.JProgressBar durabilityBar;
     private javax.swing.JLabel durabilityLabel;
-    private static javax.swing.JButton durabilityPlusButton;
+    public static javax.swing.JButton durabilityPlusButton;
     public static javax.swing.JProgressBar mechanicsBar;
     private javax.swing.JLabel mechanicsLabel;
-    private static javax.swing.JButton mechanicsPlusButton;
+    public static javax.swing.JButton mechanicsPlusButton;
     public static javax.swing.JProgressBar powerUnitBar;
     private javax.swing.JLabel powerUnitLabel;
-    private static javax.swing.JButton powerUnitPlusButton;
+    public static javax.swing.JButton powerUnitPlusButton;
     private javax.swing.JLabel racingTittle;
     public static javax.swing.JLabel simulationLabel;
     private javax.swing.JPanel simulationPanel;
@@ -611,6 +611,6 @@ public class RaceWeekend extends javax.swing.JPanel {
     public static javax.swing.JLabel workPointsLabel;
     public static javax.swing.JProgressBar workersBar;
     private javax.swing.JLabel workersLabel;
-    private static javax.swing.JButton workersPlusButton;
+    public static javax.swing.JButton workersPlusButton;
     // End of variables declaration//GEN-END:variables
 }

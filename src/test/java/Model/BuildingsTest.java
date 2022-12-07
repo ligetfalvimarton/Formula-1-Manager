@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 public class BuildingsTest {
     
-    Buildings empty = new Buildings(new Point(0,0), true, "empty", Images.GRASS, 1, 1);
+    Buildings empty = new Buildings(1000,1000,0,0,1,1,new Point(0,0), true, "empty", Images.GRASS);
     
     @Test
     public void buildings_ChangeToTree_Test(){

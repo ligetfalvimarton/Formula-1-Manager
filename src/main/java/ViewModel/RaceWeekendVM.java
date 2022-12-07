@@ -33,6 +33,7 @@ public class RaceWeekendVM {
         gM = new ReactiveGameModel(gameModel);
         
         v2vm_simulationButtonEvents.subscribe(v -> gM.raceweekSimulation().subscribe(m -> {
+            hidePlusButtons();
             RaceWeekend.simulationStartButton.setVisible(false);
             RaceWeekend.MinigameButton.setVisible(false);
             RaceWeekend.simulationLabel.setIcon(m);
@@ -65,6 +66,16 @@ public class RaceWeekendVM {
             statIncrease(RaceWeekend.workersBar,5,false);
         }));
     }
+    private void hidePlusButtons()
+    {
+        RaceWeekend.powerUnitPlusButton.setVisible(false);
+        RaceWeekend.aeroPlusButton.setVisible(false);
+        RaceWeekend.chasingPlusButton.setVisible(false);
+        RaceWeekend.durabilityPlusButton.setVisible(false);
+        RaceWeekend.mechanicsPlusButton.setVisible(false);
+        RaceWeekend.workersPlusButton.setVisible(false);
+    }
+    
     private void statIncrease(JProgressBar jBar, int idx,boolean b)
     {
         RaceWeekend.MinigameButton.setVisible(false);
