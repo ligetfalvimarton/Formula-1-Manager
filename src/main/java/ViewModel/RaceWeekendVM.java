@@ -6,7 +6,6 @@ package ViewModel;
 
 import Model.GameModel;
 import Model.ReactiveGameModel;
-import View.MainWindow;
 import View.RaceWeekend;
 import java.awt.event.ActionEvent;
 import java.util.Random;

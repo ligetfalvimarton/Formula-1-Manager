@@ -4,18 +4,10 @@
  */
 package View;
 
-import Model.ReactiveGameModel;
 import Source.Constructor;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 /**
  *
@@ -30,10 +22,6 @@ public class NewGame extends javax.swing.JPanel {
     private Constructor constructor;
     private static String playerName;
 
-    public void setConstructor(Constructor constructor) {
-        this.constructor = constructor;
-    }
-    
     public NewGame(final MainWindow window) {
         this.window = window;
         initComponents();
@@ -167,8 +155,9 @@ public class NewGame extends javax.swing.JPanel {
         constructor = Constructor.REDBULL;
         window.setConstructor(constructor);
         String name = JOptionPane.showInputDialog("Player's name: ", "Player");
-        if(name!=null){
-            if (name.trim().length() == 0)
+        if(name != null)
+        {
+            if(name.trim().length() == 0)
             {
                 name = "Player";
             }
@@ -184,8 +173,9 @@ public class NewGame extends javax.swing.JPanel {
         constructor = Constructor.FERRARI;
         window.setConstructor(constructor);
         String name = JOptionPane.showInputDialog("Player's name: ", "Player");
-        if(name!=null){
-            if (name.trim().length() == 0)
+        if(name != null)
+        {
+            if(name.trim().length() == 0)
             {
                 name = "Player";
             }
@@ -201,8 +191,9 @@ public class NewGame extends javax.swing.JPanel {
         constructor = Constructor.MERCEDES;
         window.setConstructor(constructor);
         String name = JOptionPane.showInputDialog("Player's name: ", "Player");
-        if(name!=null){
-            if (name.trim().length() == 0)
+        if(name != null)
+        {
+            if(name.trim().length() == 0)
             {
                 name = "Player";
             }
@@ -224,6 +215,10 @@ public class NewGame extends javax.swing.JPanel {
         
     public Constructor getConstructor() {
         return constructor;
+    }
+    
+    public void setConstructor(Constructor constructor) {
+        this.constructor = constructor;
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

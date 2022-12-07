@@ -15,7 +15,6 @@
  */
 package rxjava_mvvm;
 
-import utils.AsyncUtils;
 import rx.Observable;
 import rx.functions.Action1;
 
@@ -35,7 +34,7 @@ public class RxModelInvoker {
 
         public void executeAsync(final Action1<? super T> onNext) {
             source.subscribe(t -> {
-                AsyncUtils.executeAsync(() -> onNext.call(t));
+                //AsyncUtils.executeAsync(() -> onNext.call(t));
             });
         }
     }

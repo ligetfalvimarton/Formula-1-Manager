@@ -5,20 +5,14 @@
 package View;
 
 import Model.GameModel;
-import Model.TimeSimulation;
 import ViewModel.RaceWeekendVM;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.Timer;
 import static rxjava_mvvm.RxSwingView2ViewModelBinder.bindSwingView;
 /**
  *
@@ -28,20 +22,17 @@ public class RaceWeekend extends javax.swing.JPanel {
     private final MainWindow window;
     public static int devPoints;
     public static int workPoints;
-    private int labelCounter;
     public static ArrayList<Integer> barValues;
     public static GameModel gameModel;
-    private Timer timer;
-    private String winner;
     public static boolean upgradeChance;
     public static int increasedChance;
     /**
      * Creates new form ResourceAndDevelopment
+     * @param window
      */
     public RaceWeekend(final MainWindow window) {
         this.window = window;
         initComponents();
-        labelCounter = 1;
         simulationLabel.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Simulation/0.png"));
         backToGF.setVisible(false);        
         RaceWeekendVM viewModel = new RaceWeekendVM(window.getGameModel());

@@ -4,17 +4,13 @@
  */
 package ViewModel;
 
-import Model.GameModel;
 import Model.ReactiveGameModel;
-import View.MainWindow;
 import View.Minigame;
 import static View.Minigame.randomize;
-import io.reactivex.rxjava3.core.Observer;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import javax.swing.JButton;
-import rx.subjects.BehaviorSubject;
 import rx.subjects.PublishSubject;
 
 /**
@@ -22,7 +18,6 @@ import rx.subjects.PublishSubject;
  * @author Marton
  */
 public class MinigameVM {
-    //public final BehaviorSubject<Integer> vm2v_numbers = BehaviorSubject.create();
     public final PublishSubject<ActionEvent> v2vm_startButtonEvents = PublishSubject.create();
     public final PublishSubject<JButton> vm2v_numbers = PublishSubject.create();
     public ReactiveGameModel gM = new ReactiveGameModel();

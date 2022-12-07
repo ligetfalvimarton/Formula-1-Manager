@@ -19,6 +19,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
     private final MainWindow window;
     /**
      * Creates new form ResourceAndDevelopment
+     * @param window
      */
     public ResourceAndDevelopment(final MainWindow window) {
         this.window = window;

@@ -6,16 +6,10 @@ package View;
 
 import Model.Buildings;
 import Model.GameModel;
-import Model.Unit;
-import Source.Constructor;
-import Source.Images;
-import java.awt.Point;
 import java.io.IOException;
-import static java.lang.String.valueOf;
 import java.time.LocalTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -33,6 +27,7 @@ public class GameField extends JPanel {
     }
     /**
      * Creates new form GameField
+     * @param window
      */
     public GameField(final MainWindow window) {
     this.window = window;

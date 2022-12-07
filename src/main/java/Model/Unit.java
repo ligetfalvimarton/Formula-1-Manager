@@ -5,9 +5,7 @@
 package Model;
 
 import Source.Images;
-import java.awt.Image;
 import java.awt.Point;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -27,9 +25,6 @@ public class Unit {
         this.icon = icon;
     }
     
-    //alap konstruktor
-    public Unit(){}
-
     public Point getPosition() {
         return position;
     }

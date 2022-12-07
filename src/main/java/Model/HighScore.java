@@ -4,9 +4,6 @@
  */
 package Model;
 
-import java.sql.Array;
-import java.util.ArrayList;
-
 /**
  *
  * @author Marton

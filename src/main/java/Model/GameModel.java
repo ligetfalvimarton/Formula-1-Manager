@@ -8,23 +8,16 @@ import Source.Constructor;
 import Source.Images;
 import Source.UnitType;
 import View.GameField;
-import java.awt.Image;
 import java.awt.Point;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
-import javax.swing.ImageIcon;
-import rx.Observable;
-import utils.SysOutUtils;
 
 /**
  *
  * @author Marton
  */
-public class GameModel {
+public class GameModel 
+{
     private Unit[][] board;
     private UnitType newBuilding;
     private Point chosenPoint;

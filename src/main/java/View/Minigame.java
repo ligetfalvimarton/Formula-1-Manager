@@ -6,19 +6,13 @@ package View;
 
 import ViewModel.MinigameVM;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
-import javax.swing.WindowConstants;
 import static rxjava_mvvm.RxSwingView2ViewModelBinder.bindSwingView;
 
 /**
@@ -28,18 +22,16 @@ import static rxjava_mvvm.RxSwingView2ViewModelBinder.bindSwingView;
 public class Minigame extends javax.swing.JPanel {
     private boolean started;
     public static ArrayList<JButton> randomize;
-    private Timer timer;
-    private int buttonCounter;
     private int clicks;
     private final MainWindow window;
     /**
      * Creates new form Minigame
+     * @param window
      */
     public Minigame(MainWindow window) {
         this.window = window;
         started = false;
         randomize = new ArrayList<>();
-        buttonCounter = 0;
         clicks=0;
         initComponents();
         MinigameVM viewModel = new MinigameVM();
@@ -377,7 +369,7 @@ public class Minigame extends javax.swing.JPanel {
         light6.setEnabled(false);
         backToRW.setVisible(true);
         String[] buttons = { "Ok" };
-        int choice = JOptionPane.showOptionDialog(null, "Fail, good luck next time!",
+        int choice = JOptionPane.showOptionDialog(null, "You lose, good luck next time!",
         "Back to Raceweek",
         JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
         switch(choice)

@@ -7,7 +7,6 @@ package View;
 import Model.DatabaseConnection;
 import Model.GameModel;
 import Source.Constructor;
-import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -15,9 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.sql.Array;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -61,14 +58,17 @@ public MainWindow() throws SQLException
         mainWindow.setVisible(true);
         highscore = 0;
         
-        WindowListener exitListener = new WindowAdapter() {
+        WindowListener exitListener = new WindowAdapter() 
+        {
             @Override
-            public void windowClosing(WindowEvent e) {
+            public void windowClosing(WindowEvent e) 
+            {
                 int confirm = JOptionPane.showOptionDialog(
-                     null, "Are You Sure to Close Application?", 
-                     "Exit Confirmation", JOptionPane.YES_NO_OPTION, 
+                     null, "Colse the game?", 
+                     "Exit", JOptionPane.YES_NO_OPTION, 
                      JOptionPane.QUESTION_MESSAGE, null, null, null);
-                if (confirm == 0) {
+                if(confirm == 0) 
+                {
                     JPanel p = new JPanel();
                     try {
                             if(playerName != null)
@@ -89,95 +89,96 @@ public MainWindow() throws SQLException
     };
 
     public void switchToExit(JPanel p) throws IOException
-        {
-            System.exit(0);
-        }
+    {
+        System.exit(0);
+    }
     
     public void switchToNewGame(JPanel p) throws IOException
-        {
-            mainWindow.remove(p);
-            newGamePanel = new NewGame(this);
-            mainWindow.getContentPane().add(newGamePanel);
-            mainWindow.pack();
-            mainWindow.setVisible(true);
-        }
-    
+    {
+        mainWindow.remove(p);
+        newGamePanel = new NewGame(this);
+        mainWindow.getContentPane().add(newGamePanel);
+        mainWindow.pack();
+        mainWindow.setVisible(true);
+    }
+
     public void switchToPause(JPanel p) throws IOException
-        {
-            mainWindow.remove(p);
-            gameMenu = new GameMenu(this);
-            mainWindow.getContentPane().add(gameMenu);
-            mainWindow.pack();
-            mainWindow.setVisible(true);
-        }
+    {
+        mainWindow.remove(p);
+        gameMenu = new GameMenu(this);
+        mainWindow.getContentPane().add(gameMenu);
+        mainWindow.pack();
+        mainWindow.setVisible(true);
+    }
     
     public void switchToTutorial(JPanel p) throws IOException
-        {
-            mainWindow.remove(p);
-            tutorialPanel = new Tutorial(this);
-            mainWindow.getContentPane().add(tutorialPanel);
-            mainWindow.pack();
-            mainWindow.setVisible(true);
-        }
+    {
+        mainWindow.remove(p);
+        tutorialPanel = new Tutorial(this);
+        mainWindow.getContentPane().add(tutorialPanel);
+        mainWindow.pack();
+        mainWindow.setVisible(true);
+    }
  
     public void switchToRandD(JPanel p) throws IOException
-        {
-            mainWindow.remove(p);
-            randDPanel = new ResourceAndDevelopment(this);
-            mainWindow.getContentPane().add(randDPanel);
-            mainWindow.pack();
-            mainWindow.setVisible(true);
-        }
+    {
+        mainWindow.remove(p);
+        randDPanel = new ResourceAndDevelopment(this);
+        mainWindow.getContentPane().add(randDPanel);
+        mainWindow.pack();
+        mainWindow.setVisible(true);
+    }
     public void switchToAchi(JPanel p) throws IOException
-        {
-            mainWindow.remove(p);
-            achiPanel = new Achievements(this);
-            mainWindow.getContentPane().add(achiPanel);
-            mainWindow.pack();
-            mainWindow.setVisible(true);
-        }
+    {
+        mainWindow.remove(p);
+        achiPanel = new Achievements(this);
+        mainWindow.getContentPane().add(achiPanel);
+        mainWindow.pack();
+        mainWindow.setVisible(true);
+    }
     public void switchToMiniGame(JPanel p) throws IOException
-        {
-            mainWindow.remove(p);
-            miniGamePanel = new Minigame(this);
-            mainWindow.getContentPane().add(miniGamePanel);
-            mainWindow.pack();
-            mainWindow.setVisible(true);
-        }
+    {
+        mainWindow.remove(p);
+        miniGamePanel = new Minigame(this);
+        mainWindow.getContentPane().add(miniGamePanel);
+        mainWindow.pack();
+        mainWindow.setVisible(true);
+    }
     public void switchToLoadGame(JPanel p) throws IOException, SQLException
-        {
-            mainWindow.remove(p);
-            loadGamePanel = new LoadGame(this);
-            mainWindow.getContentPane().add(loadGamePanel);
-            mainWindow.pack();
-            mainWindow.setVisible(true);
-        }
+    {
+        mainWindow.remove(p);
+        loadGamePanel = new LoadGame(this);
+        mainWindow.getContentPane().add(loadGamePanel);
+        mainWindow.pack();
+        mainWindow.setVisible(true);
+    }
     public void switchToInter(JPanel p) throws IOException
-        {
-            mainWindow.remove(p);
-            interPanel = new Interview(this);
-            mainWindow.getContentPane().add(interPanel);
-            mainWindow.pack();
-            mainWindow.setVisible(true);
-        }
+    {
+        mainWindow.remove(p);
+        interPanel = new Interview(this);
+        mainWindow.getContentPane().add(interPanel);
+        mainWindow.pack();
+        mainWindow.setVisible(true);
+    }
     public void switchToRaceWeekend(JPanel p) throws IOException
-        {
-            mainWindow.remove(p);
-            raceWeekendPanel = new RaceWeekend(this);
-            raceWeekendPanel.setGameModel(gameModel);
-            mainWindow.getContentPane().add(raceWeekendPanel);
-            mainWindow.pack();
-            mainWindow.setVisible(true);
-        }
+    {
+        mainWindow.remove(p);
+        raceWeekendPanel = new RaceWeekend(this);
+        raceWeekendPanel.setGameModel(gameModel);
+        mainWindow.getContentPane().add(raceWeekendPanel);
+        mainWindow.pack();
+        mainWindow.setVisible(true);
+    }
     public void switchToMenu(JPanel p) throws IOException
-        {
-            mainWindow.remove(p);
-            menuPanel = new Menu(this);
-            mainWindow.getContentPane().add(menuPanel);
-            mainWindow.pack();
-            mainWindow.setVisible(true);
-        }
-    public void switchToGameField(JPanel p){
+    {
+        mainWindow.remove(p);
+        menuPanel = new Menu(this);
+        mainWindow.getContentPane().add(menuPanel);
+        mainWindow.pack();
+        mainWindow.setVisible(true);
+    }
+    public void switchToGameField(JPanel p)
+    {
         mainWindow.remove(p);
         gamefieldPanel = new GameField(this);
         gameModel.getTimeSimulation().setGameField(gamefieldPanel);
