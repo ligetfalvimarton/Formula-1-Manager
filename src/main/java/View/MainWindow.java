@@ -6,7 +6,7 @@ package View;
 
 import Model.DatabaseConnection;
 import Model.GameModel;
-import Source.Constructor;
+import Model.Constructor;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;

@@ -7,7 +7,7 @@ package View;
 import Model.Buildings;
 import Model.GameModel;
 import Model.Unit;
-import Source.Images;
+import Model.Images;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
@@ -20,7 +20,8 @@ import javax.swing.JPanel;
 /**
  * @author Marton
  */
-public class GameArea extends JPanel{
+public class GameArea extends JPanel
+{
     public Unit[][] board;
     private GameModel gameModel;
     private List<Unit> selected;

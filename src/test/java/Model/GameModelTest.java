@@ -5,8 +5,6 @@
 package Model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
-import Source.Images;
-import Source.UnitType;
 import View.GameField;
 import View.MainWindow;
 import java.awt.Point;

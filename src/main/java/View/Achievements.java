@@ -53,9 +53,9 @@ public class Achievements extends javax.swing.JPanel {
             trophy6.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/achi6.png"));
         if(gameModel.getGpCounter() >= 2)
             trophy7.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/achi7.png"));
-        if(gameModel.getGpCounter() >= 25)
+        if(gameModel.getGpCounter() >= 6)
             trophy8.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/achi8.png"));
-        if(gameModel.getGpCounter() >= 50)
+        if(gameModel.getGpCounter() >= 9)
             trophy9.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/achi9.png"));
     }
     /**

@@ -4,7 +4,7 @@
  */
 package View;
 
-import Source.Constructor;
+import Model.Constructor;
 import java.nio.file.Paths;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;

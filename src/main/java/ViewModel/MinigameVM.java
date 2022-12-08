@@ -19,7 +19,6 @@ import rx.subjects.PublishSubject;
  */
 public class MinigameVM {
     public final PublishSubject<ActionEvent> v2vm_startButtonEvents = PublishSubject.create();
-    public final PublishSubject<JButton> vm2v_numbers = PublishSubject.create();
     public ReactiveGameModel gM = new ReactiveGameModel();
     public int buttonCounter = 0;
     ArrayList<JButton> tmp = new ArrayList<>();

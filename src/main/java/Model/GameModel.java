@@ -4,9 +4,6 @@
  */
 package Model;
 
-import Source.Constructor;
-import Source.Images;
-import Source.UnitType;
 import View.GameField;
 import java.awt.Point;
 import java.util.ArrayList;
@@ -45,7 +42,7 @@ public class GameModel
         workerPoints = 4;
         wins = 0;
         gpCounter = 0;
-        startingboard();
+        startingBoard();
     }
     
     public void placeNewBuilding(){
@@ -131,7 +128,7 @@ public class GameModel
         }
     }
     
-    private void startingboard() {
+    private void startingBoard  () {
         for(int i=0; i<board.length; i++){
             for(int j=0; j<board[0].length; j++){
                 if (j == 29 && i>=17 || j ==30 && i>=17)
@@ -308,7 +305,7 @@ public class GameModel
             chance = chance + (values.get(i)/2);
         }
         chance = (100-chance)/10 == 0 ? 1 : (100-chance)/10;
-        boolean win = numberOne%chance ==0;
+        boolean win = numberOne%chance == 0;
         if(win)
         {
             return "finish_" + gameField.getWindow().getConstructor().toString().toLowerCase();

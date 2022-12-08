@@ -4,8 +4,8 @@
  */
 package View;
 
-import Source.DepartmentState;
-import Source.UnitType;
+import Model.DepartmentState;
+import Model.UnitType;
 import java.awt.Color;
 import java.nio.file.Paths;
 import javax.swing.ImageIcon;
@@ -421,7 +421,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         {
             window.getGameModel().setNewBuilding(UnitType.CHASINGDEPARTMENT);
         }
-        else if(state == DepartmentState.ACCESSORIES)
+        else if(state == DepartmentState.TRACKS)
         {
             window.getGameModel().setNewBuilding(UnitType.BUSH);
         }
@@ -438,7 +438,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         {
             window.getGameModel().setNewBuilding(UnitType.DOWNFORCEDEPARTMENT);
         }
-        else if(state == DepartmentState.ACCESSORIES)
+        else if(state == DepartmentState.TRACKS)
         {
             window.getGameModel().setNewBuilding(UnitType.PATH);
         }
@@ -455,7 +455,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         {
             window.getGameModel().setNewBuilding(UnitType.AERODEPARTMENT);
         }
-        else if(state == DepartmentState.ACCESSORIES)
+        else if(state == DepartmentState.TRACKS)
         {
             window.getGameModel().setNewBuilding(UnitType.TREE);
         }
@@ -472,7 +472,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         {
             window.getGameModel().setNewBuilding(UnitType.DURABILITYDEPARTMENT);
         }
-        else if(state == DepartmentState.ACCESSORIES)
+        else if(state == DepartmentState.TRACKS)
         {
             window.getGameModel().setNewBuilding(UnitType.TRACK1);
         }
@@ -489,7 +489,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         {
             window.getGameModel().setNewBuilding(UnitType.POWERUNITDEPARTMENT);
         }
-        else if(state == DepartmentState.ACCESSORIES)
+        else if(state == DepartmentState.TRACKS)
         {
             window.getGameModel().setNewBuilding(UnitType.TRACK2);
         }
@@ -506,7 +506,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         {
             window.getGameModel().setNewBuilding(UnitType.FACTORY);
         }
-        else if(state == DepartmentState.ACCESSORIES)
+        else if(state == DepartmentState.TRACKS)
         {
             window.getGameModel().setNewBuilding(UnitType.TRACK3);
         }
@@ -571,8 +571,8 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         buildingsButton.setBackground(null);
         tracksButton.setBackground(Color.GREEN);
         developmentButton.setBackground(null);
-        state = DepartmentState.ACCESSORIES;
-        switchToAccessories();
+        state = DepartmentState.TRACKS;
+        switchToTracks();
     }//GEN-LAST:event_tracksButtonActionPerformed
 
     private void backToGFButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backToGFButtonMouseClicked
@@ -680,7 +680,7 @@ public class ResourceAndDevelopment extends javax.swing.JPanel {
         buildingPic9.setVisible(false);
     }
 
-    private void switchToAccessories() {
+    private void switchToTracks() {
         buildingPic1.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/bush.jpg"));
         buildingPic1.setToolTipText("bush");
         buildingPic2.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Shop/path.png"));
