@@ -105,7 +105,8 @@ public class GameModel
             if(temp != null)
             {
                 money = money + temp.getBuildPrice()/2;
-                gameField.setValue(money);
+                if(gameField != null)
+                    gameField.setValue(money);
                 alreadyBuiltList.remove(temp);
             }
         }
@@ -120,7 +121,8 @@ public class GameModel
                 if(money - building.getUpgradeCost()>0)
                 {
                     money = money - building.getUpgradeCost();
-                    gameField.setValue(money);
+                    if(gameField != null)
+                        gameField.setValue(money);
                     building.setUpgradeCost(building.getUpgradeCost()*2);
                     building.setLevel(building.getLevel()+1);
                 }

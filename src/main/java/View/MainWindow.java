@@ -42,8 +42,8 @@ public class MainWindow extends JFrame{
         private DatabaseConnection database;
         private int highscore;
 
-public MainWindow() throws SQLException
-{
+    public MainWindow() throws SQLException
+    {
         mainWindow = new JFrame("Formula- 1 -Manager");
         mainWindow.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         ImageIcon iM = new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Logo.png");
@@ -128,6 +128,7 @@ public MainWindow() throws SQLException
         mainWindow.pack();
         mainWindow.setVisible(true);
     }
+    
     public void switchToAchi(JPanel p) throws IOException
     {
         mainWindow.remove(p);
@@ -136,6 +137,7 @@ public MainWindow() throws SQLException
         mainWindow.pack();
         mainWindow.setVisible(true);
     }
+    
     public void switchToMiniGame(JPanel p) throws IOException
     {
         mainWindow.remove(p);
@@ -144,6 +146,7 @@ public MainWindow() throws SQLException
         mainWindow.pack();
         mainWindow.setVisible(true);
     }
+    
     public void switchToLoadGame(JPanel p) throws IOException, SQLException
     {
         mainWindow.remove(p);
@@ -152,6 +155,7 @@ public MainWindow() throws SQLException
         mainWindow.pack();
         mainWindow.setVisible(true);
     }
+    
     public void switchToInter(JPanel p) throws IOException
     {
         mainWindow.remove(p);
@@ -160,6 +164,7 @@ public MainWindow() throws SQLException
         mainWindow.pack();
         mainWindow.setVisible(true);
     }
+    
     public void switchToRaceWeekend(JPanel p) throws IOException
     {
         mainWindow.remove(p);
@@ -169,6 +174,7 @@ public MainWindow() throws SQLException
         mainWindow.pack();
         mainWindow.setVisible(true);
     }
+    
     public void switchToMenu(JPanel p) throws IOException
     {
         mainWindow.remove(p);
@@ -177,6 +183,7 @@ public MainWindow() throws SQLException
         mainWindow.pack();
         mainWindow.setVisible(true);
     }
+    
     public void switchToGameField(JPanel p)
     {
         mainWindow.remove(p);

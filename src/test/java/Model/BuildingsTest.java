@@ -5,23 +5,46 @@
 package Model;
 
 import java.awt.Point;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.Test;
+import static junit.framework.Assert.assertEquals;
+import org.junit.Test;
 public class BuildingsTest {
     
-    Buildings empty = new Buildings(1000,1000,0,0,1,1,new Point(0,0), true, "empty", Images.GRASS);
-    
+    Buildings empty1 = new Buildings(1000,1000,0,0,1,1,new Point(0,0), true, "empty", Images.GRASS);
+    Buildings empty2 = new Buildings(1000,1000,0,0,1,1,new Point(0,0), true, "empty", Images.GRASS);
+    Buildings empty3 = new Buildings(1000,1000,0,0,1,1,new Point(0,0), true, "empty", Images.GRASS);
     @Test
-    public void buildings_ChangeToTree_Test(){
-        empty.setType("Tree");
-        empty.setImage(Images.TREE);
-        empty.setUsable(false);
-        String type = empty.getType();
-        Images imageID = empty.getImage();
-        Boolean usable = empty.isUsable();
+    public void buildings_ChangeToTree_Test()
+    {
+        empty1.setType("Tree");
+        empty1.setImage(Images.TREE);
+        String type = empty1.getType();
+        Images imageID = empty1.getImage();
         //-------------------------------//
         assertEquals("Tree", type);
         assertEquals(Images.TREE, imageID);
-        assertEquals(false, usable);
+    }
+    
+    @Test
+    public void buildings_ChangeToTrack_Test()
+    {
+        empty2.setType("Track1");
+        empty2.setImage(Images.TRACK1);
+        String type = empty2.getType();
+        Images imageID = empty2.getImage();
+        //-------------------------------//
+        assertEquals("Track1", type);
+        assertEquals(Images.TRACK1, imageID);
+    }
+    
+    @Test
+    public void buildings_ChangeToDepartment_Test()
+    {
+        empty3.setType("ChasingDepartment");
+        empty3.setImage(Images.CHASINGDEPARTMENT);
+        String type = empty3.getType();
+        Images imageID = empty3.getImage();
+        //-------------------------------//
+        assertEquals("ChasingDepartment", type);
+        assertEquals(Images.CHASINGDEPARTMENT, imageID);
     }
 }

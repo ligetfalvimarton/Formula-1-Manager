@@ -22,14 +22,12 @@ public class GameField extends JPanel {
     private GameModel gameModel;
     private int value;
 
-    public MainWindow getWindow() {
-        return window;
-    }
     /**
      * Creates new form GameField
      * @param window
      */
-    public GameField(final MainWindow window) {
+    public GameField(final MainWindow window) 
+    {
     this.window = window;
     initComponents();
     valuePrinter();
@@ -38,6 +36,10 @@ public class GameField extends JPanel {
     constructorLabel.setText("Constructor: " + window.getConstructor());
     }
     
+    public GameField() 
+    {
+        this.window = null;
+    }
     public void setGameModel(GameModel gameModel){
         this.gameModel = gameModel;
         value = gameModel.getMoney();
@@ -303,6 +305,9 @@ public class GameField extends JPanel {
         timeLabel.setText(date);
     }
 
+    public MainWindow getWindow() {
+        return window;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelPurchaseButton;
     private javax.swing.JLabel constructorLabel;

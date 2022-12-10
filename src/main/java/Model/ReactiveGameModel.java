@@ -52,11 +52,15 @@ public class ReactiveGameModel
         }
         list.add(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Simulation/Finish/"+winner+".png"));
         list.add(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/Simulation/Finish/"+winner+".png"));
-        if(winner.split("_")[1].toUpperCase().equals(gM.getGameField().getWindow().getConstructor().toString()))
+        if(gM != null && gM.getGameField() != null)
         {
-            list.add(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/win.jpg"));
-            gM.setWins(gM.getWins()+1);
+            if(winner.split("_")[1].toUpperCase().equals(gM.getGameField().getWindow().getConstructor().toString()))
+            {
+                list.add(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/win.jpg"));
+                gM.setWins(gM.getWins()+1);
+            }
         }
+        
         Observable<ImageIcon> simulation = Observable.from(list);
         Observable<Long> trigger = Observable.interval(900, TimeUnit.MILLISECONDS);
         

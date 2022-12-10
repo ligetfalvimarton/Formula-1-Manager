@@ -529,6 +529,7 @@ public class RaceWeekend extends javax.swing.JPanel {
         gameModel.setUpgradeChance(false);
         gameModel.setUpgradeChanceVisibility(true);
         gameModel.setGpCounter(gameModel.getGpCounter()+1);
+        gameModel.setMoney(gameModel.getMoney() + 20000);
         gameModel.getTimeSimulation().setDateTime(LocalTime.of(0, 0, 0));
         gameModel.getTimeSimulation().setDaysPassed((gameModel.getGpCounter()*3)+1);
         gameModel.getTimeSimulation().NormalTime();

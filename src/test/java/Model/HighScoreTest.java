@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Model;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.Test;
+import static junit.framework.Assert.assertEquals;
+import org.junit.Test;
 /**
  *
  * @author Marton
@@ -13,7 +13,8 @@ public class HighScoreTest {
     HighScore highScore = new HighScore("Tester", 100, 0,10000, "ferrari", 4, "[25, 5, 5, 10, 12, 10]", "10,26,hq,8,8, 24,0,Track1,8,8,");
     
     @Test
-    public void highScore_Validation_Test(){
+    public void highScore_Validation_Test()
+    {
         String type = highScore.getName();
         int score = highScore.getScore();
         int wins = highScore.getWin();
