@@ -4,8 +4,6 @@
  */
 package Model;
 
-import Model.Images;
-import Model.Buildings;
 import java.awt.Point;
 
 /**
@@ -18,6 +16,7 @@ public enum UnitType {
     HOTEL("Hotel"),STORE("Store"),CHASINGDEPARTMENT("ChasingDepartment"),DOWNFORCEDEPARTMENT("DownforceDepartment"),
     AERODEPARTMENT("AeroDepartment"),DURABILITYDEPARTMENT("DurabilityDepartment"),
     TRACK1("Track1"),TRACK2("Track2"),TRACK3("Track3"),
+    FLAG1("Flag1"),FLAG2("Flag2"),FLAG3("Flag3"),FLAG4("Flag4"),
     POWERUNITDEPARTMENT("PowerunitDepartment"),FACTORY("Factory");
     
     private Buildings Item;
@@ -51,6 +50,18 @@ public enum UnitType {
                 break;
             case "Store":
                 Item = new Buildings(4000, 2000, 0, 4, 6, 6, new Point(0,0), false, "Store", Images.STORE);
+                break;
+            case "Flag1":
+                Item = new Buildings(4000, 2000, 0, 0, 3, 3, new Point(0,0), false, "Flag1", Images.FLAG1);
+                break;
+            case "Flag2":
+                Item = new Buildings(4000, 2000, 0, 0, 3, 3, new Point(0,0), false, "Flag1", Images.FLAG2);
+                break;
+            case "Flag3":
+                Item = new Buildings(4000, 2000, 0, 0, 3, 3, new Point(0,0), false, "Flag3", Images.FLAG3);
+                break;
+            case "Flag4":
+                Item = new Buildings(4000, 2000, 0, 0, 3, 3, new Point(0,0), false, "Flag4", Images.FLAG4);
                 break;
             case "ChasingDepartment":
                 Item = new Buildings(15000, 5000, 4, 1, 5, 5, new Point(0,0), false, "ChasingDepartment", Images.CHASINGDEPARTMENT);

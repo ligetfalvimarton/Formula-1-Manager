@@ -260,6 +260,51 @@ public class GameModel
         }
     }
     
+    public void wawingFlag(String time)
+    {
+        if("flag1".equals(time))
+        {
+            pointToFlag(new Point(29,31),"Flag1");
+        }
+        if("flag2".equals(time))
+        {
+            pointToFlag(new Point(29,31),"Flag2");
+        }
+        if("flag3".equals(time))
+        {
+            pointToFlag(new Point(29,26),"Flag3");
+        }
+        if("flag4".equals(time))
+        {
+            pointToFlag(new Point(29,26),"Flag4");
+        }
+    }
+    
+    public void pointToFlag(Point point,String flag)
+    {
+        Buildings temp;
+        int tempSizeX;
+        int tempSizeY;
+        temp = new Buildings(0, 0, 0, 0, 3, 3, new Point(0,0), false, flag, Images.valueOf(flag.toUpperCase()));
+        tempSizeX = temp.getSizeX();
+        tempSizeY = temp.getSizeY();
+        Point p = point;
+        temp.setPosition(p);
+        if(p.x+tempSizeX <= board.length && p.y+tempSizeY <= board[0].length)
+        {
+            for(int i=p.x; i<p.x+tempSizeX; i++)
+            {
+                for(int j=p.y; j<p.y+tempSizeY; j++)
+                {
+                    board[i][j].setImage(temp.getImage());
+                    board[i][j].setPosition(new Point(temp.getPosition()));
+                    board[i][j].setType(temp.getType());
+                    board[i][j].setUsable(temp.isUsable());
+                }
+            }
+        }
+    }
+    
     public ArrayList<Integer> startingStats(Constructor contructor)
     {
         if(values.isEmpty())

@@ -57,6 +57,16 @@ public class TimeSimulation extends Thread {
            }
             gameField.valuePrinter();
             gameField.winPrinter();
+            if(dateTime.getMinute() == 31)
+            {
+                gameField.getWindow().getGameModel().wawingFlag("flag1");
+                gameField.getWindow().getGameModel().wawingFlag("flag3");
+            }
+            if(dateTime.getMinute() == 01)
+            {
+                gameField.getWindow().getGameModel().wawingFlag("flag2");
+                gameField.getWindow().getGameModel().wawingFlag("flag4");
+            }
             try {
                 sleep(timeGap);
             } catch (InterruptedException e) {
