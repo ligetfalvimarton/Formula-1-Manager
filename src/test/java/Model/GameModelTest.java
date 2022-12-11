@@ -76,7 +76,6 @@ public class GameModelTest
         
         int counterOfGrassUnit = 0;
         int counterOfUsedUnits = 0;
-        int counterOfEmptyUnits = 0;
         Unit board[][] = gameModelTest.getBoard();
         for(int i = 0; i < gameModelTest.getBoard().length; i++)
         {
@@ -90,10 +89,6 @@ public class GameModelTest
                 {
                     counterOfUsedUnits++;
                 }
-                if("grass".equals(board[i][j].getType()))
-                {
-                    counterOfEmptyUnits++;
-                }
             }
         }
         int money = gameModelTest.getMoney();
@@ -103,9 +98,9 @@ public class GameModelTest
         assertEquals(2, numOfBuildings);
         assertEquals(1992, counterOfGrassUnit);
         assertEquals(56, counterOfUsedUnits);
-        assertEquals(1992, counterOfEmptyUnits);
         assertEquals(95000, money);
     }  
+    
     @Test
     public void changeTexture_SettingToSunset_Test()
     {
