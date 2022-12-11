@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="7" failures="0" name="Model.GameModelTest" time="0.198" errors="0" skipped="0">
+<testsuite tests="7" failures="0" name="Model.GameModelTest" time="0.215" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\bin"/>
@@ -65,11 +65,11 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Model.GameModelTest" name="placeNewBuilding_SettingToFactory_Test" time="0.194"/>
+  <testcase classname="Model.GameModelTest" name="placeNewBuilding_SettingToFactory_Test" time="0.212"/>
   <testcase classname="Model.GameModelTest" name="startingUnits_CreatingAll_Test" time="0"/>
-  <testcase classname="Model.GameModelTest" name="changeTexture_SettingToSunset_Test" time="0.001"/>
-  <testcase classname="Model.GameModelTest" name="generatingStarterUnits_Validating_Test" time="0.001"/>
-  <testcase classname="Model.GameModelTest" name="upgradeBuilding_AddLevel_Test" time="0"/>
-  <testcase classname="Model.GameModelTest" name="destroyBuilding_SettingBackToEmpty_Test" time="0.001"/>
-  <testcase classname="Model.GameModelTest" name="startingStats_SettingToFerrari_Test" time="0.001"/>
+  <testcase classname="Model.GameModelTest" name="changeTexture_SettingToSunset_Test" time="0"/>
+  <testcase classname="Model.GameModelTest" name="generatingStarterUnits_Validating_Test" time="0"/>
+  <testcase classname="Model.GameModelTest" name="upgradeBuilding_AddLevel_Test" time="0.001"/>
+  <testcase classname="Model.GameModelTest" name="destroyBuilding_SettingBackToEmpty_Test" time="0"/>
+  <testcase classname="Model.GameModelTest" name="startingStats_SettingToFerrari_Test" time="0.002"/>
 </testsuite>

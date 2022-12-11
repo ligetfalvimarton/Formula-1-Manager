@@ -221,7 +221,7 @@ public class GameField extends JPanel {
 
     private void simulationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simulationButtonActionPerformed
     String[] buttons = { "Back", "Start" };
-        int choice = JOptionPane.showOptionDialog(null, "Do you want to start the race week now?\n 3 more days will be added to your time.",
+        int choice = JOptionPane.showOptionDialog(null, "Do you want to start the race week now?\n Few more days will be added to your time.",
         "Skip to race week",
         JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, buttons, buttons[0]);
         switch(choice)

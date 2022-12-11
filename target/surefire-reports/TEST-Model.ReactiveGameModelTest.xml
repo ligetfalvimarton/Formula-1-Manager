@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="Model.ReactiveGameModelTest" time="21.793" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="Model.ReactiveGameModelTest" time="21.927" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\bin"/>
@@ -65,7 +65,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Model.ReactiveGameModelTest" name="raceweekUpgradePlus_GettingTheNumber_Test" time="0.063"/>
-  <testcase classname="Model.ReactiveGameModelTest" name="raceweekSimulation_WorkingProgress_Test" time="13.728"/>
-  <testcase classname="Model.ReactiveGameModelTest" name="minigameLightCord_EmittingAllNumber_Test" time="8.002"/>
+  <testcase classname="Model.ReactiveGameModelTest" name="raceweekUpgradePlus_GettingTheNumber_Test" time="0.065"/>
+  <testcase classname="Model.ReactiveGameModelTest" name="raceweekSimulation_WorkingProgress_Test" time="13.844"/>
+  <testcase classname="Model.ReactiveGameModelTest" name="minigameLightCord_EmittingAllNumber_Test" time="8.018"/>
 </testsuite>
