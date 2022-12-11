@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="Model.UnitTest" time="0.145" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="Model.UnitTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_241\jre\bin"/>
     <property name="java.vm.version" value="25.241-b07"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:\Users\Marton\Desktop\Egyetem\Szakdolgozat\Formula-1-Manager"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\Marton\Desktop\Egyetem\localmentes\Szakdolgozat\Formula-1-Manager"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=";"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -15,9 +15,8 @@
     <property name="user.country" value="HU"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
-    <property name="test" value="Model.UnitTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\Marton\Desktop\Egyetem\Szakdolgozat\Formula-1-Manager"/>
+    <property name="user.dir" value="C:\Users\Marton\Desktop\Egyetem\localmentes\Szakdolgozat\Formula-1-Manager"/>
     <property name="java.runtime.version" value="1.8.0_241-b07"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_241\jre\lib\endorsed"/>
@@ -48,7 +47,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_241\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=Model.UnitTest -Dmaven.ext.class.path=C:\Program Files\NetBeans-12.5\netbeans\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 surefire:test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Program Files\NetBeans-12.5\netbeans\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 install"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="hu"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -65,7 +64,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Model.UnitTest" name="unit_ChangeToDepartment_Test" time="0.144"/>
-  <testcase classname="Model.UnitTest" name="unit_ChangeToBush_Test" time="0.001"/>
+  <testcase classname="Model.UnitTest" name="unit_ChangeToDepartment_Test" time="0"/>
+  <testcase classname="Model.UnitTest" name="unit_ChangeToBush_Test" time="0"/>
   <testcase classname="Model.UnitTest" name="unit_ChangeToTrack_Test" time="0"/>
 </testsuite>

@@ -4,6 +4,7 @@
  */
 package Model;
 
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,30 +22,26 @@ import java.util.Properties;
  * @author Marton
  */
 public class DatabaseConnection {
-    int maxScores = 25;
+    int maxScores = 0;
     PreparedStatement insertStatement;
     PreparedStatement deleteStatement;
     Connection connection;
 
     public DatabaseConnection() throws SQLException {
-        Properties connectionProps = new Properties();
-        connectionProps.put("user", "root");
-        connectionProps.put("password", "password");
-        connectionProps.put("serverTimezone", "UTC");
-        String dbURL = "jdbc:mysql://localhost:3306/save";
-        connection = DriverManager.getConnection(dbURL, connectionProps);
+        String dbURL = "jdbc:sqlite:/" +Paths.get("").toAbsolutePath().toString()+ "\\save.db";
+        connection = DriverManager.getConnection(dbURL);
         System.out.println("Connection Successful");
 
-        String insertQuery = "INSERT INTO FORMULADATAS (TIMESTAMP, NAME, SCORE, WINS, MONEY, CONSTRUCTOR, DAY, BARVALUES, BOARD) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String insertQuery = "INSERT INTO GAMES (TIMESTAMP, NAME, SCORE, WINS, MONEY, CONSTRUCTOR, DAY, BARVALUES, BOARD) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         insertStatement = connection.prepareStatement(insertQuery);
-        String deleteQuery = "DELETE FROM FORMULADATAS WHERE SCORE=?";
+        String deleteQuery = "DELETE FROM GAMES WHERE SCORE=?";
         deleteStatement = connection.prepareStatement(deleteQuery);
     }
 
     //INSERT INTO save.formuladatas (Board) VALUES ('["hot", "cold"]');
     
     public ArrayList<HighScore> getDatabase() throws SQLException {
-        String query = "SELECT * FROM FORMULADATAS";
+        String query = "SELECT * FROM GAMES";
         ArrayList<HighScore> highScores = new ArrayList<>();
         Statement stmt = connection.createStatement();
         ResultSet results = stmt.executeQuery(query);
