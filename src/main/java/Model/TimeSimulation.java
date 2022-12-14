@@ -25,9 +25,6 @@ public class TimeSimulation extends Thread {
     
     private GameField gameField;
     
-    /**
-     * Alap konstruktor
-     */
     public TimeSimulation() {
         dateTime = LocalTime.of(0, 0, 0);
         daysPassed = 1;

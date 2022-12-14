@@ -1,5 +1,6 @@
 Model\GameModelTest.class
 Model\HighScoreTest.class
-Model\BuildingsTest.class
 Model\UnitTest.class
+Model\ReactiveGameModelTest.class
+Model\BuildingsTest.class
 Model\TimeSimulationTest.class

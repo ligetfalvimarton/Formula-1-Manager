@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package rxjava_mvvm;
+package ViewModel.rxjava_mvvm;
 
 import rx.Observable;
 import rx.Observer;

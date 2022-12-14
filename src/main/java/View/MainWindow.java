@@ -41,6 +41,7 @@ public class MainWindow extends JFrame{
         private LoadGame loadGamePanel;
         private DatabaseConnection database;
         private int highscore;
+        private boolean saved;
 
     public MainWindow() throws SQLException
     {
@@ -82,9 +83,8 @@ public class MainWindow extends JFrame{
                 }
             }
         };
-        
-        
         mainWindow.addWindowListener(exitListener);  
+        saved = false;
         gameModel = new GameModel(75000,64, 32);
     };
 
@@ -227,28 +227,40 @@ public class MainWindow extends JFrame{
     public void setDatabase(DatabaseConnection database) {
         this.database = database;
     }
+
+    public boolean isSaved() {
+        return saved;
+    }
+
+    public void setSaved(boolean saved) {
+        this.saved = saved;
+    }
     
     public void saveGame() throws SQLException
     {
-        if(gameModel.getWins() == 0)
+        if(!saved)
         {
-            highscore = gameModel.getMoney()+gameModel.getGpCounter()*gameModel.getTimeSimulation().getDaysPassed();
+            if(gameModel.getWins() == 0)
+            {
+                highscore = gameModel.getMoney()+gameModel.getGpCounter()*gameModel.getTimeSimulation().getDaysPassed();
+            }
+            else
+            {
+                highscore = gameModel.getMoney()+gameModel.getGpCounter()*gameModel.getTimeSimulation().getDaysPassed()*gameModel.getWins();
+            }
+            String tmp = "[]".equals(gameModel.getValues().toString()) ? "[10,10,10,10,10,10]" : gameModel.getValues().toString();
+            String board = "";
+            for(int i =0;i<gameModel.getAlreadyBuiltList().size();i++)
+            {
+                board = board + gameModel.getAlreadyBuiltList().get(i).getPosition().x +"," 
+                        + gameModel.getAlreadyBuiltList().get(i).getPosition().y +"," 
+                        + gameModel.getAlreadyBuiltList().get(i).getType()+"," 
+                        + gameModel.getAlreadyBuiltList().get(i).getSizeX()+","
+                        + gameModel.getAlreadyBuiltList().get(i).getSizeY()+","
+                        + " ";
+            }
+            saved = true;
+            database.saveDatas(playerName, highscore,gameModel.getWins(),gameModel.getMoney(),constructor.toString(),gameModel.getTimeSimulation().getDaysPassed(),tmp,board);
         }
-        else
-        {
-            highscore = gameModel.getMoney()+gameModel.getGpCounter()*gameModel.getTimeSimulation().getDaysPassed()*gameModel.getWins();
-        }
-        String tmp = "[]".equals(gameModel.getValues().toString()) ? "[10,10,10,10,10,10]" : gameModel.getValues().toString();
-        String board = "";
-        for(int i =0;i<gameModel.getAlreadyBuiltList().size();i++)
-        {
-            board = board + gameModel.getAlreadyBuiltList().get(i).getPosition().x +"," 
-                    + gameModel.getAlreadyBuiltList().get(i).getPosition().y +"," 
-                    + gameModel.getAlreadyBuiltList().get(i).getType()+"," 
-                    + gameModel.getAlreadyBuiltList().get(i).getSizeX()+","
-                    + gameModel.getAlreadyBuiltList().get(i).getSizeY()+","
-                    + " ";
-        }
-        database.saveDatas(playerName, highscore,gameModel.getWins(),gameModel.getMoney(),constructor.toString(),gameModel.getTimeSimulation().getDaysPassed(),tmp,board);
     }
 }

@@ -28,6 +28,7 @@ public class NewGame extends javax.swing.JPanel {
         constructor1Label.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/RB.png"));
         constructor2Label.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/FR.png"));
         constructor3Label.setIcon(new ImageIcon(Paths.get("").toAbsolutePath().toString() + "/src/main/java/Images/MC.png"));
+        window.setSaved(false);
     }
 
     /**
@@ -161,9 +162,13 @@ public class NewGame extends javax.swing.JPanel {
             {
                 name = "Player";
             }
-            playerName = name;
+            if(name.length() > 45)
+            {
+                name = name.substring(0, 44);
+            }
+            playerName = name.replace(" ", "_");
             window.getGameModel().setMoney(90000);
-            window.setPlayerName(name);
+            window.setPlayerName(playerName);
             window.switchToGameField(this);
             window.getGameModel().getTimeSimulation().start();
         }
@@ -179,9 +184,13 @@ public class NewGame extends javax.swing.JPanel {
             {
                 name = "Player";
             }
-            playerName = name;
+            if(name.length() > 45)
+            {
+                name = name.substring(0, 44);
+            }
+            playerName = name.replace(" ", "_");
             window.getGameModel().setMoney(80000);
-            window.setPlayerName(name);
+            window.setPlayerName(playerName);
             window.switchToGameField(this);
             window.getGameModel().getTimeSimulation().start();
         }
@@ -197,9 +206,13 @@ public class NewGame extends javax.swing.JPanel {
             {
                 name = "Player";
             }
-            playerName = name;
+            if(name.length() > 45)
+            {
+                name = name.substring(0, 44);
+            }
+            playerName = name.replace(" ", "_");
             window.getGameModel().setMoney(70000);
-            window.setPlayerName(name);
+            window.setPlayerName(playerName);
             window.switchToGameField(this);
             window.getGameModel().getTimeSimulation().start();
         }

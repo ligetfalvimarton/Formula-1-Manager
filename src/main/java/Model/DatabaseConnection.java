@@ -22,7 +22,7 @@ import java.util.Properties;
  * @author Marton
  */
 public class DatabaseConnection {
-    int maxScores = 0;
+    int maxScores = 25;
     PreparedStatement insertStatement;
     PreparedStatement deleteStatement;
     Connection connection;
@@ -31,7 +31,7 @@ public class DatabaseConnection {
         String dbURL = "jdbc:sqlite:/" +Paths.get("").toAbsolutePath().toString()+ "\\save.db";
         connection = DriverManager.getConnection(dbURL);
         System.out.println("Connection Successful");
-
+        
         String insertQuery = "INSERT INTO GAMES (TIMESTAMP, NAME, SCORE, WINS, MONEY, CONSTRUCTOR, DAY, BARVALUES, BOARD) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         insertStatement = connection.prepareStatement(insertQuery);
         String deleteQuery = "DELETE FROM GAMES WHERE SCORE=?";
@@ -71,6 +71,7 @@ public class DatabaseConnection {
                 insertDatas(name, score, wins, money, constructor, day, values, board);
             }
         }
+        System.out.println("Saving...");
     }
 
     private void sortDatas(ArrayList<HighScore> highScores) {

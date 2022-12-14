@@ -140,9 +140,8 @@ public class GameMenu extends javax.swing.JPanel {
 
     private void achievementsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_achievementsButtonActionPerformed
         try {
-            window.saveGame();
             window.switchToAchi(this);
-        } catch (IOException | SQLException ex) {
+        } catch (IOException ex) {
             Logger.getLogger(GameMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_achievementsButtonActionPerformed

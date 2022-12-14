@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import static rxjava_mvvm.RxSwingView2ViewModelBinder.bindSwingView;
+import static ViewModel.rxjava_mvvm.RxSwingView2ViewModelBinder.bindSwingView;
 
 /**
  *

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import static rxjava_mvvm.RxSwingView2ViewModelBinder.bindSwingView;
+import static ViewModel.rxjava_mvvm.RxSwingView2ViewModelBinder.bindSwingView;
 /**
  *
  * @author Marton

@@ -71,7 +71,7 @@ public class GameField extends JPanel {
                 commission = commission + 500;
             }
         }
-        value = gameModel.getWins()*5000 + gameModel.getGpCounter()*500 + 10000 - commission;
+        value = gameModel.getMoney() + gameModel.getWins()*5000 + gameModel.getGpCounter()*500 + 10000 - commission;
         gameModel.setMoney(value);
     }
     /**

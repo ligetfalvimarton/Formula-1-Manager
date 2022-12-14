@@ -212,7 +212,7 @@ public class LoadGame extends javax.swing.JPanel {
         String strBoard = setToLoad.getBoard();
         String[] strSplit = strBoard.split(" ");
         for(String s : strSplit)
-        {
+        {          
             Point sas = new Point(Integer.valueOf(s.split(",")[0]),Integer.valueOf(s.split(",")[1]));
             String typeS = s.split(",")[2];
             int sX = Integer.valueOf(s.split(",")[3]);
@@ -227,6 +227,7 @@ public class LoadGame extends javax.swing.JPanel {
                 tmp.add(Integer.valueOf(s.trim()));
             window.getGameModel().setValues(tmp);
         }
+        window.setSaved(false);
         window.setConstructor(Constructor.valueOf(setToLoad.getConstructor()));
         window.setPlayerName(setToLoad.getName());
         window.switchToGameField(this);
